@@ -1,0 +1,45 @@
+{
+  "id": "ml-precision-recall",
+  "title": "Precision and recall",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "Accuracy can mislead. If 1% of emails are spam, a model that never flags anything is 99% accurate and useless."
+    },
+    {
+      "type": "text",
+      "markdown": "**Precision** = TP / (TP + FP): of everything flagged, how much was right?\n\n**Recall** = TP / (TP + FN): of everything that should be flagged, how much did we catch?"
+    },
+    {
+      "type": "text",
+      "markdown": "A model flags 50 emails as spam; 40 really are. There were 80 spam emails in total. Precision = 40/50 = **0.8**. Recall = 40/80 = **0.5**."
+    },
+    {
+      "type": "text",
+      "markdown": "Raising the decision threshold usually raises precision and lowers recall. **F1** is their harmonic mean, a single number that's high only when both are."
+    },
+    {
+      "type": "quiz",
+      "question": "A cancer screening tool should miss as few real cases as possible. Which metric matters most?",
+      "choices": [
+        "Precision",
+        "Recall",
+        "Accuracy"
+      ],
+      "answerIndex": 1,
+      "explanation": "Missing a real case is a false negative, and recall is what penalizes false negatives."
+    },
+    {
+      "type": "quiz",
+      "question": "TP = 30, FP = 10, FN = 20. What is precision?",
+      "choices": [
+        "0.6",
+        "0.75",
+        "0.5"
+      ],
+      "answerIndex": 1,
+      "explanation": "Precision = 30 / (30 + 10) = 0.75. (Recall would be 30 / 50 = 0.6.)"
+    }
+  ]
+}

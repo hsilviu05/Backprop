@@ -1,0 +1,45 @@
+{
+  "id": "df-variance",
+  "title": "Variance and standard deviation",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "Two datasets can share a mean and still look very different. **Variance** measures spread: the average squared distance from the mean."
+    },
+    {
+      "type": "text",
+      "markdown": "For `2, 4, 4, 10` the mean is 5. Squared distances are 9, 1, 1, 25, which average to **9**. That's the population variance."
+    },
+    {
+      "type": "text",
+      "markdown": "The **standard deviation** is the square root of variance, here **3**. It's in the same units as the data, which makes it easier to read."
+    },
+    {
+      "type": "text",
+      "markdown": "When estimating from a sample, statisticians divide by *n − 1* instead of *n* (Bessel's correction) so the estimate isn't biased low."
+    },
+    {
+      "type": "quiz",
+      "question": "Why square the distances instead of just averaging them?",
+      "choices": [
+        "Squaring makes the numbers smaller",
+        "Positive and negative distances would cancel out",
+        "It's required to compute the median"
+      ],
+      "answerIndex": 1,
+      "explanation": "Raw distances from the mean always sum to zero, so squaring keeps every deviation positive."
+    },
+    {
+      "type": "quiz",
+      "question": "A dataset has variance 16. What is its standard deviation?",
+      "choices": [
+        "4",
+        "8",
+        "256"
+      ],
+      "answerIndex": 0,
+      "explanation": "Standard deviation is the square root of variance: √16 = 4."
+    }
+  ]
+}

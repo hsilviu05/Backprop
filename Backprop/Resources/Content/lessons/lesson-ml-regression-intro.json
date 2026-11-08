@@ -1,0 +1,46 @@
+{
+  "id": "ml-regression-intro",
+  "title": "Fitting a line",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "**Linear regression** predicts a number from an input by fitting a straight line: ŷ = w·x + b, where *w* is the slope and *b* the intercept."
+    },
+    {
+      "type": "text",
+      "markdown": "\"Best\" usually means the line with the smallest **mean squared error (MSE)**: the average of (actual − predicted)² across all points."
+    },
+    {
+      "type": "widget",
+      "widget": "linearRegression",
+      "caption": "Drag points around or tap to add new ones. Watch the line and MSE update."
+    },
+    {
+      "type": "text",
+      "markdown": "Notice how one point dragged far away tilts the whole line. Squared errors punish large misses heavily, so least squares is sensitive to outliers."
+    },
+    {
+      "type": "quiz",
+      "question": "In ŷ = w·x + b, what does w control?",
+      "choices": [
+        "Where the line crosses the y-axis",
+        "How steep the line is",
+        "The error of the model"
+      ],
+      "answerIndex": 1,
+      "explanation": "w is the slope. b is the intercept, where the line crosses x = 0."
+    },
+    {
+      "type": "quiz",
+      "question": "Why might one extreme point distort a least-squares fit?",
+      "choices": [
+        "Its squared error is huge, so the fit moves to reduce it",
+        "Least squares ignores outliers",
+        "The line must pass through every point"
+      ],
+      "answerIndex": 0,
+      "explanation": "Squaring makes big errors dominate the total, so the line bends toward the outlier."
+    }
+  ]
+}

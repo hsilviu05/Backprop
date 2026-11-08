@@ -1,0 +1,45 @@
+{
+  "id": "df-bayes",
+  "title": "Bayes' rule",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "**Bayes' rule** updates a belief with evidence:\n\nP(A | B) = P(B | A) · P(A) / P(B)"
+    },
+    {
+      "type": "text",
+      "markdown": "Example: a disease affects 1% of people. A test catches 90% of real cases, but also flags 9% of healthy people."
+    },
+    {
+      "type": "text",
+      "markdown": "Out of 1,000 people: 10 are sick and 9 of them test positive. Of the 990 healthy people, about 89 test positive. So of ~98 positives, only 9 are sick: about **9%**."
+    },
+    {
+      "type": "text",
+      "markdown": "Ignoring the low starting rate (the *prior*) is called **base-rate neglect**, and it's one of the most common reasoning mistakes."
+    },
+    {
+      "type": "quiz",
+      "question": "In the example, why is a positive result only ~9% likely to mean disease?",
+      "choices": [
+        "The test is broken",
+        "The disease is rare, so false positives outnumber true ones",
+        "Bayes' rule doesn't apply to medicine"
+      ],
+      "answerIndex": 1,
+      "explanation": "With a 1% base rate, the 9% false-positive rate on the large healthy group produces far more positives than the sick group does."
+    },
+    {
+      "type": "quiz",
+      "question": "In Bayes' rule, P(A) is called the…",
+      "choices": [
+        "Likelihood",
+        "Prior",
+        "Posterior"
+      ],
+      "answerIndex": 1,
+      "explanation": "P(A) is the prior: what you believed before seeing evidence B. P(A | B) is the posterior."
+    }
+  ]
+}

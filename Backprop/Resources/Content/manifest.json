@@ -1,0 +1,66 @@
+{
+  "contentVersion": 1,
+  "freeChapterCount": 2,
+  "tracks": [
+    {
+      "id": "data-foundations",
+      "title": "Data foundations",
+      "summary": "Stats and probability you'll use every day in ML.",
+      "systemImage": "chart.bar.xaxis",
+      "chapters": [
+        {
+          "id": "df-describe",
+          "title": "Describing data",
+          "lessonIDs": [
+            "df-mean-median",
+            "df-variance"
+          ]
+        },
+        {
+          "id": "df-distributions",
+          "title": "Distributions",
+          "lessonIDs": [
+            "df-normal"
+          ]
+        },
+        {
+          "id": "df-probability",
+          "title": "Probability",
+          "lessonIDs": [
+            "df-bayes"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "classic-ml",
+      "title": "Classic ML",
+      "summary": "Regression, optimization and how to evaluate a model.",
+      "systemImage": "point.topleft.down.to.point.bottomright.curvepath",
+      "chapters": [
+        {
+          "id": "ml-regression",
+          "title": "Linear regression",
+          "lessonIDs": [
+            "ml-regression-intro",
+            "ml-least-squares"
+          ]
+        },
+        {
+          "id": "ml-optimization",
+          "title": "Optimization",
+          "lessonIDs": [
+            "ml-gradient-descent"
+          ]
+        },
+        {
+          "id": "ml-evaluation",
+          "title": "Evaluation",
+          "lessonIDs": [
+            "ml-precision-recall"
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "id": "df-mean-median",
+  "title": "Mean vs. median",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "The **mean** is the sum of values divided by how many there are. The **median** is the middle value once the data is sorted."
+    },
+    {
+      "type": "text",
+      "markdown": "They agree on symmetric data, but the mean is pulled toward extreme values. For salaries `30, 35, 40, 45, 1000` (thousands), the mean is **230** while the median is **40**."
+    },
+    {
+      "type": "text",
+      "markdown": "That's why house prices and incomes are usually reported as medians: one mansion shouldn't change the \"typical\" price much."
+    },
+    {
+      "type": "quiz",
+      "question": "Which summary is more robust to a single huge outlier?",
+      "choices": [
+        "Mean",
+        "Median",
+        "They're equally affected"
+      ],
+      "answerIndex": 1,
+      "explanation": "The median only depends on the middle of the sorted data, so one extreme value barely moves it."
+    },
+    {
+      "type": "quiz",
+      "question": "Data: 2, 4, 4, 10. What is the mean?",
+      "choices": [
+        "4",
+        "5",
+        "10"
+      ],
+      "answerIndex": 1,
+      "explanation": "(2 + 4 + 4 + 10) / 4 = 20 / 4 = 5."
+    }
+  ]
+}
