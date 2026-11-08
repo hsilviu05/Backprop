@@ -1,5 +1,5 @@
 {
-  "listVersion": 2,
+  "listVersion": 3,
   "items": [
     {
       "id": "deep-learning-book",
@@ -74,17 +74,6 @@
       "isbn": "9781108455145"
     },
     {
-      "id": "nndl",
-      "kind": "book",
-      "title": "Neural Networks and Deep Learning",
-      "authors": "Michael Nielsen",
-      "year": 2015,
-      "url": "https://neuralnetworksanddeeplearning.com/",
-      "summary": "Build a digit-recognizing network from scratch and really understand backprop. Clear, free and online.",
-      "level": "beginner",
-      "topic": "Deep learning"
-    },
-    {
       "id": "udl",
       "kind": "book",
       "title": "Understanding Deep Learning",
@@ -93,20 +82,7 @@
       "url": "https://udlbook.github.io/udlbook/",
       "summary": "A modern, beautifully illustrated textbook covering transformers, diffusion and more. Free PDF.",
       "level": "intermediate",
-      "topic": "Deep learning",
-      "isbn": "9780262048644"
-    },
-    {
-      "id": "sutton-barto",
-      "kind": "book",
-      "title": "Reinforcement Learning: An Introduction",
-      "authors": "Richard S. Sutton, Andrew G. Barto",
-      "year": 2018,
-      "url": "https://incompleteideas.net/book/the-book-2nd.html",
-      "summary": "The foundational RL textbook: bandits, MDPs, TD learning, policy gradients. Free PDF.",
-      "level": "intermediate",
-      "topic": "Reinforcement learning",
-      "isbn": "9780262039246"
+      "topic": "Deep learning"
     },
     {
       "id": "pml1",
@@ -128,8 +104,7 @@
       "url": "https://greenteapress.com/wp/think-stats-3e/",
       "summary": "Learn statistics by doing it in Python with real data sets. Free online as notebooks.",
       "level": "beginner",
-      "topic": "Statistics",
-      "isbn": "9781098190255"
+      "topic": "Statistics"
     },
     {
       "id": "iml",
@@ -150,6 +125,30 @@
       "summary": "The NLP textbook, from n-grams to large language models. Free draft chapters.",
       "level": "intermediate",
       "topic": "Language"
+    },
+    {
+      "id": "mohri-foundations",
+      "kind": "book",
+      "title": "Foundations of Machine Learning",
+      "authors": "Mehryar Mohri, Afshin Rostamizadeh, Ameet Talwalkar",
+      "url": "https://cs.nyu.edu/~mohri/mlbook/",
+      "summary": "The theory side of ML: generalization bounds, kernels, boosting and online learning. Free PDF from MIT Press.",
+      "level": "advanced",
+      "topic": "Theory",
+      "year": 2018,
+      "isbn": "9780262039406"
+    },
+    {
+      "id": "mackay-itila",
+      "kind": "book",
+      "title": "Information Theory, Inference, and Learning Algorithms",
+      "authors": "David J.C. MacKay",
+      "year": 2003,
+      "url": "https://www.inference.org.uk/mackay/itila/",
+      "summary": "A witty classic linking information theory, Bayesian inference and neural networks. Free PDF from the author.",
+      "level": "advanced",
+      "topic": "Probability",
+      "isbn": "9780521642989"
     },
     {
       "id": "yt-aircaruvnkk",
@@ -328,6 +327,50 @@
       "youtubeID": "kCc8FmEb1nY"
     },
     {
+      "id": "yt-9-jl0dxwqs8",
+      "kind": "video",
+      "title": "How might LLMs store facts",
+      "authors": "3Blue1Brown",
+      "url": "https://www.youtube.com/watch?v=9-Jl0dxWQs8",
+      "summary": "Inside the MLP blocks of a transformer: where a model might keep what it knows. Chapter 7 of the series.",
+      "level": "intermediate",
+      "topic": "Transformers",
+      "youtubeID": "9-Jl0dxWQs8"
+    },
+    {
+      "id": "yt-pss6nxngl6k",
+      "kind": "video",
+      "title": "Attention for Neural Networks, Clearly Explained!!!",
+      "authors": "StatQuest with Josh Starmer",
+      "url": "https://www.youtube.com/watch?v=PSs6nxngL6k",
+      "summary": "Attention built up from scratch with simple numbers, before transformers.",
+      "level": "beginner",
+      "topic": "Transformers",
+      "youtubeID": "PSs6nxngL6k"
+    },
+    {
+      "id": "yt-zdusfxrajke",
+      "kind": "video",
+      "title": "Let's build the GPT Tokenizer",
+      "authors": "Andrej Karpathy",
+      "url": "https://www.youtube.com/watch?v=zduSFxRajkE",
+      "summary": "Why tokenization causes so many LLM quirks, and how to build a BPE tokenizer yourself.",
+      "level": "intermediate",
+      "topic": "Language",
+      "youtubeID": "zduSFxRajkE"
+    },
+    {
+      "id": "yt-l8prsuu81pu",
+      "kind": "video",
+      "title": "Let's reproduce GPT-2 (124M)",
+      "authors": "Andrej Karpathy",
+      "url": "https://www.youtube.com/watch?v=l8pRSuU81PU",
+      "summary": "Train a real GPT-2 from an empty file, with all the speed and stability tricks explained.",
+      "level": "advanced",
+      "topic": "Transformers",
+      "youtubeID": "l8pRSuU81PU"
+    },
+    {
       "id": "illustrated-transformer",
       "kind": "article",
       "title": "The Illustrated Transformer",
@@ -392,17 +435,6 @@
       "summary": "Backprop explained as the chain rule on a graph. Short and clarifying.",
       "level": "beginner",
       "topic": "Math"
-    },
-    {
-      "id": "bitter-lesson",
-      "kind": "article",
-      "title": "The Bitter Lesson",
-      "authors": "Rich Sutton",
-      "year": 2019,
-      "url": "https://www.incompleteideas.net/IncIdeas/BitterLesson.html",
-      "summary": "A two-page essay on why general methods that scale with compute keep winning. Widely cited.",
-      "level": "beginner",
-      "topic": "Big ideas"
     },
     {
       "id": "momentum",
@@ -470,6 +502,50 @@
       "topic": "Big ideas"
     },
     {
+      "id": "annotated-transformer",
+      "kind": "article",
+      "title": "The Annotated Transformer",
+      "authors": "Austin Huang, Suraj Subramanian, Jonathan Sum, Khalid Almubarak, Stella Biderman (original by Sasha Rush)",
+      "url": "https://nlp.seas.harvard.edu/annotated-transformer/",
+      "summary": "The transformer paper, line by line, as working PyTorch code.",
+      "level": "advanced",
+      "topic": "Transformers",
+      "year": 2022
+    },
+    {
+      "id": "augmented-rnns",
+      "kind": "article",
+      "title": "Attention and Augmented Recurrent Neural Networks",
+      "authors": "Chris Olah, Shan Carter",
+      "url": "https://distill.pub/2016/augmented-rnns/",
+      "summary": "An illustrated look at attention, memory and adaptive computation, the ideas that led to transformers.",
+      "level": "intermediate",
+      "topic": "Sequence models",
+      "year": 2016
+    },
+    {
+      "id": "nn-manifolds",
+      "kind": "article",
+      "title": "Neural Networks, Manifolds, and Topology",
+      "authors": "Christopher Olah",
+      "url": "https://colah.github.io/posts/2014-03-NN-Manifolds-Topology/",
+      "summary": "What a network's layers do to data, shown as stretching and folding space.",
+      "level": "intermediate",
+      "topic": "Deep learning",
+      "year": 2014
+    },
+    {
+      "id": "llm-agents",
+      "kind": "article",
+      "title": "LLM Powered Autonomous Agents",
+      "authors": "Lilian Weng",
+      "url": "https://lilianweng.github.io/posts/2023-06-23-agent/",
+      "summary": "Planning, memory and tool use: how language models are turned into agents.",
+      "level": "intermediate",
+      "topic": "Language",
+      "year": 2023
+    },
+    {
       "id": "attention",
       "kind": "paper",
       "title": "Attention Is All You Need",
@@ -497,8 +573,8 @@
       "title": "ImageNet Classification with Deep Convolutional Neural Networks",
       "authors": "Alex Krizhevsky, Ilya Sutskever, Geoffrey E. Hinton",
       "year": 2012,
-      "url": "https://papers.nips.cc/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html",
-      "summary": "AlexNet: the 2012 result that kicked off the deep learning boom.",
+      "url": "https://cacm.acm.org/research/imagenet-classification-with-deep-convolutional-neural-networks/",
+      "summary": "AlexNet: the 2012 result that kicked off the deep learning boom. This link is the authors' 2017 Communications of the ACM version.",
       "level": "intermediate",
       "topic": "Vision"
     },
@@ -585,10 +661,87 @@
       "title": "Hidden Technical Debt in Machine Learning Systems",
       "authors": "D. Sculley et al.",
       "year": 2015,
-      "url": "https://papers.nips.cc/paper/2015/hash/86df7dcfd896fcaf2674f757a2463eba-Abstract.html",
+      "url": "https://research.google/pubs/hidden-technical-debt-in-machine-learning-systems/",
       "summary": "Why the model is the smallest part of a real ML system, and where the hidden costs live.",
       "level": "intermediate",
       "topic": "Practice"
+    },
+    {
+      "id": "gan",
+      "kind": "paper",
+      "title": "Generative Adversarial Networks",
+      "authors": "Ian J. Goodfellow et al.",
+      "url": "https://arxiv.org/abs/1406.2661",
+      "summary": "Two networks, a forger and a detective, train each other to generate realistic data.",
+      "level": "intermediate",
+      "topic": "Generative models",
+      "year": 2014
+    },
+    {
+      "id": "batchnorm",
+      "kind": "paper",
+      "title": "Batch Normalization: Accelerating Deep Network Training by Reducing Internal Covariate Shift",
+      "authors": "Sergey Ioffe, Christian Szegedy",
+      "url": "https://arxiv.org/abs/1502.03167",
+      "summary": "Normalizing activations inside the network made deep models faster and easier to train.",
+      "level": "intermediate",
+      "topic": "Deep learning",
+      "year": 2015
+    },
+    {
+      "id": "dqn-atari",
+      "kind": "paper",
+      "title": "Playing Atari with Deep Reinforcement Learning",
+      "authors": "Volodymyr Mnih et al.",
+      "url": "https://arxiv.org/abs/1312.5602",
+      "summary": "One network learns to play Atari games from raw pixels. The start of deep RL.",
+      "level": "intermediate",
+      "topic": "Reinforcement learning",
+      "year": 2013
+    },
+    {
+      "id": "vit",
+      "kind": "paper",
+      "title": "An Image is Worth 16x16 Words: Transformers for Image Recognition at Scale",
+      "authors": "Alexey Dosovitskiy et al.",
+      "url": "https://arxiv.org/abs/2010.11929",
+      "summary": "Vision Transformer: treat image patches like words, and transformers match CNNs.",
+      "level": "advanced",
+      "topic": "Vision",
+      "year": 2020
+    },
+    {
+      "id": "lora",
+      "kind": "paper",
+      "title": "LoRA: Low-Rank Adaptation of Large Language Models",
+      "authors": "Edward J. Hu et al.",
+      "url": "https://arxiv.org/abs/2106.09685",
+      "summary": "Fine-tune a huge model by training tiny low-rank add-ons instead of every weight.",
+      "level": "advanced",
+      "topic": "Language",
+      "year": 2021
+    },
+    {
+      "id": "instructgpt",
+      "kind": "paper",
+      "title": "Training language models to follow instructions with human feedback",
+      "authors": "Long Ouyang et al.",
+      "url": "https://arxiv.org/abs/2203.02155",
+      "summary": "InstructGPT: how RLHF turns a raw language model into a helpful assistant.",
+      "level": "advanced",
+      "topic": "Language",
+      "year": 2022
+    },
+    {
+      "id": "chain-of-thought",
+      "kind": "paper",
+      "title": "Chain-of-Thought Prompting Elicits Reasoning in Large Language Models",
+      "authors": "Jason Wei et al.",
+      "url": "https://arxiv.org/abs/2201.11903",
+      "summary": "Asking a model to show its steps makes it much better at reasoning problems.",
+      "level": "intermediate",
+      "topic": "Language",
+      "year": 2022
     },
     {
       "id": "seeing-theory",
@@ -609,6 +762,46 @@
       "summary": "Google's free, fast-paced intro with videos, visualizations and exercises.",
       "level": "beginner",
       "topic": "Classical ML"
+    },
+    {
+      "id": "zero-to-hero",
+      "kind": "course",
+      "title": "Neural Networks: Zero to Hero",
+      "authors": "Andrej Karpathy",
+      "url": "https://karpathy.ai/zero-to-hero.html",
+      "summary": "A video course that builds neural nets, then a GPT, from scratch in code.",
+      "level": "intermediate",
+      "topic": "Deep learning"
+    },
+    {
+      "id": "fastai",
+      "kind": "course",
+      "title": "Practical Deep Learning for Coders",
+      "authors": "Jeremy Howard (fast.ai)",
+      "url": "https://course.fast.ai/",
+      "summary": "Top-down and hands-on: train real models in the first lesson, then learn how they work.",
+      "level": "beginner",
+      "topic": "Deep learning"
+    },
+    {
+      "id": "cs231n",
+      "kind": "course",
+      "title": "CS231n: Deep Learning for Computer Vision",
+      "authors": "Stanford University",
+      "url": "https://cs231n.github.io/",
+      "summary": "Stanford's famous course notes on CNNs, backprop and training, written for learners.",
+      "level": "intermediate",
+      "topic": "Vision"
+    },
+    {
+      "id": "hf-llm-course",
+      "kind": "course",
+      "title": "LLM Course",
+      "authors": "Hugging Face",
+      "url": "https://huggingface.co/learn/llm-course/chapter1/1",
+      "summary": "Use, fine-tune and share transformer models with the Hugging Face libraries. Free.",
+      "level": "intermediate",
+      "topic": "Language"
     }
   ]
 }
