@@ -105,7 +105,7 @@ Sandbox renewals run fast (a year takes about an hour), so the trial expires qui
 Copy the text from [`APP_STORE_METADATA.md`](APP_STORE_METADATA.md).
 
 1. App Store tab > **1.0 Prepare for Submission**:
-   - Screenshots: **6.9" iPhone** (1320×2868), 3 to 10 of them. Show onboarding, a lesson, the regression sim, the gradient descent sim, streaks, and the paywall.
+   - Screenshots: **6.9" iPhone** (1320×2868), 3 to 10 of them. Show onboarding, the 4 tracks, a lesson, the regression sim, the gradient descent sim, the Reading tab, streaks, and the paywall.
    - Promotional text, description, keywords, support URL, marketing URL (optional), version **1.0.0**, copyright `2026 Silviu …`.
    - Under **In-App Purchases and Subscriptions**, add **both** subscriptions. This is required for the first release.
    - Build: select the TestFlight build from Phase 6.
@@ -123,7 +123,7 @@ Copy the text from [`APP_STORE_METADATA.md`](APP_STORE_METADATA.md).
 - [ ] Screenshots, metadata and release notes are entered
 - [ ] Sandbox purchases checked on the TestFlight build
 - [ ] Phased release: turn on **Phased Release for Automatic Updates** for 1.0.1 and later. It doesn't apply to a first release.
-- [ ] Enough content: Apple's minimum-functionality guideline (4.2) needs real depth, aim for 40+ lessons. Check the lesson count before submitting.
+- [ ] Content: 1.0.0 ships 99 lessons in 4 tracks (34 free). Read through and fact-check them, because errors in ML lessons hurt reviews and credibility.
 
 ## Phase 8: After review
 

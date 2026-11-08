@@ -15,8 +15,6 @@ Finally understand machine learning. Drag data, tune learning rates and watch mo
 machine learning,data science,statistics,neural network,python,regression,deep learning,study,coding
 
 ## Description (max 4000)
-_Update the TRACKS list once the full lesson set is merged._
-
 Backprop teaches machine learning the way it actually clicks: by playing with it.
 
 Every lesson takes about five minutes. Read a short idea, try it in a live simulation, then check yourself with a few quick questions. Build a daily streak and watch your XP grow.
@@ -27,9 +25,11 @@ LEARN BY DOING
 • Every concept is followed by a quick quiz with clear explanations
 • A curated reading list of the best free ML books, papers and courses
 
-TRACKS
-• Data foundations: mean vs. median, variance, the normal distribution, Bayes' rule
-• Classic ML: linear regression, least squares, gradient descent, precision and recall
+99 LESSONS IN 4 TRACKS
+• Data foundations: descriptive stats, probability, distributions, inference
+• Classic ML: regression, gradient descent, classification, trees and ensembles, clustering, evaluation
+• Neural networks: neurons, backpropagation, training tricks, CNNs, sequence models
+• Modern AI: embeddings, attention, transformers, LLMs, retrieval-augmented generation
 
 BUILT FOR BUSY PEOPLE
 • 5-minute lessons that fit a coffee break
@@ -46,7 +46,7 @@ Terms of Use: https://www.apple.com/legal/internet-services/itunes/dev/stdeula/
 Privacy Policy: [YOUR PRIVACY POLICY URL]
 
 ## What's New (1.0.0)
-Welcome to Backprop! Learn machine learning in 5-minute interactive lessons.
+Welcome to Backprop! 99 interactive 5-minute lessons across stats, classic ML, neural networks and modern AI.
 
 ## Support URL
 [REQUIRED: a page or email contact, e.g. a GitHub Pages "Support" page]
@@ -60,7 +60,7 @@ All lesson content is bundled in the app. The app doesn't download code.
 
 ## Release notes for the repo (CHANGELOG)
 ### 1.0.0
-- Interactive lessons in two tracks: Data foundations and Classic ML
+- 99 interactive lessons in 4 tracks: Data foundations, Classic ML, Neural networks, Modern AI
 - Live simulations: linear regression and gradient descent
 - Quizzes with explanations, daily streaks, XP
 - Curated ML reading list
