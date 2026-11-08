@@ -20,9 +20,13 @@ xcodegen generate && open Backprop.xcodeproj
 | `Backprop/Widgets` | Interactive sims (regression, gradient descent) |
 | `Backprop/Progress` | SwiftData progress, streaks, XP |
 | `Backprop/Paywall` | Entitlement store, RevenueCat paywall and Customer Center |
-| `Backprop/Resources/Content` | `manifest.json` + `lessons/lesson-*.json` |
+| `Backprop/Reading` | Free recommended-reading tab (books, articles, papers, courses), opened in Safari View |
+| `Backprop/Resources/Content` | `manifest.json` + `lessons/lesson-*.json` + `reading.json` |
 
 ## Adding a lesson
 1. Add `Backprop/Resources/Content/lessons/lesson-<id>.json` (steps: `text`, `widget`, `quiz`).
 2. List `<id>` in a chapter in `manifest.json`. Chapters at index ≥ `freeChapterCount` are Pro.
 3. Run the tests: `ContentTests` fails if a listed lesson is missing or a quiz answer index is out of range.
+
+## Adding a reading item
+Add an entry to `Backprop/Resources/Content/reading.json` (`kind`: `book`, `article`, `paper` or `course`; `level`: `beginner`, `intermediate` or `advanced`; `year` is optional). Links must be https and free to read: no affiliate or store links (guideline 3.1.1). `ReadingTests` checks ids, links and required fields.
