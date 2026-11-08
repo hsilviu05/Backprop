@@ -121,7 +121,7 @@ private struct LessonRow: View {
         HStack(spacing: 12) {
             Group {
                 switch state {
-                case .done: Image(systemName: "checkmark.circle.fill").foregroundStyle(.green)
+                case .done: Image(systemName: "checkmark.circle.fill").foregroundStyle(tint)
                 case .open: Image(systemName: "circle").foregroundStyle(tint)
                 case .locked: Image(systemName: "lock.fill").foregroundStyle(.secondary)
                 }

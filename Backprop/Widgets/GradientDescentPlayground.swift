@@ -20,12 +20,12 @@ struct GradientDescentPlayground: View {
                 }
                 ForEach(Array(trail.enumerated()), id: \.offset) { _, p in
                     PointMark(x: .value("w", p.x), y: .value("loss", p.y))
-                        .foregroundStyle(.orange.opacity(0.4))
+                        .foregroundStyle(Color.accentColor.opacity(0.4))
                         .symbolSize(40)
                 }
                 if !model.hasDiverged, Self.domain.contains(model.w) {
                     PointMark(x: .value("w", model.w), y: .value("loss", model.currentLoss))
-                        .foregroundStyle(.orange)
+                        .foregroundStyle(Color.accentColor)
                         .symbolSize(200)
                 }
             }

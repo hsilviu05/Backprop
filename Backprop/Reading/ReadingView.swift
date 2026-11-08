@@ -176,7 +176,13 @@ private struct BookCover: View {
 private struct GeneratedCover: View {
     let item: ReadingItem
 
-    private static let palette: [Color] = [.indigo, .teal, .orange, .pink, .blue, .green, .purple, .brown]
+    // Quiet, book-cloth tones instead of a rainbow.
+    private static let palette: [Color] = [
+        Color(red: 0.20, green: 0.24, blue: 0.32),
+        Color(red: 0.27, green: 0.31, blue: 0.29),
+        Color(red: 0.36, green: 0.29, blue: 0.25),
+        Color(red: 0.26, green: 0.26, blue: 0.28),
+    ]
 
     private var color: Color {
         // Stable across launches, unlike hashValue.
@@ -186,7 +192,7 @@ private struct GeneratedCover: View {
 
     var body: some View {
         ZStack(alignment: .topLeading) {
-            LinearGradient(colors: [color, color.opacity(0.7)], startPoint: .top, endPoint: .bottom)
+            LinearGradient(colors: [color, color.opacity(0.85)], startPoint: .top, endPoint: .bottom)
             VStack(alignment: .leading, spacing: 6) {
                 Text(item.title)
                     .font(.system(.footnote, design: .serif).weight(.semibold))

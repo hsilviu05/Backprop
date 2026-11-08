@@ -94,12 +94,12 @@ private struct StatsCard: View {
 
     var body: some View {
         HStack(spacing: 0) {
-            stat(value: streak, label: "day streak", systemImage: "flame.fill", tint: .orange)
+            stat(value: streak, label: "day streak", systemImage: "flame.fill", tint: .accentColor)
                 .symbolEffect(.bounce, value: studiedToday)
             Divider().frame(height: 36)
-            stat(value: xp, label: "XP", systemImage: "star.fill", tint: .yellow)
+            stat(value: xp, label: "XP", systemImage: "star.fill", tint: .accentColor)
             Divider().frame(height: 36)
-            stat(value: lessonsDone, label: "lessons", systemImage: "checkmark.circle.fill", tint: .green)
+            stat(value: lessonsDone, label: "lessons", systemImage: "checkmark.circle.fill", tint: .accentColor)
         }
         .padding(.vertical, 16)
         .cardSurface()

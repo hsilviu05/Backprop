@@ -10,15 +10,8 @@ enum Theme {
     /// Soft, quick spring used for state changes across the app.
     static let spring = Animation.spring(response: 0.32, dampingFraction: 0.86)
 
-    static func trackTint(_ trackID: String) -> Color {
-        switch trackID {
-        case "data-foundations": .teal
-        case "classic-ml": .indigo
-        case "neural-networks": .orange
-        case "modern-ai": .pink
-        default: .accentColor
-        }
-    }
+    /// Every track uses the app accent; tracks are told apart by icon, not color.
+    static func trackTint(_ trackID: String) -> Color { .accentColor }
 }
 
 extension View {
@@ -28,7 +21,7 @@ extension View {
         let shape = RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
         if #available(iOS 26.0, *) {
             self.glassEffect(
-                interactive ? Glass.regular.tint(tint?.opacity(0.12)).interactive() : Glass.regular.tint(tint?.opacity(0.12)),
+                interactive ? Glass.regular.tint(tint?.opacity(0.08)).interactive() : Glass.regular.tint(tint?.opacity(0.08)),
                 in: shape
             )
         } else {
@@ -66,7 +59,7 @@ extension View {
     func screenBackground(tint: Color = .accentColor) -> some View {
         background {
             LinearGradient(
-                colors: [tint.opacity(0.10), Color(.systemGroupedBackground)],
+                colors: [tint.opacity(0.05), Color(.systemGroupedBackground)],
                 startPoint: .top,
                 endPoint: .center
             )
@@ -103,7 +96,7 @@ struct IconTile: View {
             .font(.system(size: size * 0.45, weight: .semibold))
             .foregroundStyle(tint)
             .frame(width: size, height: size)
-            .background(tint.opacity(0.15), in: RoundedRectangle(cornerRadius: size * 0.28, style: .continuous))
+            .background(tint.opacity(0.12), in: RoundedRectangle(cornerRadius: size * 0.28, style: .continuous))
             .accessibilityHidden(true)
     }
 }

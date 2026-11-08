@@ -186,14 +186,14 @@ struct QuizView: View {
                 VStack(alignment: .leading, spacing: 6) {
                     Label(correct ? "Correct" : "Not quite", systemImage: correct ? "checkmark.circle.fill" : "lightbulb.fill")
                         .font(.headline)
-                        .foregroundStyle(correct ? .green : .orange)
+                        .foregroundStyle(correct ? .green : .red)
                     Text(LocalizedStringKey(quiz.explanation))
                         .font(.callout)
                         .foregroundStyle(.primary)
                 }
                 .padding(Theme.padding)
                 .frame(maxWidth: .infinity, alignment: .leading)
-                .cardSurface(cornerRadius: Theme.smallCornerRadius, tint: correct ? .green : .orange)
+                .cardSurface(cornerRadius: Theme.smallCornerRadius, tint: correct ? .green : .red)
                 .transition(.move(edge: .bottom).combined(with: .opacity))
             }
         }
@@ -281,7 +281,7 @@ private struct LessonSummaryView: View {
                 .foregroundStyle(.primary)
                 .padding(.horizontal, 16)
                 .padding(.vertical, 10)
-                .cardSurface(cornerRadius: 999, tint: .yellow)
+                .cardSurface(cornerRadius: 999)
         }
         .frame(maxWidth: .infinity)
         .padding(.top, 60)

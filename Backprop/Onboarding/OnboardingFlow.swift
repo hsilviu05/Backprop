@@ -16,7 +16,7 @@ enum OnboardingAnswers {
     }
 }
 
-/// Welcome → goal → level → daily time → personalized plan → paywall (dismissible).
+/// Welcome → three intro pages → goal → level → daily time → personalized plan → paywall (dismissible).
 struct OnboardingFlow: View {
     let onFinish: () -> Void
 
@@ -26,8 +26,9 @@ struct OnboardingFlow: View {
     @State private var page = 0
     @State private var showPaywall = false
 
-    private static let pageCount = 5
-    private static let goalIcons = ["briefcase.fill", "building.2.fill", "graduationcap.fill", "sparkles"]
+    private static let introCount = IntroFeature.all.count
+    private static let pageCount = 5 + introCount
+    private static let goalIcons = ["briefcase.fill", "building.2.fill", "graduationcap.fill", "lightbulb.fill"]
     private static let levelIcons = ["leaf.fill", "chart.bar.fill", "cpu.fill"]
     private static let timeIcons = ["cup.and.saucer.fill", "figure.walk", "book.fill"]
 
@@ -38,15 +39,16 @@ struct OnboardingFlow: View {
                     Button {
                         withAnimation(Theme.spring) { page -= 1 }
                     } label: {
-                        Image(systemName: "chevron.left").font(.headline)
+                        Image(systemName: "chevron.left").font(.headline).frame(width: 28, height: 28)
                     }
+                    .backButtonStyle()
                     .accessibilityLabel("Back")
                 }
                 Spacer()
                 PageDots(count: Self.pageCount, current: page)
                 Spacer()
                 // Balances the back button so the dots stay centered.
-                Image(systemName: "chevron.left").font(.headline).hidden()
+                Image(systemName: "chevron.left").font(.headline).frame(width: 28, height: 28).padding(8).hidden()
             }
             .frame(height: 44)
             .padding(.horizontal, Theme.padding)
@@ -55,21 +57,23 @@ struct OnboardingFlow: View {
                 switch page {
                 case 0:
                     WelcomePage { advance() }
-                case 1:
+                case 1...Self.introCount:
+                    FeaturePage(feature: IntroFeature.all[page - 1]) { advance() }
+                case Self.introCount + 1:
                     ChoicePage(
                         title: "What brings you here?",
                         options: OnboardingAnswers.goals,
                         icons: Self.goalIcons,
                         selection: $goal
                     ) { advance() }
-                case 2:
+                case Self.introCount + 2:
                     ChoicePage(
                         title: "How much ML do you know?",
                         options: OnboardingAnswers.levels,
                         icons: Self.levelIcons,
                         selection: $level
                     ) { advance() }
-                case 3:
+                case Self.introCount + 3:
                     ChoicePage(
                         title: "How much time per day?",
                         options: OnboardingAnswers.dailyMinutes.map { "\($0) minutes" },
@@ -99,6 +103,18 @@ struct OnboardingFlow: View {
 
     private func advance() {
         withAnimation(Theme.spring) { page = min(page + 1, Self.pageCount - 1) }
+    }
+}
+
+private extension View {
+    /// Round glass back button on iOS 26+, matching the system navigation bar.
+    @ViewBuilder
+    func backButtonStyle() -> some View {
+        if #available(iOS 26.0, *) {
+            self.buttonStyle(.glass).buttonBorderShape(.circle)
+        } else {
+            self.buttonStyle(.bordered).buttonBorderShape(.circle)
+        }
     }
 }
 
@@ -146,6 +162,75 @@ private struct WelcomePage: View {
             .primaryButtonStyle()
             .appearAnimation(delay: 0.2)
             .padding(.bottom, 12)
+        }
+    }
+}
+
+/// One intro page about what the app does, shown before the setup questions.
+struct IntroFeature {
+    let icon: String
+    let title: String
+    let detail: String
+
+    static let all: [IntroFeature] = [
+        IntroFeature(
+            icon: "timer",
+            title: "Five minutes a lesson",
+            detail: "Short, focused steps from statistics to transformers, with a quick check after each idea."
+        ),
+        IntroFeature(
+            icon: "hand.draw.fill",
+            title: "Learn by doing",
+            detail: "Drag data points, tune learning rates and watch a model learn in real time."
+        ),
+        IntroFeature(
+            icon: "books.vertical.fill",
+            title: "Keep going, go deeper",
+            detail: "Streaks and XP build the habit. A curated library of free books, papers and videos takes you further."
+        ),
+    ]
+}
+
+private struct FeaturePage: View {
+    let feature: IntroFeature
+    let onNext: () -> Void
+
+    @State private var animate = false
+
+    var body: some View {
+        // Top-aligned with a fixed inset so the icon and title stay put while paging.
+        VStack(spacing: 20) {
+            Image(systemName: feature.icon)
+                .font(.system(size: 64, weight: .semibold))
+                .foregroundStyle(Color.accentColor)
+                .symbolEffect(.bounce, value: animate)
+                .frame(width: 150, height: 150)
+                .cardSurface(cornerRadius: 40)
+                .padding(.top, 72)
+                .appearAnimation()
+                .accessibilityHidden(true)
+            VStack(spacing: 10) {
+                Text(feature.title)
+                    .font(.largeTitle.bold())
+                    .multilineTextAlignment(.center)
+                Text(feature.detail)
+                    .font(.title3)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            .appearAnimation(delay: 0.1)
+            Spacer()
+            Button(action: onNext) {
+                Text("Continue").font(.headline).frame(maxWidth: .infinity)
+            }
+            .primaryButtonStyle()
+            .appearAnimation(delay: 0.2)
+            .padding(.bottom, 12)
+        }
+        .task {
+            try? await Task.sleep(for: .milliseconds(400))
+            animate = true
         }
     }
 }
@@ -206,14 +291,14 @@ private struct PlanPage: View {
                 .font(.largeTitle.bold())
                 .padding(.top, 16)
             VStack(alignment: .leading, spacing: 0) {
-                planRow("flag.fill", "Start with \(startTrack)", tint: .teal)
+                planRow("flag.fill", "Start with \(startTrack)", tint: .accentColor)
                 Divider().padding(.leading, 62)
-                planRow("clock.fill", "\(dailyMinutes) minutes a day", tint: .orange)
+                planRow("clock.fill", "\(dailyMinutes) minutes a day", tint: .accentColor)
                 Divider().padding(.leading, 62)
-                planRow("hand.draw.fill", "Interactive sims in every track", tint: .indigo)
+                planRow("hand.draw.fill", "Interactive sims in every track", tint: .accentColor)
                 if !goal.isEmpty {
                     Divider().padding(.leading, 62)
-                    planRow("target", goal, tint: .pink)
+                    planRow("target", goal, tint: .accentColor)
                 }
             }
             .cardSurface()
