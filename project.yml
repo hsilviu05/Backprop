@@ -44,6 +44,8 @@ targets:
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         UILaunchScreen: {}
         UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        # iPhone-only, portrait-only app: opt out of the "all orientations" requirement.
+        UIRequiresFullScreen: true
         ITSAppUsesNonExemptEncryption: false
         RevenueCatAPIKey: $(REVENUECAT_API_KEY)
         BackpropTermsURL: $(BACKPROP_TERMS_URL)
