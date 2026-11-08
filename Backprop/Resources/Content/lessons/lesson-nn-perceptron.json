@@ -1,0 +1,56 @@
+{
+  "id": "nn-perceptron",
+  "title": "The perceptron",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "The **perceptron** (Frank Rosenblatt, 1958) is the ancestor of every neural network. It takes inputs, multiplies each by a **weight**, adds a **bias**, and fires if the total is positive:\n\noutput = 1 if w·x + b > 0, else 0"
+    },
+    {
+      "type": "text",
+      "markdown": "Example: weights (2, −1), bias −0.5, input (1, 1). The sum is 2 − 1 − 0.5 = 0.5 > 0, so it outputs **1**."
+    },
+    {
+      "type": "text",
+      "markdown": "Its learning rule nudges the weights toward the correct answer after every mistake. If the classes can be separated by a straight line, the rule is guaranteed to find a separating line eventually."
+    },
+    {
+      "type": "text",
+      "markdown": "But a single perceptron *only* draws straight lines. It famously can't learn XOR, a limitation highlighted by Minsky and Papert in 1969, which helped cool interest in neural networks for years."
+    },
+    {
+      "type": "quiz",
+      "question": "Weights (1, 1), bias −1.5. What does the perceptron output for input (1, 1)?",
+      "choices": [
+        "0",
+        "0.5",
+        "1"
+      ],
+      "answerIndex": 2,
+      "explanation": "1 + 1 − 1.5 = 0.5 > 0, so it fires."
+    },
+    {
+      "type": "quiz",
+      "question": "Same perceptron, input (1, 0). Output?",
+      "choices": [
+        "−0.5",
+        "0",
+        "1"
+      ],
+      "answerIndex": 1,
+      "explanation": "1 + 0 − 1.5 = −0.5, which isn't positive. This perceptron computes AND."
+    },
+    {
+      "type": "quiz",
+      "question": "What kind of decision boundary can a single perceptron learn?",
+      "choices": [
+        "Any curve",
+        "A circle",
+        "A straight line (or flat plane)"
+      ],
+      "answerIndex": 2,
+      "explanation": "It's a linear threshold, so its boundary is linear."
+    }
+  ]
+}

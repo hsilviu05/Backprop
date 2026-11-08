@@ -1,0 +1,56 @@
+{
+  "id": "nn-cnn-architecture",
+  "title": "Inside a CNN",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "A typical CNN stacks blocks of convolution → activation → pooling, then ends with one or more dense layers that produce class scores."
+    },
+    {
+      "type": "text",
+      "markdown": "Early layers learn simple patterns like edges and color blobs. Middle layers combine them into textures and parts. Late layers respond to whole objects, like faces or wheels."
+    },
+    {
+      "type": "text",
+      "markdown": "Milestones: **LeNet** read handwritten digits in the 1990s. **AlexNet** won the 2012 ImageNet challenge by a wide margin using GPUs, kicking off the deep learning boom. **ResNet** (2015) used residual connections to train networks over 100 layers deep."
+    },
+    {
+      "type": "text",
+      "markdown": "Vision transformers now compete with CNNs on many benchmarks, but CNNs remain efficient, widely used, and especially good when data is limited."
+    },
+    {
+      "type": "quiz",
+      "question": "In a trained CNN, the earliest layers usually detect…",
+      "choices": [
+        "Edges and simple textures",
+        "Entire objects",
+        "Class labels"
+      ],
+      "answerIndex": 0,
+      "explanation": "Features get more complex with depth."
+    },
+    {
+      "type": "quiz",
+      "question": "What was notable about AlexNet in 2012?",
+      "choices": [
+        "It introduced the transformer",
+        "It won ImageNet by a large margin using GPUs, sparking the deep learning boom",
+        "It was the first neural network ever"
+      ],
+      "answerIndex": 1,
+      "explanation": "Its big win showed that deep CNNs trained on GPUs could beat traditional approaches."
+    },
+    {
+      "type": "quiz",
+      "question": "ResNet's key idea for training very deep networks is…",
+      "choices": [
+        "Using sigmoid activations",
+        "Residual (skip) connections",
+        "Removing pooling"
+      ],
+      "answerIndex": 1,
+      "explanation": "Skip connections keep gradients flowing through many layers."
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "id": "ml-kmeans",
+  "title": "k-means clustering",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "**k-means** splits data into *k* clusters, each represented by its center, the **centroid**."
+    },
+    {
+      "type": "text",
+      "markdown": "The algorithm alternates two steps until nothing changes:\n\n1. **Assign** each point to its nearest centroid.\n2. **Update** each centroid to the mean of its assigned points."
+    },
+    {
+      "type": "text",
+      "markdown": "It always converges, but possibly to a **local** optimum that depends on the starting centroids. Run it several times, or use the **k-means++** initialization, which spreads the starting centroids out."
+    },
+    {
+      "type": "text",
+      "markdown": "k-means assumes roughly round clusters of similar size, and uses distances, so scale features first. It struggles with elongated or nested shapes like two concentric rings."
+    },
+    {
+      "type": "quiz",
+      "question": "In the update step, each centroid moves to…",
+      "choices": [
+        "A random new location",
+        "The point farthest from it",
+        "The mean of the points assigned to it"
+      ],
+      "answerIndex": 2,
+      "explanation": "That's where \"means\" in k-means comes from."
+    },
+    {
+      "type": "quiz",
+      "question": "Two runs of k-means on the same data give different clusters. Why?",
+      "choices": [
+        "k-means is not deterministic even with a fixed start",
+        "The data changed",
+        "Different random starting centroids can lead to different local optima"
+      ],
+      "answerIndex": 2,
+      "explanation": "The result depends on initialization, which is why several restarts are common."
+    },
+    {
+      "type": "quiz",
+      "question": "Which data would k-means handle worst?",
+      "choices": [
+        "Two blobs of equal size",
+        "Three well-separated round blobs",
+        "Two concentric rings"
+      ],
+      "answerIndex": 2,
+      "explanation": "Rings aren't compact around a center, so nearest-centroid assignment cuts them incorrectly."
+    }
+  ]
+}

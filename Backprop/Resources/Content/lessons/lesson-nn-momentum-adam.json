@@ -1,0 +1,61 @@
+{
+  "id": "nn-momentum-adam",
+  "title": "Momentum and Adam",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "Plain gradient descent can zig-zag across narrow valleys and crawl along flat ones. Two upgrades are everywhere in practice."
+    },
+    {
+      "type": "widget",
+      "widget": "gradientDescent",
+      "caption": "Set the learning rate near 0.95 and step: the ball overshoots back and forth across the minimum. Momentum and Adam aim to damp exactly this kind of behavior."
+    },
+    {
+      "type": "text",
+      "markdown": "**Momentum** keeps a running \"velocity\", a decaying sum of past gradients, and steps along it. Directions that agree build up speed; zig-zags cancel out. A typical momentum value is 0.9."
+    },
+    {
+      "type": "text",
+      "markdown": "**Adam** (Kingma and Ba, 2014) combines momentum with a per-parameter step size: it divides by a running average of each parameter's squared gradients, so parameters with consistently large gradients take smaller steps. Its usual defaults are learning rate 0.001, β₁ = 0.9 and β₂ = 0.999."
+    },
+    {
+      "type": "text",
+      "markdown": "Adam is a robust default that often needs less tuning, while well-tuned SGD with momentum is still popular for some vision models. Variants like **AdamW** handle weight decay more correctly and are standard for transformers."
+    },
+    {
+      "type": "quiz",
+      "question": "What does momentum add to gradient descent?",
+      "choices": [
+        "A bigger batch size",
+        "A running average of past gradients that smooths the direction",
+        "A random step each iteration"
+      ],
+      "answerIndex": 1,
+      "explanation": "Momentum accumulates velocity so consistent directions speed up and oscillations cancel."
+    },
+    {
+      "type": "quiz",
+      "question": "What makes Adam \"adaptive\"?",
+      "choices": [
+        "It picks the batch size automatically",
+        "It changes the network architecture",
+        "Each parameter gets its own effective step size based on its gradient history"
+      ],
+      "answerIndex": 2,
+      "explanation": "Adam scales steps per parameter using running averages of gradients and squared gradients."
+    },
+    {
+      "type": "quiz",
+      "question": "Which optimizer is the common default for training transformers?",
+      "choices": [
+        "k-means",
+        "AdamW",
+        "Plain gradient descent without momentum"
+      ],
+      "answerIndex": 1,
+      "explanation": "AdamW, Adam with decoupled weight decay, is the standard choice."
+    }
+  ]
+}

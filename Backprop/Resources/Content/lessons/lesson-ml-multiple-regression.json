@@ -1,0 +1,56 @@
+{
+  "id": "ml-multiple-regression",
+  "title": "Many features",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "Real predictions use many inputs. **Multiple linear regression** gives each feature its own weight:\n\nŷ = w₁x₁ + w₂x₂ + … + wₙxₙ + b"
+    },
+    {
+      "type": "text",
+      "markdown": "Each weight is the predicted change in y for a one-unit change in that feature, **holding the other features fixed**. If price = 50·size + 10·bedrooms + …, one more bedroom adds 10 at the same size."
+    },
+    {
+      "type": "text",
+      "markdown": "When features are strongly correlated (size in m² and size in ft²), weights become unstable and hard to interpret. That's **multicollinearity**. Predictions may still be fine, but don't read too much into individual weights."
+    },
+    {
+      "type": "text",
+      "markdown": "Adding features never lowers *training* R² for least squares, even useless ones. That's why you judge models on validation data, or use **adjusted R²**, which penalizes extra features."
+    },
+    {
+      "type": "quiz",
+      "question": "In ŷ = 3·x₁ + 5·x₂ + 2, what happens to ŷ if x₂ increases by 1 and x₁ stays fixed?",
+      "choices": [
+        "It increases by 5",
+        "It increases by 3",
+        "It increases by 8"
+      ],
+      "answerIndex": 0,
+      "explanation": "x₂'s weight is 5, so ŷ goes up by 5."
+    },
+    {
+      "type": "quiz",
+      "question": "You add a column of random noise as a feature. Training R²…",
+      "choices": [
+        "Will stay the same or increase slightly",
+        "Will decrease",
+        "Will become negative"
+      ],
+      "answerIndex": 0,
+      "explanation": "Least squares can always set the new weight to 0, so the fit can't get worse on training data."
+    },
+    {
+      "type": "quiz",
+      "question": "Two features are near-copies of each other. What's the most likely problem?",
+      "choices": [
+        "The model can't make predictions at all",
+        "R² drops to zero",
+        "Their individual weights become unstable and hard to interpret"
+      ],
+      "answerIndex": 2,
+      "explanation": "Multicollinearity makes the split of credit between the two features arbitrary."
+    }
+  ]
+}

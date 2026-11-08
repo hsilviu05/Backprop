@@ -1,0 +1,56 @@
+{
+  "id": "ml-data-leakage",
+  "title": "Data leakage",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "**Data leakage** happens when information that won't be available at prediction time sneaks into training. The model looks brilliant in testing and fails in production."
+    },
+    {
+      "type": "text",
+      "markdown": "**Target leakage**: a feature that encodes the answer. Predicting whether a customer will cancel using a column \"cancellation_reason\" is cheating, since that's only filled in after they cancel."
+    },
+    {
+      "type": "text",
+      "markdown": "**Train-test contamination**: scaling, imputing or selecting features using the full dataset, or the same user appearing in both train and test. Fit all preprocessing on training data only, and split by user or time when rows are related."
+    },
+    {
+      "type": "text",
+      "markdown": "Rule of thumb: if results look too good to be true, check for leakage first."
+    },
+    {
+      "type": "quiz",
+      "question": "Which feature is most likely target leakage for predicting hospital readmission?",
+      "choices": [
+        "Patient age",
+        "A \"readmission follow-up scheduled\" flag filled in after readmission",
+        "Number of previous visits"
+      ],
+      "answerIndex": 1,
+      "explanation": "It's recorded only after the outcome happens, so it won't exist at prediction time."
+    },
+    {
+      "type": "quiz",
+      "question": "You standardize features using the mean of the entire dataset, then split. What's the issue?",
+      "choices": [
+        "Nothing, that's correct practice",
+        "Test-set statistics leaked into training",
+        "Standardization doesn't work before splitting"
+      ],
+      "answerIndex": 1,
+      "explanation": "Fit the scaler on training data only, then apply it to test data."
+    },
+    {
+      "type": "quiz",
+      "question": "Your model gets 99.9% accuracy on a hard problem. The first thing to check is…",
+      "choices": [
+        "Whether to publish",
+        "Whether there's data leakage",
+        "Whether to add more features"
+      ],
+      "answerIndex": 1,
+      "explanation": "Implausibly good results usually mean something is leaking."
+    }
+  ]
+}

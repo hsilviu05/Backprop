@@ -1,0 +1,56 @@
+{
+  "id": "ml-knn",
+  "title": "k-nearest neighbors",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "**k-nearest neighbors (k-NN)** is the simplest classifier: to label a new point, find the *k* closest training points and take a majority vote. For regression, average their values instead."
+    },
+    {
+      "type": "text",
+      "markdown": "There's no real training step. The model *is* the data, so prediction gets slow as the dataset grows."
+    },
+    {
+      "type": "text",
+      "markdown": "*k* controls flexibility. k = 1 follows every noisy point (overfitting). A very large k smooths everything toward the most common class (underfitting)."
+    },
+    {
+      "type": "text",
+      "markdown": "Distance depends on feature scales, so standardize features first. In very high dimensions, everything tends to be roughly equally far apart, which is part of the **curse of dimensionality**."
+    },
+    {
+      "type": "quiz",
+      "question": "A new point's 5 nearest neighbors are 3 cats and 2 dogs. k-NN with k = 5 predicts…",
+      "choices": [
+        "Cat",
+        "It can't decide",
+        "Dog"
+      ],
+      "answerIndex": 0,
+      "explanation": "Majority vote: 3 cats beat 2 dogs."
+    },
+    {
+      "type": "quiz",
+      "question": "k = 1 on noisy data most likely leads to…",
+      "choices": [
+        "Underfitting",
+        "Overfitting",
+        "The same result as any other k"
+      ],
+      "answerIndex": 1,
+      "explanation": "Each prediction copies a single, possibly noisy neighbor."
+    },
+    {
+      "type": "quiz",
+      "question": "Why scale features before k-NN?",
+      "choices": [
+        "Otherwise features with large ranges dominate the distance",
+        "k-NN only accepts values between 0 and 1",
+        "Scaling makes k-NN train faster"
+      ],
+      "answerIndex": 0,
+      "explanation": "Distance sums across features, so a feature in the thousands swamps one in single digits."
+    }
+  ]
+}

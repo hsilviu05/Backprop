@@ -1,0 +1,61 @@
+{
+  "id": "df-correlation",
+  "title": "Correlation",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "**Correlation** (Pearson's r) measures how strongly two variables move together *in a straight line*. It ranges from −1 to +1."
+    },
+    {
+      "type": "text",
+      "markdown": "r = +1: points sit exactly on a rising line. r = −1: exactly on a falling line. r near 0: no *linear* relationship."
+    },
+    {
+      "type": "widget",
+      "widget": "linearRegression",
+      "caption": "Drag points so they rise together, then make them fall. The slope's sign matches the sign of the correlation."
+    },
+    {
+      "type": "text",
+      "markdown": "r near 0 doesn't mean \"unrelated\". For points on y = x² from −3 to 3, y is fully determined by x, yet r = 0, because the relationship isn't linear. Always plot your data."
+    },
+    {
+      "type": "text",
+      "markdown": "And correlation is not causation. Ice cream sales and drownings are correlated because both rise in summer. A hidden third variable like this is called a **confounder**."
+    },
+    {
+      "type": "quiz",
+      "question": "Pearson's r = −0.9 means…",
+      "choices": [
+        "A strong relationship where one variable falls as the other rises",
+        "Almost no relationship",
+        "A strong positive relationship"
+      ],
+      "answerIndex": 0,
+      "explanation": "The sign gives the direction, and the magnitude (0.9) says the points sit close to a line."
+    },
+    {
+      "type": "quiz",
+      "question": "A dataset has r ≈ 0. What can you safely conclude?",
+      "choices": [
+        "One variable causes the other",
+        "The variables are independent",
+        "There's little linear relationship, but there could be a curved one"
+      ],
+      "answerIndex": 2,
+      "explanation": "Pearson's r only captures straight-line relationships. A perfect U-shape can have r = 0."
+    },
+    {
+      "type": "quiz",
+      "question": "Cities with more firefighters have more fires. The best explanation is…",
+      "choices": [
+        "Firefighters start fires",
+        "A confounder: bigger cities have both more firefighters and more fires",
+        "The correlation must be a data error"
+      ],
+      "answerIndex": 1,
+      "explanation": "City size drives both variables. That's the textbook confounder."
+    }
+  ]
+}

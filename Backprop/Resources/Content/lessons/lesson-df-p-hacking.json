@@ -1,0 +1,56 @@
+{
+  "id": "df-p-hacking",
+  "title": "Multiple comparisons",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "Run one test at the 0.05 level when nothing is going on, and you have a 5% chance of a false positive. Run many, and false positives pile up."
+    },
+    {
+      "type": "text",
+      "markdown": "With 20 independent tests and no real effects, the chance of at least one \"significant\" result is 1 − 0.95²⁰ ≈ **0.64**, nearly two in three."
+    },
+    {
+      "type": "text",
+      "markdown": "**p-hacking** is trying many analyses (subgroups, metrics, outlier rules) and reporting the one that worked. It produces findings that don't replicate."
+    },
+    {
+      "type": "text",
+      "markdown": "Fixes: decide the metric and analysis *before* looking at data, correct for multiple tests (the **Bonferroni** correction divides 0.05 by the number of tests), and confirm surprising results on fresh data. The same logic applies when you try many models on one test set."
+    },
+    {
+      "type": "quiz",
+      "question": "You test 10 independent metrics at 0.05 and no real effects exist. About how many false positives do you expect?",
+      "choices": [
+        "0",
+        "0.5",
+        "5"
+      ],
+      "answerIndex": 1,
+      "explanation": "10 × 0.05 = 0.5 expected false positives."
+    },
+    {
+      "type": "quiz",
+      "question": "With Bonferroni correction for 5 tests, each test's threshold becomes…",
+      "choices": [
+        "0.01",
+        "0.05",
+        "0.25"
+      ],
+      "answerIndex": 0,
+      "explanation": "0.05 / 5 = 0.01."
+    },
+    {
+      "type": "quiz",
+      "question": "Why is evaluating 200 model variants on the same test set risky?",
+      "choices": [
+        "Test sets can only be used for linear models",
+        "It's too slow",
+        "You may pick a model that got lucky on that test set"
+      ],
+      "answerIndex": 2,
+      "explanation": "Choosing the best of many is a multiple-comparisons problem. The winner's test score is optimistic."
+    }
+  ]
+}

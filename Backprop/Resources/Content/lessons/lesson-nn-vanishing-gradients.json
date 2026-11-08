@@ -1,0 +1,56 @@
+{
+  "id": "nn-vanishing-gradients",
+  "title": "Vanishing and exploding gradients",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "Backprop multiplies many local derivatives together. Multiply lots of numbers below 1 and the product **vanishes**; lots above 1 and it **explodes**."
+    },
+    {
+      "type": "text",
+      "markdown": "The sigmoid's derivative is at most 0.25. Through 10 sigmoid layers the gradient can shrink by up to 0.25¹⁰, about one millionth. The early layers barely learn."
+    },
+    {
+      "type": "text",
+      "markdown": "Fixes that made deep networks possible: **ReLU** activations (gradient 1 for positive inputs), careful **initialization**, **normalization** layers, and **residual connections** that add a layer's input to its output, giving gradients a shortcut path."
+    },
+    {
+      "type": "text",
+      "markdown": "For exploding gradients, especially in recurrent networks, **gradient clipping** caps the gradient's size before each update. A loss that suddenly becomes NaN is a classic sign of explosion."
+    },
+    {
+      "type": "quiz",
+      "question": "In a deep sigmoid network, which layers suffer most from vanishing gradients?",
+      "choices": [
+        "The output layer",
+        "The earliest layers, nearest the input",
+        "All layers equally"
+      ],
+      "answerIndex": 1,
+      "explanation": "Gradients shrink as they travel back, so the first layers get the smallest updates."
+    },
+    {
+      "type": "quiz",
+      "question": "How does a residual connection help?",
+      "choices": [
+        "It gives gradients a direct path around a layer",
+        "It removes the need for activation functions",
+        "It makes the network shallower"
+      ],
+      "answerIndex": 0,
+      "explanation": "Adding the input to the output means the gradient can flow through the addition untouched."
+    },
+    {
+      "type": "quiz",
+      "question": "Your loss suddenly jumps to NaN. A sensible first fix is…",
+      "choices": [
+        "Remove all activations",
+        "Add more layers",
+        "Lower the learning rate or clip gradients"
+      ],
+      "answerIndex": 2,
+      "explanation": "NaN usually means values exploded. Smaller steps or clipping keeps them in range."
+    }
+  ]
+}

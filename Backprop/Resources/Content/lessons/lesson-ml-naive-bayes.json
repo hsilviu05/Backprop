@@ -1,0 +1,56 @@
+{
+  "id": "ml-naive-bayes",
+  "title": "Naive Bayes",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "**Naive Bayes** applies Bayes' rule to classification: P(class | features) ∝ P(features | class) · P(class)."
+    },
+    {
+      "type": "text",
+      "markdown": "The \"naive\" part: it assumes features are **independent given the class**, so P(features | class) is just the product of each feature's probability. For an email, P(\"free\", \"winner\" | spam) = P(\"free\" | spam) · P(\"winner\" | spam)."
+    },
+    {
+      "type": "text",
+      "markdown": "That assumption is almost never true (words are correlated), yet naive Bayes works surprisingly well for text, trains in one pass over the data, and handles thousands of features cheaply."
+    },
+    {
+      "type": "text",
+      "markdown": "One gotcha: a word never seen in spam during training gets probability 0, which zeroes out the whole product. **Laplace smoothing** adds a small count to every word to prevent that."
+    },
+    {
+      "type": "quiz",
+      "question": "What does naive Bayes assume?",
+      "choices": [
+        "All features are normally distributed",
+        "There are only two classes",
+        "Features are independent of each other given the class"
+      ],
+      "answerIndex": 2,
+      "explanation": "Conditional independence lets it multiply per-feature probabilities."
+    },
+    {
+      "type": "quiz",
+      "question": "Why add Laplace smoothing?",
+      "choices": [
+        "So an unseen word doesn't force a class probability to zero",
+        "To make training slower and more accurate",
+        "To remove the prior"
+      ],
+      "answerIndex": 0,
+      "explanation": "One zero factor would wipe out all other evidence in the product."
+    },
+    {
+      "type": "quiz",
+      "question": "Naive Bayes is a classic, strong baseline for…",
+      "choices": [
+        "Text classification like spam filtering",
+        "Predicting house prices",
+        "Image generation"
+      ],
+      "answerIndex": 0,
+      "explanation": "It's fast and handles large vocabularies well."
+    }
+  ]
+}

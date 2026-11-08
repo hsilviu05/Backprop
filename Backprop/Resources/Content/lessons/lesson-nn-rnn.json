@@ -1,0 +1,56 @@
+{
+  "id": "nn-rnn",
+  "title": "Recurrent networks",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "Text, audio and sensor readings come as **sequences**, where order matters. A **recurrent neural network (RNN)** reads one element at a time and keeps a **hidden state** that summarizes what it has seen so far."
+    },
+    {
+      "type": "text",
+      "markdown": "At each step: new state = f(previous state, current input). The **same weights** are used at every step, so an RNN can handle sequences of any length."
+    },
+    {
+      "type": "text",
+      "markdown": "Training unrolls the network through time and applies backprop, called **backpropagation through time**. Gradients get multiplied once per step, so over long sequences they tend to vanish or explode."
+    },
+    {
+      "type": "text",
+      "markdown": "The result: plain RNNs struggle to connect words far apart, like a subject at the start of a long sentence and its verb at the end."
+    },
+    {
+      "type": "quiz",
+      "question": "What lets an RNN process sequences of any length?",
+      "choices": [
+        "The same weights are reused at every step",
+        "A separate set of weights for each position",
+        "It reads the whole sequence at once"
+      ],
+      "answerIndex": 0,
+      "explanation": "Weight sharing across time steps means length doesn't matter."
+    },
+    {
+      "type": "quiz",
+      "question": "The hidden state in an RNN is…",
+      "choices": [
+        "The learning rate",
+        "The final prediction only",
+        "A running summary of the inputs seen so far"
+      ],
+      "answerIndex": 2,
+      "explanation": "It carries information forward from step to step."
+    },
+    {
+      "type": "quiz",
+      "question": "Why do plain RNNs struggle with long-range dependencies?",
+      "choices": [
+        "They have too few parameters",
+        "They can't read long inputs",
+        "Gradients vanish or explode across many time steps"
+      ],
+      "answerIndex": 2,
+      "explanation": "Repeated multiplication through time weakens or blows up the learning signal."
+    }
+  ]
+}

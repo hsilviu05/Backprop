@@ -1,0 +1,56 @@
+{
+  "id": "nn-autoencoders",
+  "title": "Autoencoders",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "An **autoencoder** learns to copy its input to its output through a narrow middle layer, the **bottleneck**. The **encoder** compresses; the **decoder** reconstructs."
+    },
+    {
+      "type": "text",
+      "markdown": "Since the bottleneck is too small to store everything, the network must learn the most important structure in the data. It's unsupervised: the input is its own target, using a reconstruction loss like MSE."
+    },
+    {
+      "type": "text",
+      "markdown": "Uses: compression, denoising (train to reconstruct clean images from noisy ones), and **anomaly detection**: inputs unlike the training data reconstruct poorly, so a high reconstruction error flags them."
+    },
+    {
+      "type": "text",
+      "markdown": "A **variational autoencoder (VAE)** makes the bottleneck a probability distribution, so you can sample new points from it and decode them into new data. That made it an early deep generative model."
+    },
+    {
+      "type": "quiz",
+      "question": "What is an autoencoder trained to predict?",
+      "choices": [
+        "A class label",
+        "The next word",
+        "Its own input"
+      ],
+      "answerIndex": 2,
+      "explanation": "The target is the input itself, so no labels are needed."
+    },
+    {
+      "type": "quiz",
+      "question": "A fraud detector built on an autoencoder flags transactions that…",
+      "choices": [
+        "Reconstruct perfectly",
+        "Have the smallest bottleneck",
+        "Reconstruct with unusually high error"
+      ],
+      "answerIndex": 2,
+      "explanation": "The model only learned to reconstruct normal transactions well."
+    },
+    {
+      "type": "quiz",
+      "question": "What forces an autoencoder to learn useful structure?",
+      "choices": [
+        "A bottleneck too small to just copy everything",
+        "A very large learning rate",
+        "Using labels"
+      ],
+      "answerIndex": 0,
+      "explanation": "Compression makes it keep only what matters most."
+    }
+  ]
+}

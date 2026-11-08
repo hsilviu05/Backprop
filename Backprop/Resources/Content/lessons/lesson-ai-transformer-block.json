@@ -1,0 +1,56 @@
+{
+  "id": "ai-transformer-block",
+  "title": "The transformer block",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "A transformer is a stack of identical **blocks**. Each block has two parts: **multi-head attention**, where tokens exchange information, and a **feed-forward network** (a small MLP) applied to each token separately."
+    },
+    {
+      "type": "text",
+      "markdown": "Each part is wrapped with a **residual connection** (add the input back to the output) and **layer normalization**. Residuals keep gradients flowing through dozens of blocks."
+    },
+    {
+      "type": "text",
+      "markdown": "A useful mental model: attention moves information *between* tokens, and the feed-forward layers process information *within* each token. Much of a model's stored knowledge is thought to live in the feed-forward weights."
+    },
+    {
+      "type": "text",
+      "markdown": "Stack N blocks (the original had 6 in each half; large LLMs have dozens) and put an output layer on top that turns the final vectors into scores over the vocabulary."
+    },
+    {
+      "type": "quiz",
+      "question": "What are the two main parts of each transformer block?",
+      "choices": [
+        "Attention and a feed-forward network",
+        "Convolution and pooling",
+        "An encoder and a decoder"
+      ],
+      "answerIndex": 0,
+      "explanation": "Every block pairs multi-head attention with a per-token MLP."
+    },
+    {
+      "type": "quiz",
+      "question": "Which part lets tokens share information with each other?",
+      "choices": [
+        "Attention",
+        "The feed-forward network",
+        "Layer normalization"
+      ],
+      "answerIndex": 0,
+      "explanation": "The feed-forward network works on each token independently."
+    },
+    {
+      "type": "quiz",
+      "question": "What do residual connections do in a transformer?",
+      "choices": [
+        "Remove the need for training",
+        "Add each sub-layer's input to its output, helping gradients flow",
+        "Shuffle the tokens"
+      ],
+      "answerIndex": 1,
+      "explanation": "They're the same skip-connection idea that made ResNets trainable."
+    }
+  ]
+}

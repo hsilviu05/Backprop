@@ -1,0 +1,56 @@
+{
+  "id": "ai-encoder-decoder",
+  "title": "Encoders and decoders",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "The original transformer had two halves: an **encoder** that reads the input (say, an English sentence) and a **decoder** that generates the output (the French translation) while attending to the encoder."
+    },
+    {
+      "type": "text",
+      "markdown": "**Encoder-only** models like **BERT** (2018) attend in both directions and are trained by predicting masked-out words. They're great at understanding tasks: classification, search, tagging."
+    },
+    {
+      "type": "text",
+      "markdown": "**Decoder-only** models like **GPT** use causal attention and are trained to predict the next token. Almost all of today's chatbots and LLMs are decoder-only."
+    },
+    {
+      "type": "text",
+      "markdown": "**Encoder-decoder** models like **T5** keep both halves, and are a natural fit for input-to-output tasks such as translation and summarization."
+    },
+    {
+      "type": "quiz",
+      "question": "Which architecture do most modern chat LLMs use?",
+      "choices": [
+        "Decoder-only",
+        "Convolutional",
+        "Encoder-only"
+      ],
+      "answerIndex": 0,
+      "explanation": "GPT-style decoder-only models dominate text generation."
+    },
+    {
+      "type": "quiz",
+      "question": "BERT is trained by…",
+      "choices": [
+        "Predicting the next token only",
+        "Predicting masked-out words using context on both sides",
+        "Generating images"
+      ],
+      "answerIndex": 1,
+      "explanation": "Masked language modeling lets it use both left and right context."
+    },
+    {
+      "type": "quiz",
+      "question": "For translating text, a natural fit is…",
+      "choices": [
+        "A k-means model",
+        "An encoder-only model",
+        "An encoder-decoder model"
+      ],
+      "answerIndex": 2,
+      "explanation": "The encoder reads the source; the decoder writes the target."
+    }
+  ]
+}

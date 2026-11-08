@@ -1,0 +1,56 @@
+{
+  "id": "ai-chunking",
+  "title": "Chunking documents",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "Documents are split into **chunks** before embedding, since a whole manual is too big and too mixed in topic to embed as one vector."
+    },
+    {
+      "type": "text",
+      "markdown": "Chunk size is a trade-off. Too small, and a chunk loses the context needed to make sense (\"it must be enabled first\"). Too large, and the vector blurs several topics together, and you spend context window on irrelevant text. A few hundred tokens is a common starting point."
+    },
+    {
+      "type": "text",
+      "markdown": "Split along natural boundaries like headings and paragraphs, and add a little **overlap** between neighboring chunks so ideas aren't cut in half."
+    },
+    {
+      "type": "text",
+      "markdown": "Keep **metadata** with each chunk: title, section, date, access rights. It enables filtering (\"only 2026 policies\") and citations, and stops users from retrieving documents they aren't allowed to see."
+    },
+    {
+      "type": "quiz",
+      "question": "What's the risk of very small chunks?",
+      "choices": [
+        "They can't be embedded",
+        "They lose the surrounding context needed to understand them",
+        "They always retrieve too much"
+      ],
+      "answerIndex": 1,
+      "explanation": "A sentence on its own may be meaningless without its paragraph."
+    },
+    {
+      "type": "quiz",
+      "question": "Why add overlap between chunks?",
+      "choices": [
+        "To double storage on purpose",
+        "So ideas near a boundary appear whole in at least one chunk",
+        "To make embeddings longer"
+      ],
+      "answerIndex": 1,
+      "explanation": "Overlap reduces the chance that a key sentence is split in two."
+    },
+    {
+      "type": "quiz",
+      "question": "Why store access rights as chunk metadata?",
+      "choices": [
+        "It's required by the tokenizer",
+        "It improves embedding quality",
+        "So retrieval can filter out documents a user isn't allowed to see"
+      ],
+      "answerIndex": 2,
+      "explanation": "Without filtering, RAG can leak private documents to the wrong people."
+    }
+  ]
+}

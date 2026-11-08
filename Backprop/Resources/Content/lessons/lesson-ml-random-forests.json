@@ -1,0 +1,56 @@
+{
+  "id": "ml-random-forests",
+  "title": "Random forests",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "A **random forest** trains many decision trees and averages their predictions (or takes a vote). Individual trees are noisy; their average is much more stable."
+    },
+    {
+      "type": "text",
+      "markdown": "Two sources of randomness keep the trees different: each tree trains on a **bootstrap sample** (rows drawn with replacement, called **bagging**), and each split considers only a random subset of features."
+    },
+    {
+      "type": "text",
+      "markdown": "Averaging many decorrelated trees mainly reduces **variance**, so forests overfit far less than single deep trees, usually with little tuning."
+    },
+    {
+      "type": "text",
+      "markdown": "Bonus: each tree skips about a third of the rows, so those **out-of-bag** rows give a free validation estimate. Forests also report **feature importances**, though these can favor features with many possible split points."
+    },
+    {
+      "type": "quiz",
+      "question": "What does bagging mean?",
+      "choices": [
+        "Removing the least important features",
+        "Training each model on a random sample of rows drawn with replacement",
+        "Training trees one after another on their mistakes"
+      ],
+      "answerIndex": 1,
+      "explanation": "Bootstrap aggregating: resample rows, train a model on each sample, aggregate."
+    },
+    {
+      "type": "quiz",
+      "question": "Random forests mainly improve on a single tree by reducing…",
+      "choices": [
+        "Variance",
+        "Training time",
+        "Bias"
+      ],
+      "answerIndex": 0,
+      "explanation": "Averaging many noisy but different trees cancels much of their variance."
+    },
+    {
+      "type": "quiz",
+      "question": "Why consider only a random subset of features at each split?",
+      "choices": [
+        "Because trees can't handle many features",
+        "To make each tree more accurate on its own",
+        "So the trees are less similar and their errors cancel out better"
+      ],
+      "answerIndex": 2,
+      "explanation": "Without it, every tree would pick the same strong features and make similar mistakes."
+    }
+  ]
+}

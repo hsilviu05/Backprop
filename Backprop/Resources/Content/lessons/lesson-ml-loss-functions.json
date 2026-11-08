@@ -1,0 +1,56 @@
+{
+  "id": "ml-loss-functions",
+  "title": "Loss functions",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "A **loss function** scores how wrong a prediction is. Training means finding parameters that make the average loss small."
+    },
+    {
+      "type": "text",
+      "markdown": "**Mean squared error (MSE)** squares each error, so big misses dominate. **Mean absolute error (MAE)** treats every unit of error the same, so it's less sensitive to outliers."
+    },
+    {
+      "type": "text",
+      "markdown": "Fun fact: the single constant that minimizes MSE on a dataset is its **mean**, and the one that minimizes MAE is its **median**. That's the same robustness story as mean vs. median."
+    },
+    {
+      "type": "text",
+      "markdown": "For classification, models usually minimize **cross-entropy** (log loss): −log(probability given to the correct class). Being confidently wrong is punished heavily: predicting 0.01 for the true class costs about 4.6, while 0.9 costs about 0.1."
+    },
+    {
+      "type": "quiz",
+      "question": "Your data has a few huge outliers you don't want to dominate training. Which loss is more robust?",
+      "choices": [
+        "MSE",
+        "Neither, they behave the same",
+        "MAE"
+      ],
+      "answerIndex": 2,
+      "explanation": "MAE grows linearly with error, so outliers have less pull than with squared error."
+    },
+    {
+      "type": "quiz",
+      "question": "Which constant prediction minimizes MSE over the values 1, 2, 9?",
+      "choices": [
+        "2",
+        "4",
+        "9"
+      ],
+      "answerIndex": 1,
+      "explanation": "The mean minimizes squared error: (1 + 2 + 9) / 3 = 4."
+    },
+    {
+      "type": "quiz",
+      "question": "Cross-entropy loss is largest when the model…",
+      "choices": [
+        "Gives the correct class a probability near 1",
+        "Predicts 0.5 for every class",
+        "Gives the correct class a probability near 0"
+      ],
+      "answerIndex": 2,
+      "explanation": "−log(p) shoots up as p approaches 0, so confident mistakes cost the most."
+    }
+  ]
+}

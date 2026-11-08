@@ -1,0 +1,56 @@
+{
+  "id": "df-conditional-probability",
+  "title": "Conditional probability",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "**Conditional probability** P(A | B) is the probability of A *given that* B happened. Knowing B shrinks the world to only the outcomes where B is true."
+    },
+    {
+      "type": "text",
+      "markdown": "The formula:\n\nP(A | B) = P(A and B) / P(B)"
+    },
+    {
+      "type": "text",
+      "markdown": "Example: you draw a face card (J, Q or K). What's the chance it's a king? There are 12 face cards and 4 are kings, so P(king | face) = 4/12 = **1/3**. Without the condition, P(king) is only 4/52."
+    },
+    {
+      "type": "text",
+      "markdown": "Order matters: P(A | B) is usually *not* P(B | A). Most professional basketball players are tall, but most tall people aren't professional basketball players. Mixing these up is called the **confusion of the inverse**."
+    },
+    {
+      "type": "quiz",
+      "question": "40% of users are on mobile, and 10% of all users are mobile users who bought something. What is P(bought | mobile)?",
+      "choices": [
+        "0.10",
+        "0.25",
+        "0.40"
+      ],
+      "answerIndex": 1,
+      "explanation": "P(bought and mobile) / P(mobile) = 0.10 / 0.40 = 0.25."
+    },
+    {
+      "type": "quiz",
+      "question": "Roll a fair die. Given that the result is even, what's the chance it's a 6?",
+      "choices": [
+        "1/6",
+        "1/3",
+        "1/2"
+      ],
+      "answerIndex": 1,
+      "explanation": "Even results are {2, 4, 6}. One of those three is a 6."
+    },
+    {
+      "type": "quiz",
+      "question": "\"Most spam emails contain the word 'free'\" tells you about…",
+      "choices": [
+        "P(spam and not \"free\")",
+        "P(contains \"free\" | spam)",
+        "P(spam | contains \"free\")"
+      ],
+      "answerIndex": 1,
+      "explanation": "It's conditioned on spam. Turning it into P(spam | \"free\") requires Bayes' rule and the base rate of spam."
+    }
+  ]
+}

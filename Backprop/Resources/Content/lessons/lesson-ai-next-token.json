@@ -1,0 +1,56 @@
+{
+  "id": "ai-next-token",
+  "title": "Predicting the next token",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "A decoder-only LLM does one thing: given the tokens so far, it outputs a **probability distribution** over its whole vocabulary for the next token."
+    },
+    {
+      "type": "text",
+      "markdown": "Training is the familiar recipe: cross-entropy loss on the true next token, for every position in huge amounts of text. With a causal mask, one sentence of n tokens yields n training examples at once."
+    },
+    {
+      "type": "text",
+      "markdown": "Generation is **autoregressive**: pick a token from the distribution, append it to the input, and repeat. A 500-token answer takes 500 forward passes, which is why long answers take longer."
+    },
+    {
+      "type": "text",
+      "markdown": "Everything a chatbot does, answering, coding, summarizing, comes out of this loop. The model isn't looking things up; it's producing likely continuations given its training and the prompt."
+    },
+    {
+      "type": "quiz",
+      "question": "What does an LLM output at each step?",
+      "choices": [
+        "A full sentence",
+        "A single fixed word",
+        "A probability for every token in its vocabulary"
+      ],
+      "answerIndex": 2,
+      "explanation": "The next token is then picked from that distribution."
+    },
+    {
+      "type": "quiz",
+      "question": "Generating a 200-token answer requires about…",
+      "choices": [
+        "1 forward pass",
+        "200 forward passes, one per new token",
+        "200 training steps"
+      ],
+      "answerIndex": 1,
+      "explanation": "Each new token is produced by a forward pass over the sequence so far (cached computation makes each one cheaper)."
+    },
+    {
+      "type": "quiz",
+      "question": "\"Autoregressive\" means the model…",
+      "choices": [
+        "Predicts all tokens at once",
+        "Feeds its own outputs back in as inputs for the next step",
+        "Trains without data"
+      ],
+      "answerIndex": 1,
+      "explanation": "Each generated token becomes part of the context for the next."
+    }
+  ]
+}

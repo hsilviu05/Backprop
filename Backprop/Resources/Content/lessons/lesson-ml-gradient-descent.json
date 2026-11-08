@@ -1,0 +1,57 @@
+{
+  "id": "ml-gradient-descent",
+  "title": "Gradient descent",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "Most models don't have a closed-form solution, so we search for good weights. **Gradient descent** repeatedly steps downhill on the loss:\n\nw ← w − η · ∂L/∂w"
+    },
+    {
+      "type": "text",
+      "markdown": "The **learning rate** η sets the step size. Too small and training crawls; too large and each step overshoots the minimum."
+    },
+    {
+      "type": "widget",
+      "widget": "gradientDescent",
+      "caption": "The loss here is L(w) = (w − 3)² + 1, with its minimum at w = 3. Step through, then try learning rates above 1.0."
+    },
+    {
+      "type": "text",
+      "markdown": "For this loss the gradient is 2(w − 3), so each step multiplies the distance to the minimum by (1 − 2η). Any η between 0 and 1 converges; above 1 the distance grows every step and training diverges."
+    },
+    {
+      "type": "quiz",
+      "question": "Training loss is bouncing around and growing. What's the most likely fix?",
+      "choices": [
+        "Increase the learning rate",
+        "Decrease the learning rate",
+        "Add more data points"
+      ],
+      "answerIndex": 1,
+      "explanation": "Growing, oscillating loss is the classic sign of a learning rate that overshoots."
+    },
+    {
+      "type": "quiz",
+      "question": "Gradient descent moves the weights…",
+      "choices": [
+        "In the direction of the gradient",
+        "Opposite to the gradient",
+        "Randomly"
+      ],
+      "answerIndex": 1,
+      "explanation": "The gradient points uphill, so we subtract it to go downhill."
+    },
+    {
+      "type": "quiz",
+      "question": "For L(w) = (w − 3)² + 1 with η = 0.5, you start at w = 0. Where are you after one step?",
+      "choices": [
+        "w = 3",
+        "w = 6",
+        "w = 1.5"
+      ],
+      "answerIndex": 0,
+      "explanation": "The gradient at 0 is 2(0 − 3) = −6, so w = 0 − 0.5 × (−6) = 3. With η = 0.5, the distance is multiplied by 1 − 2η = 0, so you land right on the minimum."
+    }
+  ]
+}

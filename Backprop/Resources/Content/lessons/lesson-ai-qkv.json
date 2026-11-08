@@ -1,0 +1,56 @@
+{
+  "id": "ai-qkv",
+  "title": "Queries, keys and values",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "Attention gives each token three vectors, made by multiplying its embedding by three learned matrices: a **query** (what am I looking for?), a **key** (what do I contain?) and a **value** (what do I pass on?)."
+    },
+    {
+      "type": "text",
+      "markdown": "The relevance of token j to token i is the dot product of i's query with j's key. Scores go through softmax to become weights, and the output is the weighted sum of the values:\n\nAttention(Q, K, V) = softmax(Q·Kᵀ / √d) · V"
+    },
+    {
+      "type": "text",
+      "markdown": "Why divide by √d, the square root of the key dimension? Dot products grow with dimension, and huge scores push softmax into near one-hot outputs with tiny gradients. Scaling keeps them in a healthy range."
+    },
+    {
+      "type": "text",
+      "markdown": "In models that generate text, a **causal mask** stops each token from attending to later tokens, so the model can't peek at the words it's supposed to predict."
+    },
+    {
+      "type": "quiz",
+      "question": "In attention, the weights for token i come from comparing…",
+      "choices": [
+        "Its query with every token's key",
+        "Its key with its own value",
+        "Its value with other values"
+      ],
+      "answerIndex": 0,
+      "explanation": "Query–key dot products produce the scores; values are what gets mixed."
+    },
+    {
+      "type": "quiz",
+      "question": "Why scale attention scores by 1/√d?",
+      "choices": [
+        "To stop large dot products from saturating softmax",
+        "To normalize the values to length 1",
+        "To make the model smaller"
+      ],
+      "answerIndex": 0,
+      "explanation": "Unscaled scores grow with dimension and make softmax too peaked."
+    },
+    {
+      "type": "quiz",
+      "question": "What does a causal mask prevent?",
+      "choices": [
+        "Tokens attending to future positions",
+        "Attention to the first token",
+        "Tokens attending to themselves"
+      ],
+      "answerIndex": 0,
+      "explanation": "During generation the future isn't known, so training mustn't use it either."
+    }
+  ]
+}

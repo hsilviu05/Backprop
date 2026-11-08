@@ -1,0 +1,56 @@
+{
+  "id": "df-data-types",
+  "title": "Kinds of data",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "Before any model sees your data, you need to know what *kind* of data each column holds. The type decides which summaries and models make sense."
+    },
+    {
+      "type": "text",
+      "markdown": "**Numerical** data is measured in numbers. It can be **continuous** (height, price, temperature) or **discrete** counts (number of children, page views)."
+    },
+    {
+      "type": "text",
+      "markdown": "**Categorical** data puts things in groups. **Nominal** categories have no order (country, color). **Ordinal** categories do have an order, but the gaps aren't equal (small / medium / large, star ratings)."
+    },
+    {
+      "type": "text",
+      "markdown": "Models need numbers, so categories get encoded. **One-hot encoding** turns a column like color = {red, green, blue} into three 0/1 columns. Replacing them with 1, 2, 3 instead would invent an order and distances that don't exist."
+    },
+    {
+      "type": "quiz",
+      "question": "A survey answer of \"disagree / neutral / agree\" is…",
+      "choices": [
+        "Continuous numerical",
+        "Ordinal categorical",
+        "Nominal categorical"
+      ],
+      "answerIndex": 1,
+      "explanation": "The answers have a natural order, but the \"distance\" between them isn't measured, so they are ordinal."
+    },
+    {
+      "type": "quiz",
+      "question": "Why not encode country as 1 = France, 2 = Japan, 3 = Brazil?",
+      "choices": [
+        "It implies Brazil is \"bigger\" than France and that the gaps are equal",
+        "Numbers take more memory than text",
+        "Models can't read integers"
+      ],
+      "answerIndex": 0,
+      "explanation": "Integer codes impose an order and spacing that a linear model will take literally. One-hot encoding avoids that."
+    },
+    {
+      "type": "quiz",
+      "question": "The number of support tickets per day is…",
+      "choices": [
+        "Continuous numerical",
+        "Ordinal categorical",
+        "Discrete numerical"
+      ],
+      "answerIndex": 2,
+      "explanation": "It's a count: whole numbers you can do arithmetic on, so it's discrete numerical data."
+    }
+  ]
+}

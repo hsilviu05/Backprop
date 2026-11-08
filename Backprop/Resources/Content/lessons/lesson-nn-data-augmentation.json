@@ -1,0 +1,56 @@
+{
+  "id": "nn-data-augmentation",
+  "title": "Data augmentation",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "More data is the best regularizer, and **data augmentation** creates more from what you have by applying label-preserving changes."
+    },
+    {
+      "type": "text",
+      "markdown": "For images: random crops, horizontal flips, small rotations, color and brightness jitter. For audio: adding noise or shifting pitch. For text: it's harder, but paraphrasing and back-translation are used."
+    },
+    {
+      "type": "text",
+      "markdown": "The transformation must not change the label. Flipping a cat photo horizontally is fine; rotating a handwritten 6 by 180 degrees turns it into a 9."
+    },
+    {
+      "type": "text",
+      "markdown": "Apply augmentation to **training** data only. Validation and test images should look like the real data the model will see."
+    },
+    {
+      "type": "quiz",
+      "question": "Which augmentation is risky for a handwritten digit classifier?",
+      "choices": [
+        "Slight brightness changes",
+        "180-degree rotations",
+        "Small shifts"
+      ],
+      "answerIndex": 1,
+      "explanation": "A rotated 6 looks like a 9, so the label is no longer correct."
+    },
+    {
+      "type": "quiz",
+      "question": "Augmentation should be applied to…",
+      "choices": [
+        "Training data only",
+        "Test data only",
+        "Both, always"
+      ],
+      "answerIndex": 0,
+      "explanation": "Evaluation should reflect real, unmodified inputs."
+    },
+    {
+      "type": "quiz",
+      "question": "Why does augmentation reduce overfitting?",
+      "choices": [
+        "It increases the learning rate",
+        "It makes the network smaller",
+        "The model sees more varied examples, so memorizing specific images doesn't work"
+      ],
+      "answerIndex": 2,
+      "explanation": "Variation forces the network to learn features that hold up across changes."
+    }
+  ]
+}

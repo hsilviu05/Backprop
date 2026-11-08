@@ -1,0 +1,56 @@
+{
+  "id": "nn-forward-pass",
+  "title": "The forward pass",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "The **forward pass** pushes an input through the network, layer by layer, to get a prediction. Each neuron computes z = w·x + b, then applies its activation."
+    },
+    {
+      "type": "text",
+      "markdown": "Example: one ReLU neuron with weights (0.5, −1), bias 1, input (1, 2). z = 0.5·1 + (−1)·2 + 1 = **−0.5**, and ReLU(−0.5) = **0**."
+    },
+    {
+      "type": "text",
+      "markdown": "Change the input to (4, 1): z = 2 − 1 + 1 = 2, and ReLU(2) = **2**. Every neuron in every layer does this, usually computed for a whole batch at once as matrix multiplication."
+    },
+    {
+      "type": "text",
+      "markdown": "After the forward pass, the loss compares the prediction to the label. Training then needs the **gradient** of that loss with respect to every weight. That's the job of backpropagation."
+    },
+    {
+      "type": "quiz",
+      "question": "Neuron weights (1, 2), bias −1, input (3, 1), ReLU. Output?",
+      "choices": [
+        "3",
+        "4",
+        "6"
+      ],
+      "answerIndex": 1,
+      "explanation": "z = 3 + 2 − 1 = 4, and ReLU(4) = 4."
+    },
+    {
+      "type": "quiz",
+      "question": "Same neuron, input (−2, 0). Output?",
+      "choices": [
+        "−3",
+        "−2",
+        "0"
+      ],
+      "answerIndex": 2,
+      "explanation": "z = −2 + 0 − 1 = −3, and ReLU clips it to 0."
+    },
+    {
+      "type": "quiz",
+      "question": "Why compute forward passes for a batch as a matrix multiplication?",
+      "choices": [
+        "It's far faster on GPUs and vectorized hardware",
+        "It changes the result",
+        "It's required by the chain rule"
+      ],
+      "answerIndex": 0,
+      "explanation": "Matrix operations run in parallel on modern hardware."
+    }
+  ]
+}

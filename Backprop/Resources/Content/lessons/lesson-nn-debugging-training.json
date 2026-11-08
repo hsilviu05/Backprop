@@ -1,0 +1,56 @@
+{
+  "id": "nn-debugging-training",
+  "title": "Debugging training",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "Neural networks fail quietly: no error message, just a bad model. A few habits catch most problems."
+    },
+    {
+      "type": "text",
+      "markdown": "**Overfit a tiny batch first.** A healthy network should drive the loss near zero on 10 examples. If it can't, there's a bug in the data, labels, loss or architecture."
+    },
+    {
+      "type": "text",
+      "markdown": "**Read the loss curve.** Loss stuck flat from the start: learning rate too low, or broken gradients. Loss bouncing wildly or turning NaN: learning rate too high. Training loss falling while validation rises: overfitting."
+    },
+    {
+      "type": "text",
+      "markdown": "**Check your data.** Plot a few inputs with their labels after preprocessing. Shuffled labels, wrong normalization and train/test leakage cause more failures than exotic architecture problems."
+    },
+    {
+      "type": "quiz",
+      "question": "Your model can't reach low loss even on 10 training examples. The most likely cause is…",
+      "choices": [
+        "Too little regularization",
+        "The test set is too small",
+        "A bug in the data, loss or model"
+      ],
+      "answerIndex": 2,
+      "explanation": "Any working network should memorize 10 examples easily."
+    },
+    {
+      "type": "quiz",
+      "question": "Loss oscillates and occasionally becomes NaN. First thing to try?",
+      "choices": [
+        "Add more layers",
+        "Raise the learning rate",
+        "Lower the learning rate"
+      ],
+      "answerIndex": 2,
+      "explanation": "Unstable, exploding loss usually means steps are too large."
+    },
+    {
+      "type": "quiz",
+      "question": "Why plot inputs and labels after preprocessing?",
+      "choices": [
+        "To catch bugs like mismatched labels or broken normalization",
+        "It's required by most frameworks",
+        "To make training faster"
+      ],
+      "answerIndex": 0,
+      "explanation": "Many failures are data problems you can spot by eye."
+    }
+  ]
+}

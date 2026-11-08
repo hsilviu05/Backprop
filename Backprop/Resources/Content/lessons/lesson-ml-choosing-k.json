@@ -1,0 +1,56 @@
+{
+  "id": "ml-choosing-k",
+  "title": "Choosing the number of clusters",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "k-means needs *k* up front. A common measure is **inertia**: the sum of squared distances from each point to its centroid."
+    },
+    {
+      "type": "text",
+      "markdown": "Inertia *always* drops as k grows (with k = number of points it's zero), so you can't just minimize it. The **elbow method** plots inertia against k and looks for the bend where adding clusters stops helping much."
+    },
+    {
+      "type": "text",
+      "markdown": "The **silhouette score** compares how close each point is to its own cluster versus the next nearest cluster. It ranges from −1 to 1; higher is better, and values near 0 mean overlapping clusters."
+    },
+    {
+      "type": "text",
+      "markdown": "Often the best k comes from the use case: if marketing can run 4 campaigns, 4 segments may be the right answer."
+    },
+    {
+      "type": "quiz",
+      "question": "Why can't you choose k by minimizing inertia?",
+      "choices": [
+        "Inertia increases with k",
+        "Inertia keeps decreasing as k increases",
+        "Inertia can't be computed"
+      ],
+      "answerIndex": 1,
+      "explanation": "More clusters always fit the data at least as tightly, down to zero at one point per cluster."
+    },
+    {
+      "type": "quiz",
+      "question": "A silhouette score near 1 means…",
+      "choices": [
+        "The clustering is random",
+        "The clusters overlap heavily",
+        "Points are well matched to their own cluster and far from others"
+      ],
+      "answerIndex": 2,
+      "explanation": "High silhouette means tight, well-separated clusters."
+    },
+    {
+      "type": "quiz",
+      "question": "The elbow method looks for…",
+      "choices": [
+        "The k after which inertia improves only slowly",
+        "The k with the highest inertia",
+        "The k where inertia is exactly zero"
+      ],
+      "answerIndex": 0,
+      "explanation": "The bend shows where extra clusters stop paying off."
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "id": "df-independence",
+  "title": "Independence",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "Two events are **independent** if knowing one tells you nothing about the other: P(A | B) = P(A)."
+    },
+    {
+      "type": "text",
+      "markdown": "For independent events, multiply: P(A and B) = P(A) · P(B). Two fair coin flips both landing heads: 0.5 × 0.5 = **0.25**."
+    },
+    {
+      "type": "text",
+      "markdown": "Past coin flips don't influence the next one. Believing that \"tails is due\" after five heads is the **gambler's fallacy**: the next flip is still 50/50."
+    },
+    {
+      "type": "text",
+      "markdown": "Many ML methods assume data points are **independent and identically distributed (i.i.d.)**. Time series, repeated measurements of the same person, or duplicated rows break that assumption and can make results look better than they are."
+    },
+    {
+      "type": "quiz",
+      "question": "A fair coin lands heads 5 times in a row. P(heads on the 6th flip) is…",
+      "choices": [
+        "Exactly 0.5",
+        "Less than 0.5, tails is due",
+        "More than 0.5, it's on a streak"
+      ],
+      "answerIndex": 0,
+      "explanation": "Flips are independent, so history doesn't change the next flip."
+    },
+    {
+      "type": "quiz",
+      "question": "Two independent servers each fail on a given day with probability 0.1. P(both fail)?",
+      "choices": [
+        "0.01",
+        "0.1",
+        "0.2"
+      ],
+      "answerIndex": 0,
+      "explanation": "Independent events multiply: 0.1 × 0.1 = 0.01."
+    },
+    {
+      "type": "quiz",
+      "question": "Which dataset most likely breaks the i.i.d. assumption?",
+      "choices": [
+        "Randomly sampled survey responses",
+        "Daily stock prices, one row per day",
+        "Independent coin flips"
+      ],
+      "answerIndex": 1,
+      "explanation": "Each day's price depends on the day before, so rows aren't independent."
+    }
+  ]
+}

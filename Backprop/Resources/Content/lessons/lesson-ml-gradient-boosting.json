@@ -1,0 +1,56 @@
+{
+  "id": "ml-gradient-boosting",
+  "title": "Gradient boosting",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "**Boosting** builds trees *in sequence*. Each new, usually shallow tree is trained to fix the errors of the ensemble so far."
+    },
+    {
+      "type": "text",
+      "markdown": "For squared error, \"the errors\" are literally the residuals: tree 2 predicts what tree 1 got wrong, tree 3 predicts what's still left, and so on. The general version fits the negative gradient of the loss, hence **gradient** boosting."
+    },
+    {
+      "type": "text",
+      "markdown": "Each tree's contribution is scaled by a **learning rate** (shrinkage), like 0.1. Smaller rates need more trees but usually generalize better. Too many trees can overfit, so use early stopping on validation data."
+    },
+    {
+      "type": "text",
+      "markdown": "Libraries like **XGBoost**, **LightGBM** and **CatBoost** make gradient boosting a top performer on tabular data, often beating neural networks there."
+    },
+    {
+      "type": "quiz",
+      "question": "How does boosting differ from a random forest?",
+      "choices": [
+        "Boosting uses only one tree",
+        "Boosting trains trees in sequence, each correcting the previous ones",
+        "Boosting trains trees independently in parallel"
+      ],
+      "answerIndex": 1,
+      "explanation": "Forests average independent trees; boosting adds trees that fix earlier errors."
+    },
+    {
+      "type": "quiz",
+      "question": "For squared-error loss, each new tree in gradient boosting is trained to predict…",
+      "choices": [
+        "The original labels",
+        "The current residuals",
+        "Random noise"
+      ],
+      "answerIndex": 1,
+      "explanation": "Residuals are the negative gradient of squared error, so each tree fits what's left over."
+    },
+    {
+      "type": "quiz",
+      "question": "You lower the learning rate from 0.3 to 0.03. What usually changes?",
+      "choices": [
+        "You need more trees, but generalization often improves",
+        "Nothing, it doesn't matter",
+        "You need fewer trees"
+      ],
+      "answerIndex": 0,
+      "explanation": "Smaller steps mean each tree contributes less, so more trees are needed."
+    }
+  ]
+}

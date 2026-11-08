@@ -1,0 +1,56 @@
+{
+  "id": "ai-embeddings",
+  "title": "Embeddings",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "Each token ID is mapped to an **embedding**: a list of numbers (a vector), with hundreds to thousands of dimensions. These vectors are learned during training."
+    },
+    {
+      "type": "text",
+      "markdown": "Training pushes words used in similar contexts toward similar vectors. \"cat\" ends up near \"dog\", and far from \"carburetor\"."
+    },
+    {
+      "type": "text",
+      "markdown": "Directions can carry meaning. The classic word2vec result (2013): vector(\"king\") − vector(\"man\") + vector(\"woman\") lands close to vector(\"queen\"). Results like this are approximate and hand-picked, but show that structure emerges."
+    },
+    {
+      "type": "text",
+      "markdown": "Whole sentences, documents and images can be embedded too. Two texts with similar meaning get nearby vectors even if they share no words, like \"How do I reset my password?\" and \"I forgot my login\"."
+    },
+    {
+      "type": "quiz",
+      "question": "What is an embedding?",
+      "choices": [
+        "A learned vector of numbers representing an item",
+        "A compressed zip file of text",
+        "A list of synonyms"
+      ],
+      "answerIndex": 0,
+      "explanation": "Embeddings map tokens, texts or images to vectors in a shared space."
+    },
+    {
+      "type": "quiz",
+      "question": "Two sentences with the same meaning but no shared words will usually have embeddings that are…",
+      "choices": [
+        "Far apart",
+        "Close together",
+        "Identical"
+      ],
+      "answerIndex": 1,
+      "explanation": "Embeddings capture meaning, not just shared words, though they're rarely identical."
+    },
+    {
+      "type": "quiz",
+      "question": "How are word embeddings usually obtained?",
+      "choices": [
+        "Typed in by linguists",
+        "Learned from data during training",
+        "Assigned randomly and kept fixed"
+      ],
+      "answerIndex": 1,
+      "explanation": "They start random and are adjusted by training to be useful."
+    }
+  ]
+}

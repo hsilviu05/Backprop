@@ -1,0 +1,56 @@
+{
+  "id": "df-confidence-intervals",
+  "title": "Confidence intervals",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "A single number like \"average session = 12 minutes\" hides uncertainty. A **confidence interval** gives a range of plausible values for the true quantity."
+    },
+    {
+      "type": "text",
+      "markdown": "For a mean with a large sample, a 95% interval is about:\n\nmean ± 1.96 × SE"
+    },
+    {
+      "type": "text",
+      "markdown": "Example: sample mean 12, standard error 0.5. The 95% interval is about 12 ± 0.98, so roughly **11.0 to 13.0** minutes."
+    },
+    {
+      "type": "text",
+      "markdown": "The precise meaning: if you repeated the sampling many times, about 95% of the intervals built this way would contain the true value. It's a statement about the *procedure*, not a 95% chance for one particular interval."
+    },
+    {
+      "type": "quiz",
+      "question": "Sample mean 50, standard error 2. Roughly what is the 95% confidence interval?",
+      "choices": [
+        "44 to 56",
+        "46 to 54",
+        "48 to 52"
+      ],
+      "answerIndex": 1,
+      "explanation": "1.96 × 2 ≈ 3.9, so about 46.1 to 53.9."
+    },
+    {
+      "type": "quiz",
+      "question": "How does a larger sample size change the confidence interval?",
+      "choices": [
+        "It gets narrower",
+        "It stays the same width",
+        "It gets wider"
+      ],
+      "answerIndex": 0,
+      "explanation": "A larger n means a smaller standard error, so a narrower interval."
+    },
+    {
+      "type": "quiz",
+      "question": "Compared with a 95% interval, a 99% interval from the same data is…",
+      "choices": [
+        "Identical",
+        "Narrower",
+        "Wider"
+      ],
+      "answerIndex": 2,
+      "explanation": "To be more confident of capturing the true value, the interval must cover more ground."
+    }
+  ]
+}

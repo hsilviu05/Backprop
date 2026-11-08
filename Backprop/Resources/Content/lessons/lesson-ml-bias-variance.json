@@ -1,0 +1,56 @@
+{
+  "id": "ml-bias-variance",
+  "title": "The bias-variance trade-off",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "A model's error on new data comes from three sources: **bias**, **variance**, and **irreducible noise**."
+    },
+    {
+      "type": "text",
+      "markdown": "**Bias** is error from wrong assumptions: a straight line fit to a curve misses consistently. **Variance** is error from sensitivity to the particular training sample: a very deep tree changes a lot if you resample the data."
+    },
+    {
+      "type": "text",
+      "markdown": "For squared error, expected test error = bias² + variance + noise. Simple models tend toward high bias; flexible models toward high variance. The sweet spot balances both."
+    },
+    {
+      "type": "text",
+      "markdown": "Noise is the floor: no model can predict randomness in the labels. And more data is one of the few things that reduces variance without adding bias."
+    },
+    {
+      "type": "quiz",
+      "question": "A linear model on a clearly curved relationship mostly suffers from…",
+      "choices": [
+        "High variance",
+        "Irreducible noise",
+        "High bias"
+      ],
+      "answerIndex": 2,
+      "explanation": "Its assumption (a straight line) is wrong, so it misses consistently."
+    },
+    {
+      "type": "quiz",
+      "question": "Which change usually reduces variance without increasing bias?",
+      "choices": [
+        "Removing features at random",
+        "Getting more training data",
+        "Using a deeper tree"
+      ],
+      "answerIndex": 1,
+      "explanation": "More data stabilizes a flexible model's fit without restricting it."
+    },
+    {
+      "type": "quiz",
+      "question": "Irreducible error comes from…",
+      "choices": [
+        "A bad learning rate",
+        "Too few features in the model",
+        "Randomness in the data itself that no model can predict"
+      ],
+      "answerIndex": 2,
+      "explanation": "It's the noise floor that remains even with the perfect model."
+    }
+  ]
+}

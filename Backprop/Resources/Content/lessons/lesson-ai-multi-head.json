@@ -1,0 +1,56 @@
+{
+  "id": "ai-multi-head",
+  "title": "Multi-head attention",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "One attention pattern can't capture everything. One relationship might be \"which noun does this pronoun refer to\", another \"which word does this adjective describe\"."
+    },
+    {
+      "type": "text",
+      "markdown": "**Multi-head attention** runs several attention operations in parallel, each with its own query, key and value matrices. Their outputs are concatenated and mixed by one more linear layer."
+    },
+    {
+      "type": "text",
+      "markdown": "The original transformer used 8 heads with a model width of 512, so each head worked in 64 dimensions. Splitting the width keeps the total compute similar to one big head."
+    },
+    {
+      "type": "text",
+      "markdown": "Researchers have found heads that track things like previous-token patterns or copying earlier text, but many heads are hard to interpret, and some can be removed with little effect."
+    },
+    {
+      "type": "quiz",
+      "question": "What do the different heads in multi-head attention have?",
+      "choices": [
+        "The same weights, repeated",
+        "Their own query, key and value projections",
+        "No parameters"
+      ],
+      "answerIndex": 1,
+      "explanation": "Separate projections let each head learn a different pattern."
+    },
+    {
+      "type": "quiz",
+      "question": "A model with width 768 and 12 heads gives each head how many dimensions?",
+      "choices": [
+        "12",
+        "64",
+        "768"
+      ],
+      "answerIndex": 1,
+      "explanation": "768 / 12 = 64."
+    },
+    {
+      "type": "quiz",
+      "question": "What happens to the outputs of all heads?",
+      "choices": [
+        "Only the best head is kept",
+        "They're averaged into a single number",
+        "They're concatenated and passed through a linear layer"
+      ],
+      "answerIndex": 2,
+      "explanation": "Concatenation plus a projection combines what each head found."
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "id": "df-normal",
+  "title": "The normal distribution",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "The **normal** (Gaussian) distribution is the familiar bell curve, described by just two numbers: its mean μ and standard deviation σ."
+    },
+    {
+      "type": "text",
+      "markdown": "A handy rule of thumb (the **68–95–99.7 rule**): about 68% of values fall within 1σ of the mean, 95% within 2σ, and 99.7% within 3σ."
+    },
+    {
+      "type": "text",
+      "markdown": "It shows up everywhere because of the **central limit theorem**: averages of many independent samples tend toward a normal distribution, whatever the original distribution looked like (as long as its variance is finite)."
+    },
+    {
+      "type": "quiz",
+      "question": "Heights have mean 170 cm and σ = 10 cm (roughly normal). About what share of people are between 150 and 190 cm?",
+      "choices": [
+        "68%",
+        "95%",
+        "99.7%"
+      ],
+      "answerIndex": 1,
+      "explanation": "150 to 190 cm is 170 ± 2σ, which covers about 95%."
+    },
+    {
+      "type": "quiz",
+      "question": "What does the central limit theorem say?",
+      "choices": [
+        "All data is normally distributed",
+        "Averages of many independent samples tend toward normal",
+        "Outliers never happen"
+      ],
+      "answerIndex": 1,
+      "explanation": "It's about sample means, not the raw data itself."
+    },
+    {
+      "type": "quiz",
+      "question": "A value 3 standard deviations above the mean of a normal distribution is…",
+      "choices": [
+        "Typical: about a third of values are that high",
+        "Rare: only about 0.15% of values are that high or higher",
+        "Impossible"
+      ],
+      "answerIndex": 1,
+      "explanation": "99.7% lie within 3σ, leaving 0.3% split between both tails, about 0.15% on each side."
+    }
+  ]
+}

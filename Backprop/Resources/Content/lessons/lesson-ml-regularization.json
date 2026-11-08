@@ -1,0 +1,56 @@
+{
+  "id": "ml-regularization",
+  "title": "Regularization",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "**Regularization** fights overfitting by adding a penalty on large weights to the loss:\n\nloss = data loss + λ × penalty"
+    },
+    {
+      "type": "text",
+      "markdown": "**L2 (ridge)** penalizes the sum of squared weights. It shrinks all weights toward zero smoothly, but rarely to exactly zero."
+    },
+    {
+      "type": "text",
+      "markdown": "**L1 (lasso)** penalizes the sum of absolute weights. It tends to push some weights to **exactly zero**, which acts like automatic feature selection."
+    },
+    {
+      "type": "text",
+      "markdown": "λ controls the strength. λ = 0 is no regularization; a huge λ squashes the weights so much the model underfits. You pick λ with validation data. Scale your features first, or the penalty treats them unevenly."
+    },
+    {
+      "type": "quiz",
+      "question": "You want a model that ignores irrelevant features entirely. Which penalty helps most?",
+      "choices": [
+        "L1",
+        "No penalty",
+        "L2"
+      ],
+      "answerIndex": 0,
+      "explanation": "L1 can set weights exactly to zero, removing features from the model."
+    },
+    {
+      "type": "quiz",
+      "question": "Increasing λ a lot will most likely cause…",
+      "choices": [
+        "No change",
+        "Overfitting",
+        "Underfitting"
+      ],
+      "answerIndex": 2,
+      "explanation": "A strong penalty forces weights near zero, leaving a model too simple for the data."
+    },
+    {
+      "type": "quiz",
+      "question": "How should you choose λ?",
+      "choices": [
+        "Always use 1",
+        "Pick the value with the best training score",
+        "Compare values on validation data"
+      ],
+      "answerIndex": 2,
+      "explanation": "Training score always favors λ = 0, so use held-out data."
+    }
+  ]
+}

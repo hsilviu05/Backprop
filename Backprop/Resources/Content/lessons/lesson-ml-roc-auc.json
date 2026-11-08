@@ -1,0 +1,56 @@
+{
+  "id": "ml-roc-auc",
+  "title": "ROC curves and AUC",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "Most classifiers output a score, and the threshold turns it into yes/no. A **ROC curve** shows the trade-off across *every* threshold."
+    },
+    {
+      "type": "text",
+      "markdown": "It plots the **true positive rate** (recall) against the **false positive rate** = FP / (FP + TN). A strict threshold sits near (0, 0); a lenient one near (1, 1)."
+    },
+    {
+      "type": "text",
+      "markdown": "The **AUC** (area under the ROC curve) summarizes it in one number. 1.0 is perfect, 0.5 is random guessing. AUC equals the probability that a random positive gets a higher score than a random negative."
+    },
+    {
+      "type": "text",
+      "markdown": "With heavy class imbalance, ROC can look rosy because FPR stays small when negatives are plentiful. A **precision-recall curve** is often more informative there."
+    },
+    {
+      "type": "quiz",
+      "question": "A classifier has AUC = 0.5. It's…",
+      "choices": [
+        "Always wrong",
+        "Perfect",
+        "No better than random ranking"
+      ],
+      "answerIndex": 2,
+      "explanation": "0.5 is the diagonal line of a random guess."
+    },
+    {
+      "type": "quiz",
+      "question": "The false positive rate is…",
+      "choices": [
+        "FP / (FP + TP)",
+        "FP / (FP + TN)",
+        "FN / (FN + TP)"
+      ],
+      "answerIndex": 1,
+      "explanation": "Of all actual negatives, the share wrongly flagged positive."
+    },
+    {
+      "type": "quiz",
+      "question": "AUC = 0.9 means that a random positive is scored above a random negative…",
+      "choices": [
+        "10% of the time",
+        "50% of the time",
+        "90% of the time"
+      ],
+      "answerIndex": 2,
+      "explanation": "That's the ranking interpretation of AUC."
+    }
+  ]
+}

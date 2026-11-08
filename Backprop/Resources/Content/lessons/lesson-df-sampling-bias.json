@@ -1,0 +1,55 @@
+{
+  "id": "df-sampling-bias",
+  "title": "Sampling bias",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "A huge sample doesn't help if it's collected the wrong way. **Sampling bias** happens when some members of the population are more likely to be included than others."
+    },
+    {
+      "type": "text",
+      "markdown": "**Survivorship bias**: in WWII, analysts studied bullet holes on returning bombers. Statistician Abraham Wald pointed out that planes hit in other places, like the engines, didn't come back. The missing data was the important data."
+    },
+    {
+      "type": "text",
+      "markdown": "**Selection bias** in ML: a loan model trained only on approved applicants never sees what happens to people who were rejected. A medical model trained at one hospital may fail on another hospital's patients."
+    },
+    {
+      "type": "text",
+      "markdown": "Models learn the data they're given, biases included. Ask: who or what is missing from this dataset, and why?"
+    },
+    {
+      "type": "quiz",
+      "question": "An app surveys its current users and finds 95% love it. What's the main problem?",
+      "choices": [
+        "Surveys can't measure opinions",
+        "The sample is too small",
+        "People who disliked the app likely already left"
+      ],
+      "answerIndex": 2,
+      "explanation": "That's survivorship bias: unhappy users aren't around to answer."
+    },
+    {
+      "type": "quiz",
+      "question": "A face-detection model works badly on darker skin tones. A likely cause is…",
+      "choices": [
+        "Cameras can't capture darker skin",
+        "The model was trained for too long",
+        "The training data under-represented those faces"
+      ],
+      "answerIndex": 2,
+      "explanation": "Under-representation in training data is a well-documented cause of this kind of performance gap."
+    },
+    {
+      "type": "quiz",
+      "question": "Collecting more data the same way will fix sampling bias.",
+      "choices": [
+        "True",
+        "False"
+      ],
+      "answerIndex": 1,
+      "explanation": "More biased data gives you a more precise estimate of the wrong thing."
+    }
+  ]
+}

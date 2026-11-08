@@ -1,0 +1,56 @@
+{
+  "id": "nn-xor-nonlinearity",
+  "title": "Why non-linearity matters",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "XOR outputs 1 when exactly one input is 1: (0,1) and (1,0) give 1, while (0,0) and (1,1) give 0. Plot those four points and no single straight line separates the 1s from the 0s."
+    },
+    {
+      "type": "text",
+      "markdown": "Add a **hidden layer**: one neuron can compute OR, another AND, and the output fires for \"OR but not AND\". That's XOR. Hidden layers let networks build new features out of old ones."
+    },
+    {
+      "type": "text",
+      "markdown": "The non-linear activation is essential. Without it, stacking layers is pointless: two linear layers W₂(W₁x) equal one linear layer (W₂W₁)x. Any depth of purely linear layers collapses to a single straight-line model."
+    },
+    {
+      "type": "text",
+      "markdown": "With non-linear activations and enough hidden units, even one hidden layer can approximate any continuous function on a bounded range (the **universal approximation theorem**). It doesn't promise you can *learn* it easily, though."
+    },
+    {
+      "type": "quiz",
+      "question": "Why can't a single perceptron learn XOR?",
+      "choices": [
+        "Perceptrons can't output 1",
+        "XOR's classes can't be separated by one straight line",
+        "XOR has too many inputs"
+      ],
+      "answerIndex": 1,
+      "explanation": "XOR isn't linearly separable."
+    },
+    {
+      "type": "quiz",
+      "question": "A 10-layer network with no activation functions is equivalent to…",
+      "choices": [
+        "A single linear layer",
+        "A decision tree",
+        "A 10-layer non-linear network"
+      ],
+      "answerIndex": 0,
+      "explanation": "Composing linear maps gives another linear map."
+    },
+    {
+      "type": "quiz",
+      "question": "The universal approximation theorem says a network with one hidden layer…",
+      "choices": [
+        "Can approximate any continuous function given enough hidden units",
+        "Will always train to the best solution",
+        "Needs no data"
+      ],
+      "answerIndex": 0,
+      "explanation": "It's about what's representable, not about how easy it is to train."
+    }
+  ]
+}

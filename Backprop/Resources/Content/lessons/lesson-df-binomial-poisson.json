@@ -1,0 +1,56 @@
+{
+  "id": "df-binomial-poisson",
+  "title": "Binomial and Poisson",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "The **binomial** distribution counts successes in *n* independent yes/no trials, each with success probability *p*. Mean = n·p, variance = n·p·(1 − p)."
+    },
+    {
+      "type": "text",
+      "markdown": "Example: 10 fair coin flips. The expected number of heads is 5, but P(exactly 5 heads) = 252/1024 ≈ **0.25**. The single most likely outcome still happens only a quarter of the time."
+    },
+    {
+      "type": "text",
+      "markdown": "The **Poisson** distribution counts events in a fixed interval when they happen independently at an average rate λ: calls per hour, typos per page, server errors per minute."
+    },
+    {
+      "type": "text",
+      "markdown": "A Poisson variable has mean = variance = λ. If your counts have a variance much larger than their mean, the data is **overdispersed** and a Poisson model will be overconfident."
+    },
+    {
+      "type": "quiz",
+      "question": "A free-throw shooter makes 80% of shots and takes 20. What's the expected number made?",
+      "choices": [
+        "4",
+        "16",
+        "18"
+      ],
+      "answerIndex": 1,
+      "explanation": "n·p = 20 × 0.8 = 16."
+    },
+    {
+      "type": "quiz",
+      "question": "Which situation fits a Poisson distribution best?",
+      "choices": [
+        "Number of website signups per hour",
+        "Heights of adults",
+        "Whether a single email is spam"
+      ],
+      "answerIndex": 0,
+      "explanation": "Poisson models counts of independent events over an interval."
+    },
+    {
+      "type": "quiz",
+      "question": "Customer calls average 4 per hour and follow a Poisson distribution. What's the variance of calls per hour?",
+      "choices": [
+        "2",
+        "4",
+        "16"
+      ],
+      "answerIndex": 1,
+      "explanation": "For a Poisson distribution, variance equals the mean λ."
+    }
+  ]
+}

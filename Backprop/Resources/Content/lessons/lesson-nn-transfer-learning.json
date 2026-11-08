@@ -1,0 +1,56 @@
+{
+  "id": "nn-transfer-learning",
+  "title": "Transfer learning",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "Training a big vision model from scratch needs millions of images. **Transfer learning** starts from a model already trained on a large dataset like ImageNet and adapts it."
+    },
+    {
+      "type": "text",
+      "markdown": "The pretrained layers already detect edges, textures and shapes that are useful for almost any image task. Replace the final layer with one for your classes."
+    },
+    {
+      "type": "text",
+      "markdown": "With little data, **freeze** the pretrained layers and train only the new head. With more data, **fine-tune** some or all layers too, using a small learning rate so you don't wreck the useful features."
+    },
+    {
+      "type": "text",
+      "markdown": "The same idea powers modern NLP: pretrained language models get fine-tuned or prompted for specific tasks."
+    },
+    {
+      "type": "quiz",
+      "question": "You have 500 labeled X-ray images. Best starting point?",
+      "choices": [
+        "Use k-means on raw pixels",
+        "Train a large CNN from scratch",
+        "Start from a pretrained model and train a new final layer"
+      ],
+      "answerIndex": 2,
+      "explanation": "Pretrained features let you get good results from small datasets."
+    },
+    {
+      "type": "quiz",
+      "question": "Why use a small learning rate when fine-tuning pretrained layers?",
+      "choices": [
+        "Large updates could destroy the useful features already learned",
+        "Small learning rates train faster",
+        "Pretrained layers can't be changed"
+      ],
+      "answerIndex": 0,
+      "explanation": "You want to nudge the weights, not overwrite them."
+    },
+    {
+      "type": "quiz",
+      "question": "What usually gets replaced in transfer learning?",
+      "choices": [
+        "Nothing",
+        "The final output layer",
+        "The first convolution layer"
+      ],
+      "answerIndex": 1,
+      "explanation": "The original head predicts the old classes, so you swap in one for your task."
+    }
+  ]
+}

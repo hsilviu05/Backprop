@@ -1,0 +1,56 @@
+{
+  "id": "nn-layers",
+  "title": "Layers and parameters",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "A **dense** (fully connected) layer connects every input to every output neuron. Each output has one weight per input plus a bias."
+    },
+    {
+      "type": "text",
+      "markdown": "Parameter count = inputs × outputs + outputs. A layer from 784 inputs (a 28×28 image) to 128 neurons has 784 × 128 + 128 = **100,480** parameters."
+    },
+    {
+      "type": "text",
+      "markdown": "A network is a stack: the **input layer** (your features), one or more **hidden layers**, and an **output layer** sized for the task, like 10 neurons for 10 digit classes."
+    },
+    {
+      "type": "text",
+      "markdown": "**Width** is neurons per layer; **depth** is the number of layers. Deeper networks can build features in stages (edges → shapes → objects), which is why \"deep\" learning took off."
+    },
+    {
+      "type": "quiz",
+      "question": "A dense layer maps 10 inputs to 5 outputs. How many parameters does it have?",
+      "choices": [
+        "15",
+        "50",
+        "55"
+      ],
+      "answerIndex": 2,
+      "explanation": "10 × 5 weights + 5 biases = 55."
+    },
+    {
+      "type": "quiz",
+      "question": "To classify images into 10 categories, the output layer usually has…",
+      "choices": [
+        "1 neuron",
+        "As many neurons as pixels",
+        "10 neurons"
+      ],
+      "answerIndex": 2,
+      "explanation": "One output per class, then softmax turns them into probabilities."
+    },
+    {
+      "type": "quiz",
+      "question": "The number of layers in a network is its…",
+      "choices": [
+        "Batch size",
+        "Width",
+        "Depth"
+      ],
+      "answerIndex": 2,
+      "explanation": "Depth counts layers; width counts neurons in a layer."
+    }
+  ]
+}

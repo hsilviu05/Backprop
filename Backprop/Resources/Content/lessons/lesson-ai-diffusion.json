@@ -1,0 +1,56 @@
+{
+  "id": "ai-diffusion",
+  "title": "Diffusion models",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "Most modern image generators are **diffusion models**. Training takes real images, adds random noise in many small steps until only noise is left, and teaches a network to predict and remove the noise at each step."
+    },
+    {
+      "type": "text",
+      "markdown": "To generate, start from pure random noise and run the denoiser step by step. A picture gradually emerges, like a photo developing."
+    },
+    {
+      "type": "text",
+      "markdown": "**Text conditioning** steers the process: the denoiser also receives an embedding of the prompt, so \"a red bicycle in the snow\" pushes each step toward matching images."
+    },
+    {
+      "type": "text",
+      "markdown": "Running diffusion directly on millions of pixels is expensive, so **latent diffusion** (the idea behind Stable Diffusion) works in a compressed space learned by an autoencoder, then decodes the result into an image."
+    },
+    {
+      "type": "quiz",
+      "question": "How does a diffusion model generate a new image?",
+      "choices": [
+        "It retrieves the closest training image",
+        "It paints pixels left to right",
+        "It starts from random noise and removes noise step by step"
+      ],
+      "answerIndex": 2,
+      "explanation": "Generation reverses the noising process learned in training."
+    },
+    {
+      "type": "quiz",
+      "question": "What is the denoising network trained to predict?",
+      "choices": [
+        "The noise that was added to an image",
+        "The image's caption",
+        "The next pixel"
+      ],
+      "answerIndex": 0,
+      "explanation": "Predicting the noise lets the model subtract it."
+    },
+    {
+      "type": "quiz",
+      "question": "Why does latent diffusion work in a compressed space?",
+      "choices": [
+        "It removes the need for a text prompt",
+        "Pixels can't be noised",
+        "It's much cheaper than working on full-resolution pixels"
+      ],
+      "answerIndex": 2,
+      "explanation": "A smaller latent space makes each denoising step far less expensive."
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "id": "ai-prompting",
+  "title": "Prompting well",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "A prompt is the model's whole view of your task. Treat it like a brief for a smart colleague who knows nothing about your situation."
+    },
+    {
+      "type": "text",
+      "markdown": "**Be specific**: say who the audience is, what format you want, how long, and what to avoid. \"Summarize this for a busy executive in 3 bullet points\" beats \"summarize this\"."
+    },
+    {
+      "type": "text",
+      "markdown": "**Show examples** (few-shot prompting) when the format or style matters. **Give context**: paste the relevant document instead of hoping the model knows it. Asking the model to **think step by step** before answering often helps on multi-step problems."
+    },
+    {
+      "type": "text",
+      "markdown": "Iterate like an experiment: change one thing at a time and test on several inputs, not just one. A prompt that works once may fail on the next case."
+    },
+    {
+      "type": "quiz",
+      "question": "Which prompt is likely to give the most useful result?",
+      "choices": [
+        "\"Write about our product.\"",
+        "\"Make it good.\"",
+        "\"Write a 100-word App Store description of our habit app for busy parents, friendly tone, no emojis.\""
+      ],
+      "answerIndex": 2,
+      "explanation": "Audience, length, tone and constraints all steer the output."
+    },
+    {
+      "type": "quiz",
+      "question": "Including two or three input–output examples in a prompt is called…",
+      "choices": [
+        "Few-shot prompting",
+        "Fine-tuning",
+        "Tokenization"
+      ],
+      "answerIndex": 0,
+      "explanation": "The examples guide the model without changing its weights."
+    },
+    {
+      "type": "quiz",
+      "question": "The best way to check a new prompt is to…",
+      "choices": [
+        "Make it as long as possible",
+        "Test it on several varied inputs",
+        "Try it once and ship it"
+      ],
+      "answerIndex": 1,
+      "explanation": "Prompts can behave differently across cases, so test broadly."
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "id": "df-missing-data",
+  "title": "Missing data",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "Real data has holes: skipped survey questions, broken sensors, fields added halfway through the year. How you handle them can quietly bias your results."
+    },
+    {
+      "type": "text",
+      "markdown": "**Dropping** rows with missing values is simple, but throws away data and biases results if missingness isn't random. If high earners skip the income question, dropping them lowers the average."
+    },
+    {
+      "type": "text",
+      "markdown": "**Imputing** fills gaps with a guess: the mean, the median, the most common category, or a model's prediction. Mean imputation keeps the average but shrinks the variance, because every filled value sits exactly at the center."
+    },
+    {
+      "type": "text",
+      "markdown": "Missingness itself can be informative. Adding a 0/1 column \"was missing\" lets a model learn from it. And compute imputation values from the **training data only**, then reuse them on the test set."
+    },
+    {
+      "type": "quiz",
+      "question": "Why can dropping incomplete rows bias your analysis?",
+      "choices": [
+        "Models can't handle fewer rows",
+        "Dropping rows always increases the mean",
+        "The rows with missing values may differ systematically from the rest"
+      ],
+      "answerIndex": 2,
+      "explanation": "If missingness relates to the value itself, the remaining rows aren't representative."
+    },
+    {
+      "type": "quiz",
+      "question": "What does mean imputation do to a column's variance?",
+      "choices": [
+        "Increases it",
+        "Decreases it",
+        "Leaves it unchanged"
+      ],
+      "answerIndex": 1,
+      "explanation": "All filled values equal the mean, adding no spread, so the variance shrinks."
+    },
+    {
+      "type": "quiz",
+      "question": "Where should you compute the median used to fill missing values?",
+      "choices": [
+        "On the training set only",
+        "On the full dataset including test rows",
+        "On the test set only"
+      ],
+      "answerIndex": 0,
+      "explanation": "Using test data to build preprocessing leaks information into training."
+    }
+  ]
+}

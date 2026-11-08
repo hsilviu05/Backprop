@@ -1,0 +1,56 @@
+{
+  "id": "ai-fine-tuning",
+  "title": "Fine-tuning and RLHF",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "To turn a base model into an assistant, labs **fine-tune** it. **Supervised fine-tuning (SFT)** trains on example conversations: an instruction plus a high-quality response."
+    },
+    {
+      "type": "text",
+      "markdown": "**RLHF** (reinforcement learning from human feedback) goes further: people compare pairs of responses, a **reward model** learns to predict their preferences, and the LLM is optimized to score well on it. InstructGPT (2022) showed this made a much smaller model preferred over GPT-3."
+    },
+    {
+      "type": "text",
+      "markdown": "Simpler alternatives such as **DPO** learn directly from preference pairs without a separate reward model. AI feedback can also replace some human labels."
+    },
+    {
+      "type": "text",
+      "markdown": "For your own tasks, full fine-tuning is expensive. **LoRA** trains small low-rank \"adapter\" matrices while freezing the original weights, cutting memory and storage dramatically. Often, good prompting or RAG is enough and no fine-tuning is needed."
+    },
+    {
+      "type": "quiz",
+      "question": "In RLHF, what does the reward model learn?",
+      "choices": [
+        "The next token",
+        "To predict which responses humans prefer",
+        "The tokenizer"
+      ],
+      "answerIndex": 1,
+      "explanation": "It's trained on human comparisons, then used to score the LLM's outputs."
+    },
+    {
+      "type": "quiz",
+      "question": "What's the main appeal of LoRA?",
+      "choices": [
+        "Fine-tuning with far fewer trainable parameters by freezing the base model",
+        "It makes the model larger",
+        "It removes the need for any data"
+      ],
+      "answerIndex": 0,
+      "explanation": "Only small adapter matrices are trained and stored."
+    },
+    {
+      "type": "quiz",
+      "question": "SFT trains a model on…",
+      "choices": [
+        "Images and captions",
+        "Random web text only",
+        "Example instructions paired with good responses"
+      ],
+      "answerIndex": 2,
+      "explanation": "Demonstrations teach the model what a helpful answer looks like."
+    }
+  ]
+}

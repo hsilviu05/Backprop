@@ -1,0 +1,56 @@
+{
+  "id": "ml-train-test-split",
+  "title": "Train, validation, test",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "To know whether a model generalizes, test it on data it hasn't seen. So split your data before training."
+    },
+    {
+      "type": "text",
+      "markdown": "The **training set** fits the model. The **validation set** compares models and tunes settings like tree depth. The **test set** is locked away and used once, at the very end, to estimate real-world performance."
+    },
+    {
+      "type": "text",
+      "markdown": "A common split is 70/15/15 or 80/10/10, but the right sizes depend on how much data you have."
+    },
+    {
+      "type": "text",
+      "markdown": "If you tweak your model again and again based on test scores, the test set quietly becomes part of training, and its score becomes optimistic. For time-ordered data, split by time (train on the past, test on the future) instead of randomly."
+    },
+    {
+      "type": "quiz",
+      "question": "Which set should you use to choose between a depth-3 and a depth-10 tree?",
+      "choices": [
+        "Validation set",
+        "Training set",
+        "Test set"
+      ],
+      "answerIndex": 0,
+      "explanation": "Model selection uses validation data, so the test set stays an honest final check."
+    },
+    {
+      "type": "quiz",
+      "question": "You're predicting next month's sales. How should you split the data?",
+      "choices": [
+        "Train on earlier months, test on later months",
+        "Use the same months for training and testing",
+        "Randomly shuffle all months"
+      ],
+      "answerIndex": 0,
+      "explanation": "A random split lets the model peek at the future, which won't be possible in production."
+    },
+    {
+      "type": "quiz",
+      "question": "Why touch the test set only once at the end?",
+      "choices": [
+        "Test data expires",
+        "Repeated tuning against it makes its score overly optimistic",
+        "It's too small to use more often"
+      ],
+      "answerIndex": 1,
+      "explanation": "Every decision based on test scores leaks information about the test set into your model."
+    }
+  ]
+}

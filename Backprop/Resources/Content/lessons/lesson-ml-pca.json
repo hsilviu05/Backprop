@@ -1,0 +1,56 @@
+{
+  "id": "ml-pca",
+  "title": "Principal component analysis",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "**PCA** compresses many correlated features into a few new ones, called **principal components**, while keeping as much of the variation as possible."
+    },
+    {
+      "type": "text",
+      "markdown": "The first component is the direction along which the data varies the most. The second is the direction of most remaining variance, at right angles to the first, and so on."
+    },
+    {
+      "type": "text",
+      "markdown": "Each component comes with its **explained variance ratio**. If the first two components explain 90% of the variance, a 2D plot of them shows most of the structure in the data."
+    },
+    {
+      "type": "text",
+      "markdown": "Standardize features first, or the one with the biggest units dominates. Note that PCA is linear and unsupervised: the directions with most variance aren't guaranteed to be the most useful for predicting a label."
+    },
+    {
+      "type": "quiz",
+      "question": "The first principal component is the direction of…",
+      "choices": [
+        "The label",
+        "Most variance",
+        "Least variance"
+      ],
+      "answerIndex": 1,
+      "explanation": "PCA orders components by how much variance they capture."
+    },
+    {
+      "type": "quiz",
+      "question": "Why standardize before PCA?",
+      "choices": [
+        "PCA only works on values between 0 and 1",
+        "Otherwise features with large units dominate the components",
+        "It removes the need for PCA"
+      ],
+      "answerIndex": 1,
+      "explanation": "Variance depends on units, so unscaled features distort the directions."
+    },
+    {
+      "type": "quiz",
+      "question": "Principal components are…",
+      "choices": [
+        "Chosen to predict the label",
+        "At right angles (uncorrelated) to each other",
+        "Always the original features"
+      ],
+      "answerIndex": 1,
+      "explanation": "Each component is orthogonal to the earlier ones."
+    }
+  ]
+}

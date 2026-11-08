@@ -1,0 +1,56 @@
+{
+  "id": "ml-gini-entropy",
+  "title": "Measuring a good split",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "A good split produces child nodes that are **pure**: mostly one class. Two common impurity measures are Gini and entropy."
+    },
+    {
+      "type": "text",
+      "markdown": "**Gini impurity** = 1 − Σ pᵢ², where pᵢ is the share of class i. A pure node has Gini 0. A 50/50 node has Gini 1 − (0.25 + 0.25) = **0.5**."
+    },
+    {
+      "type": "text",
+      "markdown": "**Entropy** = −Σ pᵢ log₂ pᵢ. A pure node has entropy 0; a 50/50 node has entropy **1 bit**."
+    },
+    {
+      "type": "text",
+      "markdown": "The tree chooses the split with the biggest drop in impurity, weighted by how many samples go to each side. With entropy, that drop is called **information gain**. In practice Gini and entropy usually pick very similar splits."
+    },
+    {
+      "type": "quiz",
+      "question": "What's the Gini impurity of a node with 100% one class?",
+      "choices": [
+        "0",
+        "0.5",
+        "1"
+      ],
+      "answerIndex": 0,
+      "explanation": "1 − 1² = 0. A pure node has no impurity."
+    },
+    {
+      "type": "quiz",
+      "question": "A node is 75% class A and 25% class B. What's its Gini impurity?",
+      "choices": [
+        "0.25",
+        "0.375",
+        "0.5"
+      ],
+      "answerIndex": 1,
+      "explanation": "1 − (0.75² + 0.25²) = 1 − (0.5625 + 0.0625) = 0.375."
+    },
+    {
+      "type": "quiz",
+      "question": "Information gain measures…",
+      "choices": [
+        "The accuracy on the test set",
+        "How much a split reduces entropy",
+        "How deep the tree is"
+      ],
+      "answerIndex": 1,
+      "explanation": "It's parent entropy minus the weighted entropy of the children."
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "id": "ai-evaluating-llms",
+  "title": "Evaluating LLMs",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "Public **benchmarks** (multiple-choice exams, coding problems, math sets) let people compare models, but they have limits."
+    },
+    {
+      "type": "text",
+      "markdown": "**Contamination**: if benchmark questions leaked into training data, scores measure memory, not skill. And once a benchmark becomes a target, models get tuned to it, so it stops measuring general ability."
+    },
+    {
+      "type": "text",
+      "markdown": "**LLM-as-judge** uses a strong model to grade answers. It scales well, but judges have known biases, such as preferring longer answers or the first option shown, so check them against human ratings."
+    },
+    {
+      "type": "text",
+      "markdown": "For your own product, the benchmark that matters is yours: a set of real tasks with clear pass/fail criteria, run on every model or prompt change."
+    },
+    {
+      "type": "quiz",
+      "question": "What is benchmark contamination?",
+      "choices": [
+        "A benchmark with typos",
+        "Test questions appearing in the model's training data",
+        "Running a benchmark twice"
+      ],
+      "answerIndex": 1,
+      "explanation": "Seen questions inflate scores without real skill."
+    },
+    {
+      "type": "quiz",
+      "question": "A known bias of LLM judges is…",
+      "choices": [
+        "Always giving the lowest score",
+        "Favoring longer answers",
+        "Refusing to grade code"
+      ],
+      "answerIndex": 1,
+      "explanation": "Length and position biases are well documented, so judges need checking."
+    },
+    {
+      "type": "quiz",
+      "question": "Which evaluation best predicts how a model will do in your app?",
+      "choices": [
+        "The model's parameter count",
+        "A test set built from your own real tasks",
+        "The highest public leaderboard score"
+      ],
+      "answerIndex": 1,
+      "explanation": "Your tasks, your data and your success criteria are what matter."
+    }
+  ]
+}

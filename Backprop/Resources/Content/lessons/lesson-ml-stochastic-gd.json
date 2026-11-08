@@ -1,0 +1,56 @@
+{
+  "id": "ml-stochastic-gd",
+  "title": "Stochastic gradient descent",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "Plain gradient descent computes the gradient over the **whole** dataset before each step. With millions of examples, that's slow."
+    },
+    {
+      "type": "text",
+      "markdown": "**Stochastic gradient descent (SGD)** estimates the gradient from a small random **mini-batch** (often 32 to 512 examples) and takes a step right away. Each step is noisy but cheap, so you make far more progress per second."
+    },
+    {
+      "type": "text",
+      "markdown": "One full pass over the training data is an **epoch**. With 10,000 examples and batches of 100, an epoch is 100 steps."
+    },
+    {
+      "type": "text",
+      "markdown": "The noise isn't all bad: it can help escape poor flat regions. A common practice is to **decay** the learning rate over time so the noisy steps settle down near a minimum."
+    },
+    {
+      "type": "quiz",
+      "question": "50,000 examples, batch size 250. How many steps in one epoch?",
+      "choices": [
+        "200",
+        "250",
+        "50,000"
+      ],
+      "answerIndex": 0,
+      "explanation": "50,000 / 250 = 200 mini-batch steps."
+    },
+    {
+      "type": "quiz",
+      "question": "Why use mini-batches instead of the full dataset for each step?",
+      "choices": [
+        "It removes the need for a learning rate",
+        "Each step is much cheaper, so training progresses faster",
+        "It gives the exact gradient"
+      ],
+      "answerIndex": 1,
+      "explanation": "A mini-batch gives a cheap, noisy estimate of the full gradient."
+    },
+    {
+      "type": "quiz",
+      "question": "Why decay the learning rate during training?",
+      "choices": [
+        "To make early training slower",
+        "So noisy steps settle down near a minimum",
+        "To increase the batch size"
+      ],
+      "answerIndex": 1,
+      "explanation": "Smaller steps late in training reduce bouncing around the minimum."
+    }
+  ]
+}

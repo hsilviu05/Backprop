@@ -1,0 +1,56 @@
+{
+  "id": "df-random-variables",
+  "title": "Random variables",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "A **random variable** assigns a number to each outcome of a random process: the number of heads in 10 flips, tomorrow's temperature, a user's session length."
+    },
+    {
+      "type": "text",
+      "markdown": "**Discrete** random variables take countable values, described by a **probability mass function** (PMF): P(X = k) for each k. All the probabilities sum to 1."
+    },
+    {
+      "type": "text",
+      "markdown": "**Continuous** random variables can take any value in a range. They're described by a **probability density function** (PDF), and probabilities are *areas* under the curve. The total area is 1."
+    },
+    {
+      "type": "text",
+      "markdown": "Two surprises with densities: the chance of any single exact value is 0, and a density can be greater than 1 (a uniform distribution on [0, 0.5] has density 2 everywhere in that range)."
+    },
+    {
+      "type": "quiz",
+      "question": "Which is a continuous random variable?",
+      "choices": [
+        "Result of a die roll",
+        "Time until the next email arrives",
+        "Number of emails received today"
+      ],
+      "answerIndex": 1,
+      "explanation": "Time can take any value in a range, so it's continuous. Counts and die rolls are discrete."
+    },
+    {
+      "type": "quiz",
+      "question": "For a continuous X, P(X = 2.000…) exactly is…",
+      "choices": [
+        "The height of the density at 2",
+        "0",
+        "1"
+      ],
+      "answerIndex": 1,
+      "explanation": "A single point has zero width, so zero area under the density."
+    },
+    {
+      "type": "quiz",
+      "question": "Can a probability density be greater than 1?",
+      "choices": [
+        "No, probabilities can't exceed 1",
+        "Yes, as long as the total area is 1",
+        "Only for discrete variables"
+      ],
+      "answerIndex": 1,
+      "explanation": "Density isn't probability. A narrow distribution must be tall for its area to equal 1."
+    }
+  ]
+}

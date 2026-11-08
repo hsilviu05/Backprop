@@ -1,0 +1,56 @@
+{
+  "id": "df-groupby",
+  "title": "Group and aggregate",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "Many questions are \"per group\": average order value *per country*, signups *per day*. The pattern is **split-apply-combine**."
+    },
+    {
+      "type": "text",
+      "markdown": "**Split** the rows into groups by a key, **apply** an aggregate to each group (mean, sum, count), then **combine** the results into a new table. In pandas: `df.groupby(\"country\")[\"order_value\"].mean()`."
+    },
+    {
+      "type": "text",
+      "markdown": "Example: orders (FR, 10), (FR, 30), (JP, 20). Grouping by country and taking the mean gives FR = **20**, JP = **20**."
+    },
+    {
+      "type": "text",
+      "markdown": "Watch out for **Simpson's paradox**: a trend in every group can reverse when groups are combined, if the groups have very different sizes. Always check whether a pooled number hides group differences."
+    },
+    {
+      "type": "quiz",
+      "question": "Orders: (A, 5), (A, 15), (B, 40). What's the mean order value for group A?",
+      "choices": [
+        "10",
+        "15",
+        "20"
+      ],
+      "answerIndex": 0,
+      "explanation": "Group A has 5 and 15, so the mean is 10."
+    },
+    {
+      "type": "quiz",
+      "question": "\"Count signups per day\" is an example of…",
+      "choices": [
+        "Filtering",
+        "Split-apply-combine",
+        "One-hot encoding"
+      ],
+      "answerIndex": 1,
+      "explanation": "Split by day, apply count, combine into one row per day."
+    },
+    {
+      "type": "quiz",
+      "question": "Treatment X beats Y within both men and women, but loses when everyone is pooled. This is…",
+      "choices": [
+        "Survivorship bias",
+        "Simpson's paradox",
+        "The gambler's fallacy"
+      ],
+      "answerIndex": 1,
+      "explanation": "Unequal group sizes can flip a trend when groups are merged."
+    }
+  ]
+}
