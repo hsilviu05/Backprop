@@ -20,7 +20,7 @@ xcodegen generate && open Backprop.xcodeproj
 | `Backprop/Widgets` | Interactive sims (regression, gradient descent) |
 | `Backprop/Progress` | SwiftData progress, streaks, XP |
 | `Backprop/Paywall` | Entitlement store, RevenueCat paywall and Customer Center |
-| `Backprop/Reading` | Free recommended-reading tab (books, articles, papers, courses), opened in Safari View |
+| `Backprop/Reading` | Free recommended-reading tab: book covers, YouTube videos, articles, papers and courses |
 | `Backprop/Resources/Content` | `manifest.json` + `lessons/lesson-*.json` + `reading.json` |
 
 ## Adding a lesson
@@ -29,4 +29,4 @@ xcodegen generate && open Backprop.xcodeproj
 3. Run the tests: `ContentTests` fails if a listed lesson is missing, a quiz answer index is out of range, or a lesson doesn't have 3–5 quiz questions.
 
 ## Adding a reading item
-Add an entry to `Backprop/Resources/Content/reading.json` (`kind`: `book`, `article`, `paper` or `course`; `level`: `beginner`, `intermediate` or `advanced`; `year` is optional). Links must be https and free to read: no affiliate or store links (guideline 3.1.1). `ReadingTests` checks ids, links and required fields.
+Add an entry to `Backprop/Resources/Content/reading.json` (`kind`: `book`, `video`, `article`, `paper` or `course`; `level`: `beginner`, `intermediate` or `advanced`; `year` is optional). Books can add a print `isbn` (ISBN-13) to show the Open Library cover; videos need `youtubeID` and a `https://www.youtube.com/watch?v=<id>` link. Links must be https and free to read: no affiliate or store links (guideline 3.1.1). `ReadingTests` checks ids, links and required fields.

@@ -1,5 +1,5 @@
 {
-  "listVersion": 1,
+  "listVersion": 2,
   "items": [
     {
       "id": "deep-learning-book",
@@ -10,7 +10,8 @@
       "url": "https://www.deeplearningbook.org/",
       "summary": "The standard deep learning textbook, from linear algebra basics to generative models. Free to read online.",
       "level": "advanced",
-      "topic": "Deep learning"
+      "topic": "Deep learning",
+      "isbn": "9780262035613"
     },
     {
       "id": "d2l",
@@ -21,7 +22,8 @@
       "url": "https://d2l.ai/",
       "summary": "Every chapter is runnable code. Learn deep learning by building it, with PyTorch, JAX and more.",
       "level": "intermediate",
-      "topic": "Deep learning"
+      "topic": "Deep learning",
+      "isbn": "9781009389433"
     },
     {
       "id": "isl",
@@ -32,7 +34,8 @@
       "url": "https://www.statlearning.com/",
       "summary": "The friendliest serious intro to ML: regression, trees, resampling and more, with R and Python labs. Free PDF.",
       "level": "beginner",
-      "topic": "Classical ML"
+      "topic": "Classical ML",
+      "isbn": "9783031387463"
     },
     {
       "id": "esl",
@@ -43,7 +46,8 @@
       "url": "https://hastie.su.domains/ElemStatLearn/",
       "summary": "The deeper, math-heavy companion to ISL. A reference you'll return to for years. Free PDF.",
       "level": "advanced",
-      "topic": "Classical ML"
+      "topic": "Classical ML",
+      "isbn": "9780387848570"
     },
     {
       "id": "prml",
@@ -54,7 +58,8 @@
       "url": "https://www.microsoft.com/en-us/research/publication/pattern-recognition-machine-learning/",
       "summary": "A classic treatment of ML through the lens of probability. Now free as a PDF from Microsoft Research.",
       "level": "advanced",
-      "topic": "Probability"
+      "topic": "Probability",
+      "isbn": "9780387310732"
     },
     {
       "id": "mml",
@@ -65,7 +70,8 @@
       "url": "https://mml-book.github.io/",
       "summary": "Linear algebra, calculus and probability, taught exactly as ML uses them. Free PDF.",
       "level": "beginner",
-      "topic": "Math"
+      "topic": "Math",
+      "isbn": "9781108455145"
     },
     {
       "id": "nndl",
@@ -87,7 +93,8 @@
       "url": "https://udlbook.github.io/udlbook/",
       "summary": "A modern, beautifully illustrated textbook covering transformers, diffusion and more. Free PDF.",
       "level": "intermediate",
-      "topic": "Deep learning"
+      "topic": "Deep learning",
+      "isbn": "9780262048644"
     },
     {
       "id": "sutton-barto",
@@ -98,7 +105,8 @@
       "url": "https://incompleteideas.net/book/the-book-2nd.html",
       "summary": "The foundational RL textbook: bandits, MDPs, TD learning, policy gradients. Free PDF.",
       "level": "intermediate",
-      "topic": "Reinforcement learning"
+      "topic": "Reinforcement learning",
+      "isbn": "9780262039246"
     },
     {
       "id": "pml1",
@@ -109,7 +117,8 @@
       "url": "https://probml.github.io/pml-book/book1.html",
       "summary": "A broad, up-to-date survey of ML from a probabilistic view. Free draft PDF.",
       "level": "advanced",
-      "topic": "Probability"
+      "topic": "Probability",
+      "isbn": "9780262046824"
     },
     {
       "id": "think-stats",
@@ -119,7 +128,8 @@
       "url": "https://greenteapress.com/wp/think-stats-3e/",
       "summary": "Learn statistics by doing it in Python with real data sets. Free online as notebooks.",
       "level": "beginner",
-      "topic": "Statistics"
+      "topic": "Statistics",
+      "isbn": "9781098190255"
     },
     {
       "id": "iml",
@@ -140,6 +150,182 @@
       "summary": "The NLP textbook, from n-grams to large language models. Free draft chapters.",
       "level": "intermediate",
       "topic": "Language"
+    },
+    {
+      "id": "yt-aircaruvnkk",
+      "kind": "video",
+      "title": "But what is a neural network?",
+      "authors": "3Blue1Brown",
+      "url": "https://www.youtube.com/watch?v=aircAruvnKk",
+      "summary": "Neurons, layers and weights, animated so the whole idea fits in your head. Chapter 1 of the series.",
+      "level": "beginner",
+      "topic": "Deep learning",
+      "youtubeID": "aircAruvnKk"
+    },
+    {
+      "id": "yt-ihzwwfhwa-w",
+      "kind": "video",
+      "title": "Gradient descent, how neural networks learn",
+      "authors": "3Blue1Brown",
+      "url": "https://www.youtube.com/watch?v=IHZwWFHWa-w",
+      "summary": "What a cost function is and how a network walks downhill to learn.",
+      "level": "beginner",
+      "topic": "Optimization",
+      "youtubeID": "IHZwWFHWa-w"
+    },
+    {
+      "id": "yt-ilg3ggewq5u",
+      "kind": "video",
+      "title": "Backpropagation, intuitively",
+      "authors": "3Blue1Brown",
+      "url": "https://www.youtube.com/watch?v=Ilg3gGewQ5U",
+      "summary": "The intuition behind backprop before any calculus: which weights to nudge, and how much.",
+      "level": "beginner",
+      "topic": "Deep learning",
+      "youtubeID": "Ilg3gGewQ5U"
+    },
+    {
+      "id": "yt-wjzofjx0v4m",
+      "kind": "video",
+      "title": "Transformers, the tech behind LLMs",
+      "authors": "3Blue1Brown",
+      "url": "https://www.youtube.com/watch?v=wjZofJX0v4M",
+      "summary": "A visual tour of how a GPT-style model turns text into predictions.",
+      "level": "intermediate",
+      "topic": "Transformers",
+      "youtubeID": "wjZofJX0v4M"
+    },
+    {
+      "id": "yt-emlx5ffnoyc",
+      "kind": "video",
+      "title": "Attention in transformers, step-by-step",
+      "authors": "3Blue1Brown",
+      "url": "https://www.youtube.com/watch?v=eMlx5fFNoYc",
+      "summary": "Queries, keys and values made concrete. The clearest picture of attention there is.",
+      "level": "intermediate",
+      "topic": "Transformers",
+      "youtubeID": "eMlx5fFNoYc"
+    },
+    {
+      "id": "yt-hzgcovf3yvm",
+      "kind": "video",
+      "title": "Bayes theorem, the geometry of changing beliefs",
+      "authors": "3Blue1Brown",
+      "url": "https://www.youtube.com/watch?v=HZGCoVF3YvM",
+      "summary": "Bayes' rule as a picture you won't forget.",
+      "level": "beginner",
+      "topic": "Probability",
+      "youtubeID": "HZGCoVF3YvM"
+    },
+    {
+      "id": "yt-zejd6dqj5lo",
+      "kind": "video",
+      "title": "But what is the Central Limit Theorem?",
+      "authors": "3Blue1Brown",
+      "url": "https://www.youtube.com/watch?v=zeJD6dqJ5lo",
+      "summary": "Why sums of random things end up looking like a bell curve.",
+      "level": "beginner",
+      "topic": "Statistics",
+      "youtubeID": "zeJD6dqJ5lo"
+    },
+    {
+      "id": "yt-gv9_4ymhfhi",
+      "kind": "video",
+      "title": "A Gentle Introduction to Machine Learning",
+      "authors": "StatQuest with Josh Starmer",
+      "url": "https://www.youtube.com/watch?v=Gv9_4yMHFhI",
+      "summary": "What ML actually is, explained with a friendly toy example. A great first video.",
+      "level": "beginner",
+      "topic": "Classical ML",
+      "youtubeID": "Gv9_4yMHFhI"
+    },
+    {
+      "id": "yt-nk2cqitm_eo",
+      "kind": "video",
+      "title": "Linear Regression, Clearly Explained!!!",
+      "authors": "StatQuest with Josh Starmer",
+      "url": "https://www.youtube.com/watch?v=nk2CQITm_eo",
+      "summary": "Least squares, R² and p-values for regression, step by step.",
+      "level": "beginner",
+      "topic": "Classical ML",
+      "youtubeID": "nk2CQITm_eo"
+    },
+    {
+      "id": "yt-eubbz3bi-aa",
+      "kind": "video",
+      "title": "Machine Learning Fundamentals: Bias and Variance",
+      "authors": "StatQuest with Josh Starmer",
+      "url": "https://www.youtube.com/watch?v=EuBBz3bI-aA",
+      "summary": "The trade-off behind overfitting and underfitting, in six minutes.",
+      "level": "beginner",
+      "topic": "Classical ML",
+      "youtubeID": "EuBBz3bI-aA"
+    },
+    {
+      "id": "yt-sdv4f4s2sb8",
+      "kind": "video",
+      "title": "Gradient Descent, Step-by-Step",
+      "authors": "StatQuest with Josh Starmer",
+      "url": "https://www.youtube.com/watch?v=sDv4f4s2SB8",
+      "summary": "Gradient descent worked through by hand on a simple line fit.",
+      "level": "beginner",
+      "topic": "Optimization",
+      "youtubeID": "sDv4f4s2SB8"
+    },
+    {
+      "id": "yt-cqofi41lfdw",
+      "kind": "video",
+      "title": "The Essential Main Ideas of Neural Networks",
+      "authors": "StatQuest with Josh Starmer",
+      "url": "https://www.youtube.com/watch?v=CqOfi41LfDw",
+      "summary": "How a neural network bends and adds simple curves to fit data.",
+      "level": "beginner",
+      "topic": "Deep learning",
+      "youtubeID": "CqOfi41LfDw"
+    },
+    {
+      "id": "yt-zjkbmfhnj_g",
+      "kind": "video",
+      "title": "[1hr Talk] Intro to Large Language Models",
+      "authors": "Andrej Karpathy",
+      "url": "https://www.youtube.com/watch?v=zjkBMFhNj_g",
+      "summary": "What LLMs are, how they're trained, and where they're heading. No code needed.",
+      "level": "beginner",
+      "topic": "Language",
+      "youtubeID": "zjkBMFhNj_g"
+    },
+    {
+      "id": "yt-7xtgnnlpymi",
+      "kind": "video",
+      "title": "Deep Dive into LLMs like ChatGPT",
+      "authors": "Andrej Karpathy",
+      "url": "https://www.youtube.com/watch?v=7xTGNNLPyMI",
+      "summary": "The full pipeline behind a chat assistant, from internet text to fine-tuning, for a general audience.",
+      "level": "beginner",
+      "topic": "Language",
+      "youtubeID": "7xTGNNLPyMI"
+    },
+    {
+      "id": "yt-vmj-3s1tku0",
+      "kind": "video",
+      "title": "The spelled-out intro to neural networks and backpropagation: building micrograd",
+      "authors": "Andrej Karpathy",
+      "url": "https://www.youtube.com/watch?v=VMj-3S1tku0",
+      "summary": "Build a tiny autograd engine in Python and watch backprop happen line by line.",
+      "level": "intermediate",
+      "topic": "Deep learning",
+      "youtubeID": "VMj-3S1tku0"
+    },
+    {
+      "id": "yt-kcc8fmeb1ny",
+      "kind": "video",
+      "title": "Let's build GPT: from scratch, in code, spelled out.",
+      "authors": "Andrej Karpathy",
+      "url": "https://www.youtube.com/watch?v=kCc8FmEb1nY",
+      "summary": "Write a small GPT in PyTorch, following the Attention Is All You Need paper.",
+      "level": "advanced",
+      "topic": "Transformers",
+      "youtubeID": "kCc8FmEb1nY"
     },
     {
       "id": "illustrated-transformer",
@@ -403,16 +589,6 @@
       "summary": "Why the model is the smallest part of a real ML system, and where the hidden costs live.",
       "level": "intermediate",
       "topic": "Practice"
-    },
-    {
-      "id": "3b1b-nn",
-      "kind": "course",
-      "title": "Neural Networks",
-      "authors": "Grant Sanderson (3Blue1Brown)",
-      "url": "https://www.3blue1brown.com/lessons/neural-networks",
-      "summary": "The best visual intuition for neural networks, gradient descent and backprop, in animated lessons.",
-      "level": "beginner",
-      "topic": "Deep learning"
     },
     {
       "id": "seeing-theory",
