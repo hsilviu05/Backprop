@@ -58,6 +58,7 @@ struct LessonView: View {
         }
         .navigationTitle(session.lesson.title)
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar(.hidden, for: .tabBar)
         .onChange(of: session.isFinished) { _, finished in
             if finished { record() }
         }
@@ -178,7 +179,7 @@ struct QuizView: View {
                     )
                 }
                 .buttonStyle(.plain)
-                .disabled(selection != nil)
+                .allowsHitTesting(selection == nil)
             }
             if let selection {
                 let correct = selection == quiz.answerIndex
@@ -251,7 +252,7 @@ private struct ChoiceRow: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .contentShape(Rectangle())
         .cardSurface(cornerRadius: Theme.smallCornerRadius, tint: state == .correct ? .green : state == .wrong ? .red : nil)
-        .opacity(state == .dimmed ? 0.55 : 1)
+        .opacity(state == .dimmed ? 0.7 : 1)
         .scaleEffect(state == .wrong ? 0.98 : 1)
         .accessibilityElement(children: .combine)
         .accessibilityValue(state == .correct ? "Correct answer" : state == .wrong ? "Your answer, incorrect" : "")

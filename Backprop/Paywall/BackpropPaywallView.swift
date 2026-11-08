@@ -17,38 +17,36 @@ struct BackpropPaywallView: View {
     private static let features: [(icon: String, title: String, detail: String, tint: Color)] = [
         ("books.vertical.fill", "Every chapter, all 4 tracks", "Stats, classic ML, neural networks, modern AI", .indigo),
         ("hand.draw.fill", "Hands-on simulations", "Drag data, tune learning rates, watch models learn", .teal),
-        ("sparkles", "New lessons as they launch", "The library keeps growing", .orange),
+        ("calendar.badge.plus", "New lessons as they launch", "The library keeps growing", .orange),
         ("flame.fill", "Build a daily habit", "Streaks and XP keep you going", .pink),
     ]
 
     var body: some View {
         ScrollView {
-            VStack(spacing: 24) {
-                VStack(spacing: 14) {
-                    BackpropMark(size: 64, animated: true)
-                        .padding(18)
-                        .cardSurface(cornerRadius: 28)
+            VStack(spacing: 18) {
+                VStack(spacing: 10) {
+                    BackpropMark(size: 44, animated: true)
+                        .padding(12)
+                        .cardSurface(cornerRadius: 20)
                     Text("Unlock all of Backprop")
-                        .font(.largeTitle.bold())
+                        .font(.title.bold())
                         .multilineTextAlignment(.center)
                     Text("Understand machine learning, one 5‑minute lesson at a time.")
-                        .font(.body)
+                        .font(.subheadline)
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
                 }
-                .padding(.top, 36)
+                .padding(.top, 28)
                 .appearAnimation()
 
-                VStack(alignment: .leading, spacing: 14) {
+                VStack(alignment: .leading, spacing: 10) {
                     ForEach(Array(Self.features.enumerated()), id: \.offset) { index, feature in
-                        HStack(spacing: 14) {
-                            IconTile(systemImage: feature.icon, tint: feature.tint, size: 38)
-                            VStack(alignment: .leading, spacing: 1) {
-                                Text(feature.title).font(.subheadline.weight(.semibold))
-                                Text(feature.detail).font(.footnote).foregroundStyle(.secondary)
-                            }
+                        HStack(spacing: 12) {
+                            IconTile(systemImage: feature.icon, tint: feature.tint, size: 30)
+                            Text(feature.title).font(.subheadline.weight(.semibold))
                             Spacer(minLength: 0)
                         }
+                        .accessibilityHint(feature.detail)
                         .appearAnimation(delay: 0.05 + 0.04 * Double(index))
                     }
                 }
@@ -58,7 +56,7 @@ struct BackpropPaywallView: View {
                 packagesSection
             }
             .padding(.horizontal, Theme.padding)
-            .padding(.bottom, 16)
+            .padding(.bottom, 24)
         }
         .scrollBounceBehavior(.basedOnSize)
         .screenBackground()
@@ -172,9 +170,20 @@ struct BackpropPaywallView: View {
             .tint(.secondary)
         }
         .padding(.horizontal, Theme.padding)
-        .padding(.top, 12)
+        .padding(.top, 20)
         .padding(.bottom, 8)
-        .background(.bar)
+        // Fades into the page instead of a hard-edged bar.
+        .background {
+            LinearGradient(
+                stops: [
+                    .init(color: Color(.systemGroupedBackground).opacity(0), location: 0),
+                    .init(color: Color(.systemGroupedBackground), location: 0.25),
+                ],
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .ignoresSafeArea()
+        }
     }
 
     // MARK: - Copy

@@ -8,7 +8,7 @@ enum Theme {
     static let spacing: CGFloat = 14
 
     /// Soft, quick spring used for state changes across the app.
-    static let spring = Animation.spring(response: 0.42, dampingFraction: 0.82)
+    static let spring = Animation.spring(response: 0.32, dampingFraction: 0.86)
 
     static func trackTint(_ trackID: String) -> Color {
         switch trackID {
@@ -119,7 +119,8 @@ struct ProgressRing: View {
         ZStack {
             Circle().stroke(tint.opacity(0.18), lineWidth: lineWidth)
             Circle()
-                .trim(from: 0, to: max(0.001, min(progress, 1)))
+                .trim(from: 0, to: min(max(progress, 0), 1))
+                .opacity(progress > 0 ? 1 : 0)
                 .stroke(tint, style: StrokeStyle(lineWidth: lineWidth, lineCap: .round))
                 .rotationEffect(.degrees(-90))
                 .animation(Theme.spring, value: progress)

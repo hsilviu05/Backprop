@@ -115,6 +115,7 @@ struct ReadingView: View {
                 Section(isFiltered ? level.title : "\(level.title) reads") {
                     ForEach(othersByLevel[level] ?? []) { item in
                         Button { open(item) } label: { ReadingRow(item: item) }
+                            .tint(.primary)
                             .accessibilityHint("Opens in Safari")
                     }
                 }
@@ -142,6 +143,8 @@ private struct Shelf<Content: View>: View {
         }
         .scrollClipDisabled()
         .listRowInsets(EdgeInsets())
+        // Shelves sit on the page background so cards can scroll past the screen edge.
+        .listRowBackground(Color.clear)
     }
 }
 

@@ -32,11 +32,9 @@ struct SettingsView: View {
                     .padding(.vertical, 4)
                     if !entitlements.isPro {
                         Button { showPaywall = true } label: {
-                            Text("Upgrade to Pro").font(.headline).frame(maxWidth: .infinity)
+                            Label("Upgrade to Pro", systemImage: "arrow.up.circle.fill")
+                                .font(.headline)
                         }
-                        .primaryButtonStyle()
-                        .listRowBackground(Color.clear)
-                        .listRowInsets(EdgeInsets())
                     }
                 }
 
