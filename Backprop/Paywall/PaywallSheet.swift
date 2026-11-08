@@ -2,23 +2,14 @@ import RevenueCat
 import RevenueCatUI
 import SwiftUI
 
-/// RevenueCat dashboard paywall for the current offering ("default").
-/// Price, trial terms, Restore and the Terms/Privacy links are configured on the paywall in RevenueCat.
+/// Presents the in-app paywall. Restore, Terms and Privacy are on the paywall itself (guideline 3.1.2).
 struct PaywallSheet: View {
     @Environment(EntitlementStore.self) private var entitlements
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
         if entitlements.isPurchasesConfigured {
-            PaywallView(displayCloseButton: true)
-                .onPurchaseCompleted { info in
-                    entitlements.apply(info)
-                    dismiss()
-                }
-                .onRestoreCompleted { info in
-                    entitlements.apply(info)
-                    if EntitlementStore.hasPro(info) { dismiss() }
-                }
+            BackpropPaywallView { dismiss() }
         } else {
             NavigationStack {
                 ContentUnavailableView(
