@@ -212,7 +212,7 @@
       "id": "modern-ai",
       "title": "Modern AI",
       "summary": "Embeddings, attention, transformers, LLMs and RAG.",
-      "systemImage": "sparkles",
+      "systemImage": "text.bubble.fill",
       "chapters": [
         {
           "id": "ai-embeddings",

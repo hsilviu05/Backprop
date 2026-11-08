@@ -13,12 +13,32 @@ struct SettingsView: View {
     var body: some View {
         NavigationStack {
             List {
-                Section("Subscription") {
-                    if entitlements.isPro {
-                        Label("Backprop Pro is active", systemImage: "checkmark.seal.fill")
-                    } else {
-                        Button("Upgrade to Pro") { showPaywall = true }
+                Section {
+                    HStack(spacing: 14) {
+                        BackpropMark(size: 44)
+                            .padding(8)
+                            .background(Color.accentColor.opacity(0.12), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(entitlements.isPro ? "Backprop Pro" : "Backprop Free").font(.headline)
+                            Text(entitlements.isPro ? "Every lesson unlocked" : "Chapters 1–2 of every track")
+                                .font(.subheadline)
+                                .foregroundStyle(.secondary)
+                        }
+                        Spacer()
+                        if entitlements.isPro {
+                            Image(systemName: "checkmark.seal.fill").foregroundStyle(Color.accentColor).font(.title2)
+                        }
                     }
+                    .padding(.vertical, 4)
+                    if !entitlements.isPro {
+                        Button { showPaywall = true } label: {
+                            Label("Upgrade to Pro", systemImage: "arrow.up.circle.fill")
+                                .font(.headline)
+                        }
+                    }
+                }
+
+                Section("Subscription") {
                     Button("Manage subscription") { showCustomerCenter = true }
                     Button {
                         Task { await restore() }

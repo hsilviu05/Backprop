@@ -11,6 +11,6 @@ struct InteractiveWidget: View {
             }
         }
         .padding()
-        .background(.background.secondary, in: RoundedRectangle(cornerRadius: 16))
+        .cardSurface()
     }
 }

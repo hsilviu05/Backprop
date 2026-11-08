@@ -115,6 +115,7 @@ struct ReadingView: View {
                 Section(isFiltered ? level.title : "\(level.title) reads") {
                     ForEach(othersByLevel[level] ?? []) { item in
                         Button { open(item) } label: { ReadingRow(item: item) }
+                            .tint(.primary)
                             .accessibilityHint("Opens in Safari")
                     }
                 }
@@ -142,6 +143,8 @@ private struct Shelf<Content: View>: View {
         }
         .scrollClipDisabled()
         .listRowInsets(EdgeInsets())
+        // Shelves sit on the page background so cards can scroll past the screen edge.
+        .listRowBackground(Color.clear)
     }
 }
 
@@ -186,9 +189,10 @@ private struct GeneratedCover: View {
             LinearGradient(colors: [color, color.opacity(0.7)], startPoint: .top, endPoint: .bottom)
             VStack(alignment: .leading, spacing: 6) {
                 Text(item.title)
-                    .font(.system(.subheadline, design: .serif).weight(.semibold))
-                    .lineLimit(5)
-                    .minimumScaleFactor(0.8)
+                    .font(.system(.footnote, design: .serif).weight(.semibold))
+                    .lineLimit(6)
+                    // Shrink long words instead of breaking them mid-word.
+                    .minimumScaleFactor(0.6)
                 Spacer(minLength: 0)
                 Text(item.authors)
                     .font(.caption2)

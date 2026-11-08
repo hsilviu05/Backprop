@@ -57,6 +57,21 @@ final class ContentLibrary {
 
     func lesson(id: String) -> Lesson? { lessons[id] }
 
+    func track(id: String) -> Track? { tracks.first { $0.id == id } }
+
+    /// The first unfinished lesson the user can open, checking the preferred track first.
+    func nextLesson(completedIDs: Set<String>, isPro: Bool, preferredTrackID: String?) -> LessonRoute? {
+        let ordered = tracks.filter { $0.id == preferredTrackID } + tracks.filter { $0.id != preferredTrackID }
+        for track in ordered {
+            for (index, chapter) in track.chapters.enumerated() where !isLocked(chapterIndex: index, isPro: isPro) {
+                if let id = chapter.lessonIDs.first(where: { !completedIDs.contains($0) }) {
+                    return LessonRoute(trackID: track.id, lessonID: id)
+                }
+            }
+        }
+        return nil
+    }
+
     var allLessonIDs: [String] {
         tracks.flatMap { $0.chapters.flatMap(\.lessonIDs) }
     }
@@ -72,6 +87,11 @@ final class ContentLibrary {
               track.chapters.count > freeChapterCount else { return false }
         return track.chapters[lastFreeIndex].lessonIDs.last == lessonID
     }
+}
+
+struct LessonRoute: Hashable, Sendable {
+    let trackID: String
+    let lessonID: String
 }
 
 enum ContentAccess {

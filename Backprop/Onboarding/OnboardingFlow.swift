@@ -9,9 +9,14 @@ enum OnboardingAnswers {
     static let goals = ["Switch into an ML career", "Understand AI at work", "Ace a course or exam", "Pure curiosity"]
     static let levels = ["Brand new", "Some stats or coding", "I've trained a model"]
     static let dailyMinutes = [5, 10, 15]
+
+    /// Beginners start with stats; everyone else starts with classic ML.
+    static func preferredTrackID(level: String) -> String {
+        level == levels[0] || level.isEmpty ? "data-foundations" : "classic-ml"
+    }
 }
 
-/// Goal → level → daily time → personalized plan → paywall (dismissible).
+/// Welcome → goal → level → daily time → personalized plan → paywall (dismissible).
 struct OnboardingFlow: View {
     let onFinish: () -> Void
 
@@ -21,39 +26,126 @@ struct OnboardingFlow: View {
     @State private var page = 0
     @State private var showPaywall = false
 
+    private static let pageCount = 5
+    private static let goalIcons = ["briefcase.fill", "building.2.fill", "graduationcap.fill", "sparkles"]
+    private static let levelIcons = ["leaf.fill", "chart.bar.fill", "cpu.fill"]
+    private static let timeIcons = ["cup.and.saucer.fill", "figure.walk", "book.fill"]
+
     var body: some View {
-        NavigationStack {
-            VStack(alignment: .leading, spacing: 24) {
+        VStack(spacing: 0) {
+            HStack {
+                if page > 0 {
+                    Button {
+                        withAnimation(Theme.spring) { page -= 1 }
+                    } label: {
+                        Image(systemName: "chevron.left").font(.headline)
+                    }
+                    .accessibilityLabel("Back")
+                }
+                Spacer()
+                PageDots(count: Self.pageCount, current: page)
+                Spacer()
+                // Balances the back button so the dots stay centered.
+                Image(systemName: "chevron.left").font(.headline).hidden()
+            }
+            .frame(height: 44)
+            .padding(.horizontal, Theme.padding)
+
+            Group {
                 switch page {
                 case 0:
-                    ChoicePage(title: "What brings you to Backprop?", options: OnboardingAnswers.goals, selection: $goal) { page = 1 }
+                    WelcomePage { advance() }
                 case 1:
-                    ChoicePage(title: "How much ML do you know?", options: OnboardingAnswers.levels, selection: $level) { page = 2 }
+                    ChoicePage(
+                        title: "What brings you here?",
+                        options: OnboardingAnswers.goals,
+                        icons: Self.goalIcons,
+                        selection: $goal
+                    ) { advance() }
                 case 2:
+                    ChoicePage(
+                        title: "How much ML do you know?",
+                        options: OnboardingAnswers.levels,
+                        icons: Self.levelIcons,
+                        selection: $level
+                    ) { advance() }
+                case 3:
                     ChoicePage(
                         title: "How much time per day?",
                         options: OnboardingAnswers.dailyMinutes.map { "\($0) minutes" },
+                        icons: Self.timeIcons,
                         selection: Binding(
                             get: { "\(dailyMinutes) minutes" },
                             set: { dailyMinutes = Int($0.split(separator: " ").first ?? "") ?? 5 }
                         )
-                    ) { page = 3 }
+                    ) { advance() }
                 default:
                     PlanPage(goal: goal, level: level, dailyMinutes: dailyMinutes) { showPaywall = true }
                 }
             }
-            .padding()
-            .animation(.default, value: page)
-            .toolbar {
-                if page > 0 {
-                    ToolbarItem(placement: .topBarLeading) {
-                        Button("Back") { page -= 1 }
-                    }
-                }
-            }
+            .id(page)
+            .transition(.asymmetric(
+                insertion: .move(edge: .trailing).combined(with: .opacity),
+                removal: .move(edge: .leading).combined(with: .opacity)
+            ))
+            .padding(.horizontal, Theme.padding)
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         }
+        .screenBackground()
         .sheet(isPresented: $showPaywall, onDismiss: onFinish) {
             PaywallSheet()
+        }
+    }
+
+    private func advance() {
+        withAnimation(Theme.spring) { page = min(page + 1, Self.pageCount - 1) }
+    }
+}
+
+private struct PageDots: View {
+    let count: Int
+    let current: Int
+
+    var body: some View {
+        HStack(spacing: 6) {
+            ForEach(0..<count, id: \.self) { index in
+                Capsule()
+                    .fill(index == current ? Color.accentColor : Color.secondary.opacity(0.3))
+                    .frame(width: index == current ? 18 : 6, height: 6)
+            }
+        }
+        .animation(Theme.spring, value: current)
+        .accessibilityElement()
+        .accessibilityLabel("Step \(current + 1) of \(count)")
+    }
+}
+
+private struct WelcomePage: View {
+    let onStart: () -> Void
+
+    var body: some View {
+        VStack(spacing: 20) {
+            Spacer()
+            BackpropMark(size: 120, animated: true)
+                .padding(28)
+                .cardSurface(cornerRadius: 40)
+                .appearAnimation()
+            VStack(spacing: 10) {
+                Text("Backprop")
+                    .font(.largeTitle.bold())
+                Text("Understand machine learning,\none 5‑minute lesson at a time.")
+                    .font(.title3)
+                    .foregroundStyle(.secondary)
+                    .multilineTextAlignment(.center)
+            }
+            .appearAnimation(delay: 0.1)
+            Spacer()
+            Button(action: onStart) {
+                Text("Get started").font(.headline).frame(maxWidth: .infinity)
+            }
+            .primaryButtonStyle()
+            .appearAnimation(delay: 0.2)
+            .padding(.bottom, 12)
         }
     }
 }
@@ -61,30 +153,40 @@ struct OnboardingFlow: View {
 private struct ChoicePage: View {
     let title: String
     let options: [String]
+    let icons: [String]
     @Binding var selection: String
     let onNext: () -> Void
 
     var body: some View {
-        Text(title).font(.largeTitle.bold())
-        VStack(spacing: 12) {
-            ForEach(options, id: \.self) { option in
+        VStack(alignment: .leading, spacing: 12) {
+            Text(title)
+                .font(.largeTitle.bold())
+                .padding(.top, 16)
+                .padding(.bottom, 12)
+            ForEach(Array(options.enumerated()), id: \.element) { index, option in
                 Button {
                     selection = option
                     onNext()
                 } label: {
-                    HStack {
-                        Text(option)
+                    HStack(spacing: 14) {
+                        IconTile(systemImage: index < icons.count ? icons[index] : "circle", size: 40)
+                        Text(option).font(.headline).foregroundStyle(.primary)
                         Spacer()
-                        if selection == option { Image(systemName: "checkmark") }
+                        if selection == option {
+                            Image(systemName: "checkmark.circle.fill").foregroundStyle(Color.accentColor)
+                        }
                     }
-                    .padding()
-                    .frame(maxWidth: .infinity)
-                    .background(.quaternary, in: RoundedRectangle(cornerRadius: 12))
+                    .padding(14)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .contentShape(Rectangle())
                 }
                 .buttonStyle(.plain)
+                .cardSurface(cornerRadius: Theme.smallCornerRadius + 4, interactive: true)
+                .appearAnimation(delay: 0.05 * Double(index))
             }
+            Spacer()
         }
-        Spacer()
+        .sensoryFeedback(.selection, trigger: selection)
     }
 }
 
@@ -95,23 +197,43 @@ private struct PlanPage: View {
     let onContinue: () -> Void
 
     private var startTrack: String {
-        level == OnboardingAnswers.levels[0] ? "Data foundations" : "Classic ML"
+        OnboardingAnswers.preferredTrackID(level: level) == "data-foundations" ? "Data foundations" : "Classic ML"
     }
 
     var body: some View {
-        Text("Your plan").font(.largeTitle.bold())
-        VStack(alignment: .leading, spacing: 12) {
-            Label("Start with \(startTrack)", systemImage: "flag")
-            Label("\(dailyMinutes) minutes a day", systemImage: "clock")
-            Label("Interactive sims in every chapter", systemImage: "hand.draw")
-            if !goal.isEmpty { Label("Goal: \(goal)", systemImage: "target") }
+        VStack(alignment: .leading, spacing: 16) {
+            Text("Your plan is ready")
+                .font(.largeTitle.bold())
+                .padding(.top, 16)
+            VStack(alignment: .leading, spacing: 0) {
+                planRow("flag.fill", "Start with \(startTrack)", tint: .teal)
+                Divider().padding(.leading, 62)
+                planRow("clock.fill", "\(dailyMinutes) minutes a day", tint: .orange)
+                Divider().padding(.leading, 62)
+                planRow("hand.draw.fill", "Interactive sims in every track", tint: .indigo)
+                if !goal.isEmpty {
+                    Divider().padding(.leading, 62)
+                    planRow("target", goal, tint: .pink)
+                }
+            }
+            .cardSurface()
+            .appearAnimation(delay: 0.05)
+            Spacer()
+            Button(action: onContinue) {
+                Text("Continue").font(.headline).frame(maxWidth: .infinity)
+            }
+            .primaryButtonStyle()
+            .padding(.bottom, 12)
         }
-        .font(.title3)
-        Spacer()
-        Button(action: onContinue) {
-            Text("Continue").frame(maxWidth: .infinity)
+    }
+
+    private func planRow(_ icon: String, _ text: String, tint: Color) -> some View {
+        HStack(spacing: 14) {
+            IconTile(systemImage: icon, tint: tint, size: 34)
+            Text(text).font(.body.weight(.medium))
+            Spacer()
         }
-        .buttonStyle(.borderedProminent)
-        .controlSize(.large)
+        .padding(.horizontal, Theme.padding)
+        .padding(.vertical, 12)
     }
 }
