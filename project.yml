@@ -54,6 +54,13 @@ targets:
         CFBundleVersion: $(CURRENT_PROJECT_VERSION)
         UILaunchScreen: {}
         UISupportedInterfaceOrientations: [UIInterfaceOrientationPortrait]
+        # Xcode's orientation check looks at the iPad key even for an iPhone-only target.
+        # Declaring all four here satisfies it; the app itself stays portrait on iPhone.
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
         # Portrait-only is intentional, so declare the app as full screen.
         UIRequiresFullScreen: true
         ITSAppUsesNonExemptEncryption: false
