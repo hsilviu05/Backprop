@@ -14,7 +14,7 @@ struct BackpropMark: View {
                     .resizable()
                     .scaledToFit()
                     .foregroundStyle(Color.accentColor)
-                    .overlay { if animated { BackpropPulse() } }
+                    .modifier(MarkEntrance(enabled: animated))
             } else {
                 NetworkGlyph(animated: animated)
             }
@@ -24,43 +24,23 @@ struct BackpropMark: View {
     }
 }
 
-/// A dot travelling backwards along the mark's bold path (output → hidden → input),
-/// matching the asset's geometry: points in a 100-unit space, viewBox origin (19, 18), size 64.
-private struct BackpropPulse: View {
+/// Gentle entrance for the mark: fades in and settles from 96% to full size.
+private struct MarkEntrance: ViewModifier {
+    let enabled: Bool
+    @State private var shown = false
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
-    private static let path: [CGPoint] = [CGPoint(x: 73, y: 50), CGPoint(x: 50, y: 38), CGPoint(x: 27, y: 30)]
-    private static let travel = 1.5
-    private static let cycle = 4.0
 
-    var body: some View {
-        if reduceMotion {
-            EmptyView()
-        } else {
-            TimelineView(.animation(minimumInterval: 1 / 30)) { context in
-                GeometryReader { geo in
-                    let t = context.date.timeIntervalSinceReferenceDate.truncatingRemainder(dividingBy: Self.cycle)
-                    if t < Self.travel {
-                        let p = Self.point(at: t / Self.travel)
-                        Circle()
-                            .fill(Color.accentColor)
-                            .frame(width: geo.size.width * 0.12, height: geo.size.width * 0.12)
-                            .shadow(color: Color.accentColor.opacity(0.6), radius: 3)
-                            .position(x: (p.x - 19) / 64 * geo.size.width, y: (p.y - 18) / 64 * geo.size.height)
-                    }
+    func body(content: Content) -> some View {
+        if enabled {
+            content
+                .opacity(shown ? 1 : 0)
+                .scaleEffect(shown || reduceMotion ? 1 : 0.96)
+                .onAppear {
+                    withAnimation(reduceMotion ? .easeOut(duration: 0.2) : .easeOut(duration: 0.6)) { shown = true }
                 }
-            }
-            .allowsHitTesting(false)
-            .accessibilityHidden(true)
+        } else {
+            content
         }
-    }
-
-    private static func point(at progress: Double) -> CGPoint {
-        let eased = progress * progress * (3 - 2 * progress)
-        let scaled = eased * Double(path.count - 1)
-        let i = min(Int(scaled), path.count - 2)
-        let f = scaled - Double(i)
-        let a = path[i], b = path[i + 1]
-        return CGPoint(x: a.x + (b.x - a.x) * f, y: a.y + (b.y - a.y) * f)
     }
 }
 
