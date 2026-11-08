@@ -16,7 +16,7 @@ You'll collect these values as you go. Keep them somewhere safe and never commit
 | App Store Connect API key `.p8` + Key ID + Issuer ID | Phase 2.4 | RevenueCat |
 | RevenueCat server notification URL | Phase 3.2 | App Store Connect |
 | RevenueCat public key `appl_…` | Phase 3.7 | `Config/Secrets.xcconfig` |
-| Privacy policy URL | Phase 1.5 | `Config/Secrets.xcconfig`, App Store Connect, RevenueCat paywall |
+| Privacy policy URL: `https://hsilviu05.github.io/Backprop/legal/privacy.html` | Phase 1.5 | `Config/Secrets.xcconfig`, App Store Connect |
 
 ---
 
@@ -26,18 +26,18 @@ You'll collect these values as you go. Keep them somewhere safe and never commit
 2. Note your **Team ID**: developer.apple.com > Account > Membership details.
 3. **Register the bundle ID**: Certificates, Identifiers & Profiles > Identifiers > **+** > App IDs > App > Explicit, e.g. `com.silviu.backprop`. In-App Purchase is on by default.
 4. **Paid Apps agreement**: App Store Connect > **Business** > accept the Paid Apps agreement, add your bank account and fill in the tax forms. Status must become **Active**, or purchases fail, even in sandbox.
-5. **Privacy policy**: host a page (GitHub Pages or Notion work). It must say that purchase history and an anonymous app user ID are processed by RevenueCat to manage subscriptions, that the app has no tracking or ads, and give a contact email.
+5. **Privacy policy and support pages**: both are in `docs/` and served by GitHub Pages (Settings > Pages > branch `main`, folder `/docs`). Privacy: `https://hsilviu05.github.io/Backprop/legal/privacy.html`. Support: `https://hsilviu05.github.io/Backprop/support.html`. Open both in a browser to check they load before you submit.
 6. **Small Business Program**: apply at developer.apple.com/app-store/small-business-program to pay 15% instead of 30%.
 7. **Name check**: search the App Store, USPTO and EUIPO for "Backprop". Phase 2.1 will tell you if the App Store name is taken.
 
 ## Phase 2: App Store Connect
 
 1. **Create the app**: Apps > **+** > New App > iOS. Name `Backprop: Learn ML & AI`, primary language English (U.S.), the bundle ID from 1.3, SKU `backprop-ios`, full access.
-2. **App Information**: category **Education** (secondary: Reference), content rights (no third-party content).
+2. **App Information**: fill in every field from section 1 of [`APP_STORE_METADATA.md`](APP_STORE_METADATA.md) (category, content rights, age rating).
 3. **Subscriptions**: Monetization > Subscriptions.
    1. Create a subscription group with reference name **`backprop_pro`**. Add a group localization: display name `Backprop Pro`.
-   2. **+** subscription: reference name `Pro Yearly`, product ID **`backprop_pro_yearly`**, duration **1 year**, price **$79.99** (US base, let Apple set the other countries). Localization: `Backprop Pro (Yearly)` with description `Every lesson, track and interactive sim.` Review screenshot: a screenshot of the paywall (you can add it after Phase 4).
-   3. **+** subscription: product ID **`backprop_pro_monthly`**, **1 month**, **$12.99**, same fields.
+   2. **+** subscription: reference name `Pro Yearly`, product ID **`backprop_pro_yearly`**, duration **1 year**, price **$79.99** (US base, let Apple set the other countries). Localization: display name and description from section 4 of [`APP_STORE_METADATA.md`](APP_STORE_METADATA.md). Review screenshot: a screenshot of the paywall (you can add it after Phase 4).
+   3. **+** subscription: reference name `Pro Monthly`, product ID **`backprop_pro_monthly`**, **1 month**, **$12.99**, localization from the same section.
    4. Levels: drag **yearly to level 1** and monthly to level 2. That makes monthly→yearly an upgrade.
    5. **Introductory offers**: yearly gets **Free, 1 week**, all countries. Monthly gets **Pay as you go, $4.99 for 1 month**.
    6. Leave both at "Ready to Submit". They go to review with the app version in Phase 7.
@@ -102,17 +102,17 @@ Sandbox renewals run fast (a year takes about an hour), so the trial expires qui
 
 ## Phase 7: Store listing and submit
 
-Copy the text from [`APP_STORE_METADATA.md`](APP_STORE_METADATA.md).
+Copy every field from [`APP_STORE_METADATA.md`](APP_STORE_METADATA.md). Each block is labeled with its screen and field and is checked against Apple's limits (`python3 docs/check_metadata.py`).
 
 1. App Store tab > **1.0 Prepare for Submission**:
    - Screenshots: **6.9" iPhone** (1320×2868), 3 to 10 of them. Show onboarding, the 4 tracks, a lesson, the regression sim, the gradient descent sim, the Reading tab, streaks, and the paywall.
-   - Promotional text, description, keywords, support URL, marketing URL (optional), version **1.0.0**, copyright `2026 Silviu …`.
+   - Promotional text, description, keywords, support URL, version **1.0.0** and copyright: section 2 of the metadata file.
    - Under **In-App Purchases and Subscriptions**, add **both** subscriptions. This is required for the first release.
    - Build: select the TestFlight build from Phase 6.
-   - **App Review Information**: your contact details, no sign-in needed, and the review notes from the metadata file.
+   - **App Review Information**: your contact details, no sign-in needed, and the review notes from the metadata file (they ask the reviewer to use a sandbox account).
    - **Version release**: choose **Manually release this version**, so you control launch day.
-2. **App Privacy** (sidebar): data is collected, namely Purchases > Purchase History and Identifiers > User ID, used for App Functionality, not linked to identity, no tracking. Add your privacy policy URL.
-3. **Age rating**: fill in the questionnaire. Every answer is "None/No", since there's no user content, web browsing or AI-generated content in 1.0.
+2. **App Privacy** (sidebar): answers are in section 3 of the metadata file. Purchase History (App Functionality, Analytics) and User ID (App Functionality), both not linked to identity, no tracking.
+3. **Age rating**: every answer is None or No (table in section 1 of the metadata file), which gives 4+.
 4. **Pricing and Availability**: price **Free** (the subscriptions are inside the app), all countries.
 5. Go through the **release checklist** below, then press **Add for Review** > **Submit**.
 
