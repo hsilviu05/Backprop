@@ -15,10 +15,10 @@ struct BackpropPaywallView: View {
     private let config = AppConfig.current
 
     private static let features: [(icon: String, title: String, detail: String, tint: Color)] = [
-        ("books.vertical.fill", "Every chapter, all 4 tracks", "Stats, classic ML, neural networks, modern AI", .indigo),
-        ("hand.draw.fill", "Hands-on simulations", "Drag data, tune learning rates, watch models learn", .teal),
-        ("calendar.badge.plus", "New lessons as they launch", "The library keeps growing", .orange),
-        ("flame.fill", "Build a daily habit", "Streaks and XP keep you going", .pink),
+        ("books.vertical.fill", "Every chapter, all 4 tracks", "Stats, classic ML, neural networks, modern AI", .accentColor),
+        ("hand.draw.fill", "Hands-on simulations", "Drag data, tune learning rates, watch models learn", .accentColor),
+        ("calendar.badge.plus", "New lessons as they launch", "The library keeps growing", .accentColor),
+        ("flame.fill", "Build a daily habit", "Streaks and XP keep you going", .accentColor),
     ]
 
     var body: some View {

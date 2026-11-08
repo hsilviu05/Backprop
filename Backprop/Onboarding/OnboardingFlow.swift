@@ -206,14 +206,14 @@ private struct PlanPage: View {
                 .font(.largeTitle.bold())
                 .padding(.top, 16)
             VStack(alignment: .leading, spacing: 0) {
-                planRow("flag.fill", "Start with \(startTrack)", tint: .teal)
+                planRow("flag.fill", "Start with \(startTrack)", tint: .accentColor)
                 Divider().padding(.leading, 62)
-                planRow("clock.fill", "\(dailyMinutes) minutes a day", tint: .orange)
+                planRow("clock.fill", "\(dailyMinutes) minutes a day", tint: .accentColor)
                 Divider().padding(.leading, 62)
-                planRow("hand.draw.fill", "Interactive sims in every track", tint: .indigo)
+                planRow("hand.draw.fill", "Interactive sims in every track", tint: .accentColor)
                 if !goal.isEmpty {
                     Divider().padding(.leading, 62)
-                    planRow("target", goal, tint: .pink)
+                    planRow("target", goal, tint: .accentColor)
                 }
             }
             .cardSurface()
