@@ -28,7 +28,7 @@ struct OnboardingFlow: View {
 
     private static let introCount = IntroFeature.all.count
     private static let pageCount = 5 + introCount
-    private static let goalIcons = ["briefcase.fill", "building.2.fill", "graduationcap.fill", "sparkles"]
+    private static let goalIcons = ["briefcase.fill", "building.2.fill", "graduationcap.fill", "lightbulb.fill"]
     private static let levelIcons = ["leaf.fill", "chart.bar.fill", "cpu.fill"]
     private static let timeIcons = ["cup.and.saucer.fill", "figure.walk", "book.fill"]
 
@@ -39,15 +39,16 @@ struct OnboardingFlow: View {
                     Button {
                         withAnimation(Theme.spring) { page -= 1 }
                     } label: {
-                        Image(systemName: "chevron.left").font(.headline)
+                        Image(systemName: "chevron.left").font(.headline).frame(width: 28, height: 28)
                     }
+                    .backButtonStyle()
                     .accessibilityLabel("Back")
                 }
                 Spacer()
                 PageDots(count: Self.pageCount, current: page)
                 Spacer()
                 // Balances the back button so the dots stay centered.
-                Image(systemName: "chevron.left").font(.headline).hidden()
+                Image(systemName: "chevron.left").font(.headline).frame(width: 28, height: 28).padding(8).hidden()
             }
             .frame(height: 44)
             .padding(.horizontal, Theme.padding)
@@ -102,6 +103,18 @@ struct OnboardingFlow: View {
 
     private func advance() {
         withAnimation(Theme.spring) { page = min(page + 1, Self.pageCount - 1) }
+    }
+}
+
+private extension View {
+    /// Round glass back button on iOS 26+, matching the system navigation bar.
+    @ViewBuilder
+    func backButtonStyle() -> some View {
+        if #available(iOS 26.0, *) {
+            self.buttonStyle(.glass).buttonBorderShape(.circle)
+        } else {
+            self.buttonStyle(.bordered).buttonBorderShape(.circle)
+        }
     }
 }
 
@@ -173,7 +186,7 @@ struct IntroFeature {
         IntroFeature(
             icon: "books.vertical.fill",
             title: "Keep going, go deeper",
-            detail: "Streaks and XP build the habit. A hand-picked library of free books, papers and videos takes you further."
+            detail: "Streaks and XP build the habit. A curated library of free books, papers and videos takes you further."
         ),
     ]
 }
@@ -185,14 +198,15 @@ private struct FeaturePage: View {
     @State private var animate = false
 
     var body: some View {
+        // Top-aligned with a fixed inset so the icon and title stay put while paging.
         VStack(spacing: 20) {
-            Spacer()
             Image(systemName: feature.icon)
                 .font(.system(size: 64, weight: .semibold))
                 .foregroundStyle(Color.accentColor)
                 .symbolEffect(.bounce, value: animate)
                 .frame(width: 150, height: 150)
                 .cardSurface(cornerRadius: 40)
+                .padding(.top, 72)
                 .appearAnimation()
                 .accessibilityHidden(true)
             VStack(spacing: 10) {
