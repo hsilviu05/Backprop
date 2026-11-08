@@ -25,6 +25,7 @@ struct MainTabView: View {
     var body: some View {
         TabView {
             Tab("Learn", systemImage: "graduationcap") { HomeView() }
+            Tab("Reading", systemImage: "books.vertical") { ReadingView() }
             Tab("Settings", systemImage: "gearshape") { SettingsView() }
         }
     }
