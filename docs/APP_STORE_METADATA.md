@@ -25,6 +25,7 @@ LEARN BY DOING
 • Drag points around and watch a regression line refit in real time
 • Roll a ball down a loss curve and see what a learning rate really does, including when training blows up
 • Every concept is followed by a quick quiz with clear explanations
+• A curated reading list of the best free ML books, papers and courses
 
 TRACKS
 • Data foundations: mean vs. median, variance, the normal distribution, Bayes' rule
@@ -62,4 +63,5 @@ All lesson content is bundled in the app. The app doesn't download code.
 - Interactive lessons in two tracks: Data foundations and Classic ML
 - Live simulations: linear regression and gradient descent
 - Quizzes with explanations, daily streaks, XP
+- Curated ML reading list
 - Backprop Pro subscription (yearly with 7-day trial, monthly) via RevenueCat, with Customer Center and Restore
