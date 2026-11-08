@@ -2,7 +2,7 @@
 
 Learn ML & data science in 5-minute interactive lessons. iOS 18+, SwiftUI, RevenueCat.
 
-- Plan: [PLAN.md](PLAN.md) · Setup (Mac, App Store Connect, RevenueCat): [docs/SETUP.md](docs/SETUP.md)
+- Plan: [PLAN.md](PLAN.md) · Launch guide (App Store Connect, RevenueCat, build, test, submit): [docs/LAUNCH.md](docs/LAUNCH.md) · Store copy: [docs/APP_STORE_METADATA.md](docs/APP_STORE_METADATA.md)
 
 ## Build
 ```sh
