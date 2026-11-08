@@ -1,6 +1,6 @@
 # Backprop — Learn ML & Data Science
 
-Project plan · v0.1 · Nov 2026
+Project plan · v0.1.1 · Nov 2026 (facts re-checked Nov 8, 2026)
 
 ## 0. Assumptions (change these first if wrong)
 
@@ -31,8 +31,8 @@ Project plan · v0.1 · Nov 2026
 Benchmarks worth designing around (RevenueCat SOSA 2026):
 
 - Hard paywall + trial ≈ 10.7% download→paid by day 35 vs 2.1% for freemium.
-- Longer trials convert better (17–32 days ~42.5% vs <4 days ~25.5%).
-- Education has the lowest first-month annual cancellation (~30%) → annual-heavy model fits.
+- Longer trials convert better: trial→paid median 42.5% for 17–32-day trials vs 25.5% for ≤4-day trials (5–9 days: 37.4%).
+- Education has the highest yearly median price ($44.99) → annual-heavy model fits. (An earlier draft cited ~30% first-month annual cancellation for Education; that figure is not in SOSA 2026, so don't rely on it until sourced.)
 - Education annual median ≈ $44.99; $9.99/mo is the most common monthly price.
 
 ## 3. Pricing & offers
@@ -106,14 +106,14 @@ Experiments to run in RevenueCat after ~1k paywall views: yearly $79.99 vs $59.9
 
 ## 7. App Store compliance checklist
 
-- **3.1.1** All digital unlocks through StoreKit/RevenueCat. No external links/prices for digital content (US storefront rules on external links have shifted — check current guidance before adding any).
+- **3.1.1** All digital unlocks through StoreKit/RevenueCat. Since the guidelines updated Oct 16, 2026 (3.1.1(a), 3.1.3), **US storefront** apps may include buttons/links to external purchase methods without an entitlement; all other storefronts still forbid them. Decision for launch: StoreKit only, no external purchase links anywhere. Revisit for the US storefront later, and re-check the guideline wording first.
 - **3.1.2** Paywall shows: price per period, trial length & what it converts to, auto-renew terms, Restore Purchases, links to Terms (EULA) and Privacy Policy. Same links in App Store metadata.
 - **4.2 / minimum functionality:** ship with enough real lessons (aim ≥ 40 across 2 tracks) — thin content gets rejected.
 - **5.1.1(v):** if you add accounts, in-app account deletion is required.
 - **5.1.2:** if the AI tutor sends user content to a third-party AI provider, disclose it and get explicit consent first.
 - **Privacy:** `PrivacyInfo.xcprivacy` (include required-reason APIs, e.g. UserDefaults); App Privacy labels must cover RevenueCat (purchase history, identifiers) and your analytics SDK; check each SDK ships its own manifest.
 - **Purpose strings:** none needed for MVP (no camera/mic/location). Notifications permission for streak reminders — ask in context, not at launch.
-- **Age rating questionnaire** (updated system) — answer for AI-generated content if the tutor ships.
+- **Age rating questionnaire** (updated system: 4+, 9+, 13+, 16+, 18+; answers were mandatory from Jan 31, 2026, so every submission needs them). Covers in-app controls, capabilities, medical/wellness and violent themes. Apple asks you to factor in AI assistant/chatbot features, so re-answer it when the AI tutor ships (v1.1).
 - **Sandbox + TestFlight test:** purchase, trial, upgrade/downgrade monthly↔yearly, restore, cancel, refund, offer-code redeem, win-back.
 
 ## 8. Roadmap & effort (solo, part-time ~15 h/week)
