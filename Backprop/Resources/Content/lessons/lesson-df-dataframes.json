@@ -1,0 +1,56 @@
+{
+  "id": "df-dataframes",
+  "title": "Thinking in tables",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "Most ML data starts as a **table** (a *DataFrame* in pandas): each **row** is one observation, like a customer, and each **column** is one variable, like age or plan."
+    },
+    {
+      "type": "text",
+      "markdown": "\"Tidy\" data follows that rule strictly: one row per observation, one column per variable, one value per cell. A column called `sales_2023_2024` that holds two years at once breaks it."
+    },
+    {
+      "type": "text",
+      "markdown": "Most work is a few verbs: **select** columns, **filter** rows, **sort**, **create** new columns from old ones, and **aggregate**. In pandas, `df[df.age > 30]` filters rows, and `df[\"price\"] * 1.2` computes a new column for every row at once."
+    },
+    {
+      "type": "text",
+      "markdown": "That last idea, operating on whole columns instead of looping over rows, is called **vectorization**. It's both clearer and usually much faster."
+    },
+    {
+      "type": "quiz",
+      "question": "In a table of customers, what should a single row represent?",
+      "choices": [
+        "One customer",
+        "One variable, like age",
+        "All customers in one country"
+      ],
+      "answerIndex": 0,
+      "explanation": "Rows are observations, columns are variables."
+    },
+    {
+      "type": "quiz",
+      "question": "Which operation keeps only customers older than 30?",
+      "choices": [
+        "Aggregating",
+        "Selecting a column",
+        "Filtering rows"
+      ],
+      "answerIndex": 2,
+      "explanation": "Filtering keeps the rows that match a condition."
+    },
+    {
+      "type": "quiz",
+      "question": "Why prefer `df[\"price\"] * 1.2` over a Python loop over every row?",
+      "choices": [
+        "It changes the original data permanently",
+        "It's vectorized: clearer and usually much faster",
+        "Loops give different answers"
+      ],
+      "answerIndex": 1,
+      "explanation": "Vectorized column operations run in optimized code instead of one Python step per row."
+    }
+  ]
+}

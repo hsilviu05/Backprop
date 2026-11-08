@@ -41,6 +41,17 @@
       ],
       "answerIndex": 1,
       "explanation": "The gradient points uphill, so we subtract it to go downhill."
+    },
+    {
+      "type": "quiz",
+      "question": "For L(w) = (w − 3)² + 1 with η = 0.5, you start at w = 0. Where are you after one step?",
+      "choices": [
+        "w = 3",
+        "w = 6",
+        "w = 1.5"
+      ],
+      "answerIndex": 0,
+      "explanation": "The gradient at 0 is 2(0 − 3) = −6, so w = 0 − 0.5 × (−6) = 3. With η = 0.5, the distance is multiplied by 1 − 2η = 0, so you land right on the minimum."
     }
   ]
 }

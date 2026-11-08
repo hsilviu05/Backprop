@@ -1,0 +1,76 @@
+{
+  "id": "nn-backprop",
+  "title": "Backpropagation",
+  "minutes": 7,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "**Backpropagation** computes the gradient of the loss with respect to *every* weight in one backward sweep. Popularized by Rumelhart, Hinton and Williams in 1986, it's what makes training deep networks practical."
+    },
+    {
+      "type": "text",
+      "markdown": "A tiny network: input x = 2, hidden h = w₁·x, output y = w₂·h, loss L = (y − t)². With w₁ = 3, w₂ = 0.5 and target t = 1: forward pass gives h = 6, y = 3, L = **4**."
+    },
+    {
+      "type": "text",
+      "markdown": "Now go backwards. dL/dy = 2(y − t) = **4**. Since y = w₂·h: dL/dw₂ = dL/dy · h = 4 × 6 = **24**, and dL/dh = dL/dy · w₂ = 4 × 0.5 = **2**."
+    },
+    {
+      "type": "text",
+      "markdown": "One more step back. Since h = w₁·x: dL/dw₁ = dL/dh · x = 2 × 2 = **4**. Each layer reuses the gradient passed back from the layer above, so nothing is computed twice."
+    },
+    {
+      "type": "text",
+      "markdown": "That reuse is the whole trick. The backward pass costs roughly as much as a forward pass (often quoted as about 2×), instead of one extra forward pass per weight. Then gradient descent updates every weight: w ← w − η · dL/dw."
+    },
+    {
+      "type": "widget",
+      "widget": "gradientDescent",
+      "caption": "Backprop supplies the gradient; gradient descent takes the step. Try a few learning rates on this one-weight loss."
+    },
+    {
+      "type": "quiz",
+      "question": "In the example, why is dL/dw₂ larger than dL/dw₁?",
+      "choices": [
+        "The input to w₂ (h = 6) is larger than the input to w₁ (x = 2)",
+        "Backprop always favors later layers",
+        "w₂ is smaller than w₁"
+      ],
+      "answerIndex": 0,
+      "explanation": "A weight's gradient scales with its input: dL/dw₂ = 4 × 6 while dL/dw₁ = 2 × 2."
+    },
+    {
+      "type": "quiz",
+      "question": "With learning rate 0.01, what's the new w₂ after one update?",
+      "choices": [
+        "0.26",
+        "0.5",
+        "0.74"
+      ],
+      "answerIndex": 0,
+      "explanation": "w₂ − η · dL/dw₂ = 0.5 − 0.01 × 24 = 0.26."
+    },
+    {
+      "type": "quiz",
+      "question": "Backprop's main efficiency gain comes from…",
+      "choices": [
+        "Using random gradient estimates",
+        "Skipping layers that don't matter",
+        "Reusing gradients from later layers when computing earlier ones"
+      ],
+      "answerIndex": 2,
+      "explanation": "Each layer's gradient builds on the one above, so one backward pass covers every weight."
+    },
+    {
+      "type": "quiz",
+      "question": "Backpropagation computes gradients by moving…",
+      "choices": [
+        "Randomly between layers",
+        "From the loss back toward the input",
+        "From the input forward to the loss"
+      ],
+      "answerIndex": 1,
+      "explanation": "It starts at the loss and applies the chain rule layer by layer toward the input."
+    }
+  ]
+}

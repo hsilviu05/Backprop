@@ -40,6 +40,17 @@
       ],
       "answerIndex": 0,
       "explanation": "Standard deviation is the square root of variance: √16 = 4."
+    },
+    {
+      "type": "quiz",
+      "question": "You add 10 to every value in a dataset. What happens to the standard deviation?",
+      "choices": [
+        "It increases by 10",
+        "It doubles",
+        "It stays the same"
+      ],
+      "answerIndex": 2,
+      "explanation": "Shifting every value moves the mean too, so the distances from the mean don't change."
     }
   ]
 }

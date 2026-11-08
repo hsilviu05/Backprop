@@ -1,0 +1,56 @@
+{
+  "id": "df-expected-value",
+  "title": "Expected value",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "The **expected value** E[X] is the long-run average of a random quantity: each outcome times its probability, summed up."
+    },
+    {
+      "type": "text",
+      "markdown": "A fair die: E[X] = (1 + 2 + 3 + 4 + 5 + 6) / 6 = **3.5**. You can never roll 3.5. It's an average, not a likely outcome."
+    },
+    {
+      "type": "text",
+      "markdown": "A bet: pay $1, win $5 with probability 0.1, otherwise nothing. Expected payout = 0.1 × 5 = $0.50, so expected profit is **−$0.50** per play."
+    },
+    {
+      "type": "text",
+      "markdown": "Expectation is **linear**: E[X + Y] = E[X] + E[Y], even when X and Y are dependent. In ML, the \"expected loss\" you minimize is just the average loss over the data distribution."
+    },
+    {
+      "type": "quiz",
+      "question": "A game pays $10 with probability 0.2 and $0 otherwise. What's its expected value?",
+      "choices": [
+        "$0.20",
+        "$2",
+        "$10"
+      ],
+      "answerIndex": 1,
+      "explanation": "0.2 × 10 + 0.8 × 0 = 2."
+    },
+    {
+      "type": "quiz",
+      "question": "You roll two fair dice. What's the expected sum?",
+      "choices": [
+        "6",
+        "7",
+        "12"
+      ],
+      "answerIndex": 1,
+      "explanation": "By linearity, E[sum] = 3.5 + 3.5 = 7."
+    },
+    {
+      "type": "quiz",
+      "question": "Which statement about expected value is true?",
+      "choices": [
+        "It's the average you'd approach over many repetitions",
+        "It's always a value that can actually occur",
+        "It's the most likely single outcome"
+      ],
+      "answerIndex": 0,
+      "explanation": "The expected value of a die roll is 3.5, which is never rolled. It's the long-run average."
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "id": "nn-dropout",
+  "title": "Dropout",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "**Dropout** randomly switches off a fraction of neurons on every training step, setting their outputs to zero. A rate of 0.5 drops half the units each time."
+    },
+    {
+      "type": "text",
+      "markdown": "Because any neuron might vanish, the network can't rely on a few fragile co-adapted features. It's a bit like training a huge ensemble of thinned networks that share weights."
+    },
+    {
+      "type": "text",
+      "markdown": "At inference, dropout is **off** and every neuron is used. To keep the scale consistent, the common \"inverted dropout\" multiplies the surviving activations by 1 / (1 − rate) during training."
+    },
+    {
+      "type": "text",
+      "markdown": "Dropout is a regularizer: it typically raises training loss slightly but improves validation performance on overfitting models."
+    },
+    {
+      "type": "quiz",
+      "question": "With a dropout rate of 0.2, roughly what share of units is zeroed on each training step?",
+      "choices": [
+        "2%",
+        "20%",
+        "80%"
+      ],
+      "answerIndex": 1,
+      "explanation": "The rate is the drop probability."
+    },
+    {
+      "type": "quiz",
+      "question": "During inference, dropout is…",
+      "choices": [
+        "Applied with the same rate",
+        "Turned off",
+        "Doubled"
+      ],
+      "answerIndex": 1,
+      "explanation": "All units are used at test time so predictions are deterministic."
+    },
+    {
+      "type": "quiz",
+      "question": "Inverted dropout with rate 0.5 scales the remaining activations during training by…",
+      "choices": [
+        "0.5",
+        "1",
+        "2"
+      ],
+      "answerIndex": 2,
+      "explanation": "1 / (1 − 0.5) = 2 keeps the expected activation the same as at inference."
+    }
+  ]
+}

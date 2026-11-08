@@ -1,0 +1,56 @@
+{
+  "id": "nn-activation-functions",
+  "title": "Activation functions",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "Modern neurons replace the perceptron's hard step with a smooth **activation function** applied to the weighted sum. Smooth functions have useful gradients, which training needs."
+    },
+    {
+      "type": "text",
+      "markdown": "**Sigmoid** squashes values to (0, 1). **Tanh** squashes to (−1, 1) and is centered at 0. Both flatten out for large inputs, where their gradient is almost zero."
+    },
+    {
+      "type": "text",
+      "markdown": "**ReLU**, max(0, x), is the default in most networks: cheap, and its gradient is exactly 1 for positive inputs. A neuron whose input is always negative outputs 0 forever, a \"dead\" ReLU. **Leaky ReLU** keeps a small slope for negatives to avoid that."
+    },
+    {
+      "type": "text",
+      "markdown": "Transformers commonly use **GELU**, a smooth cousin of ReLU. For outputs, the choice depends on the task: sigmoid for a probability, softmax for several classes, nothing at all (linear) for regression."
+    },
+    {
+      "type": "quiz",
+      "question": "What is ReLU(−3)?",
+      "choices": [
+        "−3",
+        "0",
+        "3"
+      ],
+      "answerIndex": 1,
+      "explanation": "ReLU outputs max(0, x), so negatives become 0."
+    },
+    {
+      "type": "quiz",
+      "question": "Why do sigmoid and tanh slow down learning for large inputs?",
+      "choices": [
+        "They're expensive to compute",
+        "They output negative numbers",
+        "They flatten out, so their gradients are close to zero"
+      ],
+      "answerIndex": 2,
+      "explanation": "Saturated activations pass back tiny gradients."
+    },
+    {
+      "type": "quiz",
+      "question": "For predicting a house price (any positive or negative number), the output layer should usually use…",
+      "choices": [
+        "Softmax",
+        "No activation (linear)",
+        "Sigmoid"
+      ],
+      "answerIndex": 1,
+      "explanation": "A linear output can produce any real number. Sigmoid and softmax are for probabilities."
+    }
+  ]
+}

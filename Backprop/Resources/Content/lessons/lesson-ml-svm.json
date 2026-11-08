@@ -1,0 +1,56 @@
+{
+  "id": "ml-svm",
+  "title": "Support vector machines",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "Many lines can separate two classes. A **support vector machine (SVM)** picks the one with the widest **margin**: the biggest gap between the line and the nearest points of either class."
+    },
+    {
+      "type": "text",
+      "markdown": "Those nearest points are the **support vectors**. Only they determine the boundary; moving any other point (without crossing the margin) changes nothing."
+    },
+    {
+      "type": "text",
+      "markdown": "Real data overlaps, so a **soft margin** allows some mistakes. The parameter **C** sets the trade-off: large C punishes mistakes hard (tighter fit, risk of overfitting), small C allows more (wider margin, simpler)."
+    },
+    {
+      "type": "text",
+      "markdown": "The **kernel trick** lets an SVM draw curved boundaries by implicitly mapping data into a higher-dimensional space. The RBF kernel is a popular default."
+    },
+    {
+      "type": "quiz",
+      "question": "Which points define an SVM's decision boundary?",
+      "choices": [
+        "All training points equally",
+        "The support vectors closest to the boundary",
+        "The points farthest from the boundary"
+      ],
+      "answerIndex": 1,
+      "explanation": "Only points on or inside the margin affect the solution."
+    },
+    {
+      "type": "quiz",
+      "question": "Your SVM is overfitting. What should you try?",
+      "choices": [
+        "Remove the margin",
+        "Increase C",
+        "Decrease C"
+      ],
+      "answerIndex": 2,
+      "explanation": "Smaller C tolerates more training errors in exchange for a wider, simpler margin."
+    },
+    {
+      "type": "quiz",
+      "question": "The kernel trick lets an SVM…",
+      "choices": [
+        "Train without any data",
+        "Learn non-linear decision boundaries",
+        "Output calibrated probabilities directly"
+      ],
+      "answerIndex": 1,
+      "explanation": "Kernels compute similarities as if the data were mapped to a richer space where a linear boundary works."
+    }
+  ]
+}

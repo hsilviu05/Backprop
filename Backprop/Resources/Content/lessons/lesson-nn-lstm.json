@@ -1,0 +1,56 @@
+{
+  "id": "nn-lstm",
+  "title": "LSTMs and GRUs",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "The **LSTM** (long short-term memory, Hochreiter and Schmidhuber, 1997) adds a separate **cell state** that information can flow along with little change, plus **gates** that control it."
+    },
+    {
+      "type": "text",
+      "markdown": "The **forget gate** decides what to erase from the cell, the **input gate** what new information to write, and the **output gate** what to reveal as the hidden state. Each gate is a sigmoid that outputs values between 0 and 1."
+    },
+    {
+      "type": "text",
+      "markdown": "Because the cell state is updated mostly by addition rather than repeated multiplication, gradients survive across many more steps."
+    },
+    {
+      "type": "text",
+      "markdown": "The **GRU** is a simpler variant with two gates (update and reset) and often performs similarly. LSTMs powered speech recognition and translation for years, until transformers took over most sequence tasks."
+    },
+    {
+      "type": "quiz",
+      "question": "Why do LSTM gates use sigmoids?",
+      "choices": [
+        "Outputs between 0 and 1 act like \"how much to let through\" dials",
+        "Sigmoids are faster than any other function",
+        "To make the output a probability distribution over words"
+      ],
+      "answerIndex": 0,
+      "explanation": "A gate value of 0 blocks information and 1 passes it fully."
+    },
+    {
+      "type": "quiz",
+      "question": "What lets an LSTM remember information over long spans?",
+      "choices": [
+        "More layers",
+        "A cell state updated mostly by addition, controlled by gates",
+        "A larger learning rate"
+      ],
+      "answerIndex": 1,
+      "explanation": "The additive path lets information and gradients flow with little decay."
+    },
+    {
+      "type": "quiz",
+      "question": "Compared with an LSTM, a GRU has…",
+      "choices": [
+        "Fewer gates and parameters",
+        "No gates at all",
+        "More gates"
+      ],
+      "answerIndex": 0,
+      "explanation": "GRUs use two gates instead of three and have no separate cell state."
+    }
+  ]
+}

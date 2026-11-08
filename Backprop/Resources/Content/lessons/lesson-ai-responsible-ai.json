@@ -1,0 +1,56 @@
+{
+  "id": "ai-responsible-ai",
+  "title": "Using AI responsibly",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "ML systems make decisions about loans, jobs, medical care and what people see. Their mistakes aren't spread evenly, so responsible use is part of the engineering, not an extra."
+    },
+    {
+      "type": "text",
+      "markdown": "**Fairness**: measure performance separately for different groups. A model that's 95% accurate overall may be much worse for a minority group that was under-represented in training."
+    },
+    {
+      "type": "text",
+      "markdown": "**Privacy**: models can memorize and reveal training data. Minimize personal data, get consent, and be careful what you send to third-party AI services."
+    },
+    {
+      "type": "text",
+      "markdown": "**Transparency and oversight**: tell people when they're dealing with AI, explain decisions where possible, and keep a human in the loop for high-stakes outcomes. Laws are catching up too, such as the EU AI Act, which sets stricter rules for high-risk uses."
+    },
+    {
+      "type": "quiz",
+      "question": "Your hiring model is 92% accurate overall. What should you check next?",
+      "choices": [
+        "Its accuracy for each group of applicants separately",
+        "Nothing, that's good enough",
+        "Its parameter count"
+      ],
+      "answerIndex": 0,
+      "explanation": "Overall accuracy can hide large gaps between groups."
+    },
+    {
+      "type": "quiz",
+      "question": "Which practice best protects user privacy?",
+      "choices": [
+        "Store everything in case it's useful later",
+        "Train on users' private messages by default",
+        "Collect and send only the personal data you really need"
+      ],
+      "answerIndex": 2,
+      "explanation": "Data minimization limits what can leak or be misused."
+    },
+    {
+      "type": "quiz",
+      "question": "For a high-stakes decision like denying a medical claim, a good practice is…",
+      "choices": [
+        "Keeping a human in the loop to review the decision",
+        "Fully automating it to save time",
+        "Hiding that AI was used"
+      ],
+      "answerIndex": 0,
+      "explanation": "Human oversight catches errors and gives people recourse."
+    }
+  ]
+}

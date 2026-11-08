@@ -1,0 +1,56 @@
+{
+  "id": "ml-supervised-unsupervised",
+  "title": "Types of learning",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "**Supervised learning** trains on examples *with* labels. If the label is a number (price, temperature) it's **regression**. If it's a category (spam or not, cat or dog) it's **classification**."
+    },
+    {
+      "type": "text",
+      "markdown": "**Unsupervised learning** has no labels. It looks for structure: **clustering** groups similar items (customer segments), and **dimensionality reduction** compresses many features into a few."
+    },
+    {
+      "type": "text",
+      "markdown": "**Reinforcement learning** learns by trial and error: an agent takes actions, receives rewards, and learns a strategy that earns more reward over time. Game-playing agents and robot control are classic examples."
+    },
+    {
+      "type": "text",
+      "markdown": "Many modern systems mix these. Large language models are first trained to predict the next word on unlabeled text (often called **self-supervised**, because the labels come from the data itself)."
+    },
+    {
+      "type": "quiz",
+      "question": "Predicting tomorrow's temperature in degrees is…",
+      "choices": [
+        "Regression",
+        "Classification",
+        "Clustering"
+      ],
+      "answerIndex": 0,
+      "explanation": "The target is a continuous number, so it's regression."
+    },
+    {
+      "type": "quiz",
+      "question": "Grouping customers by purchase behavior without any predefined segments is…",
+      "choices": [
+        "Unsupervised clustering",
+        "Reinforcement learning",
+        "Supervised classification"
+      ],
+      "answerIndex": 0,
+      "explanation": "There are no labels; the algorithm discovers the groups."
+    },
+    {
+      "type": "quiz",
+      "question": "A program that learns to play chess by playing games and getting +1 for a win is using…",
+      "choices": [
+        "Unsupervised learning",
+        "Reinforcement learning",
+        "Regression"
+      ],
+      "answerIndex": 1,
+      "explanation": "Learning from rewards through trial and error is reinforcement learning."
+    }
+  ]
+}

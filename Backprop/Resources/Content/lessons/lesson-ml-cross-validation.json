@@ -1,0 +1,56 @@
+{
+  "id": "ml-cross-validation",
+  "title": "Cross-validation",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "A single validation split can be lucky or unlucky, especially with small data. **k-fold cross-validation** uses all of it."
+    },
+    {
+      "type": "text",
+      "markdown": "Split the data into k folds (often 5 or 10). Train on k − 1 folds, validate on the remaining one, and repeat so each fold is the validation set once. Report the average score, and its spread."
+    },
+    {
+      "type": "text",
+      "markdown": "**Stratified** k-fold keeps the class balance the same in every fold, which matters for imbalanced data. For time series, use forward-chaining splits that always validate on later data."
+    },
+    {
+      "type": "text",
+      "markdown": "Cross-validation is for model selection and tuning. You still keep a separate test set for the final, untouched estimate."
+    },
+    {
+      "type": "quiz",
+      "question": "In 5-fold cross-validation, how many models do you train?",
+      "choices": [
+        "1",
+        "5",
+        "25"
+      ],
+      "answerIndex": 1,
+      "explanation": "One model per fold held out."
+    },
+    {
+      "type": "quiz",
+      "question": "In 10-fold cross-validation, what share of the data is used for validation in each round?",
+      "choices": [
+        "10%",
+        "50%",
+        "90%"
+      ],
+      "answerIndex": 0,
+      "explanation": "One fold out of ten."
+    },
+    {
+      "type": "quiz",
+      "question": "Why use stratified folds for a dataset with 2% positives?",
+      "choices": [
+        "So every fold contains a similar share of positives",
+        "To speed up training",
+        "To remove the positives"
+      ],
+      "answerIndex": 0,
+      "explanation": "A random fold might contain almost no positives, making its score meaningless."
+    }
+  ]
+}

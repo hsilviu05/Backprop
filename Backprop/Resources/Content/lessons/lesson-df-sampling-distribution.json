@@ -1,0 +1,56 @@
+{
+  "id": "df-sampling-distribution",
+  "title": "Sampling and standard error",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "You rarely see the whole population. You take a **sample** and compute a statistic, like the sample mean. Take a different sample and you get a slightly different answer."
+    },
+    {
+      "type": "text",
+      "markdown": "The spread of a statistic across many possible samples is its **sampling distribution**. Thanks to the central limit theorem, the sample mean's sampling distribution is roughly normal for large enough samples."
+    },
+    {
+      "type": "text",
+      "markdown": "Its standard deviation is called the **standard error**:\n\nSE = σ / √n\n\nwhere σ is the population standard deviation and n the sample size."
+    },
+    {
+      "type": "text",
+      "markdown": "Because of the square root, precision is expensive: to halve the standard error you need **four times** as much data."
+    },
+    {
+      "type": "quiz",
+      "question": "σ = 20 and n = 100. What's the standard error of the mean?",
+      "choices": [
+        "0.2",
+        "2",
+        "20"
+      ],
+      "answerIndex": 1,
+      "explanation": "20 / √100 = 20 / 10 = 2."
+    },
+    {
+      "type": "quiz",
+      "question": "You want to cut the standard error to a third. How much more data do you need?",
+      "choices": [
+        "3 times as much",
+        "6 times as much",
+        "9 times as much"
+      ],
+      "answerIndex": 2,
+      "explanation": "SE shrinks with √n, so you need n × 9 for √n × 3."
+    },
+    {
+      "type": "quiz",
+      "question": "Standard error describes…",
+      "choices": [
+        "How much a statistic varies from sample to sample",
+        "The error in your measuring instrument",
+        "The spread of individual data points"
+      ],
+      "answerIndex": 0,
+      "explanation": "Standard deviation describes the data. Standard error describes the uncertainty in a statistic computed from it."
+    }
+  ]
+}

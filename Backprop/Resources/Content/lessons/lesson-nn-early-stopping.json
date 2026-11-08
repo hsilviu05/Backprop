@@ -1,0 +1,56 @@
+{
+  "id": "nn-early-stopping",
+  "title": "Weight decay and early stopping",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "Two simple regularizers carry a lot of weight in deep learning."
+    },
+    {
+      "type": "text",
+      "markdown": "**Weight decay** shrinks every weight a little on each step. In plain SGD this is equivalent to an L2 penalty. With Adam it isn't quite, which is why AdamW applies the decay separately."
+    },
+    {
+      "type": "text",
+      "markdown": "**Early stopping** watches validation loss while training. Training loss keeps falling, but validation loss eventually turns back up as the network starts to overfit. Keep the weights from the best validation point and stop."
+    },
+    {
+      "type": "text",
+      "markdown": "A **patience** setting, like \"stop after 5 epochs without improvement\", avoids quitting on a single noisy bump."
+    },
+    {
+      "type": "quiz",
+      "question": "Training loss keeps dropping, but validation loss has risen for 10 epochs. What's happening?",
+      "choices": [
+        "Underfitting",
+        "Overfitting",
+        "The learning rate is too small"
+      ],
+      "answerIndex": 1,
+      "explanation": "Diverging training and validation loss is the signature of overfitting."
+    },
+    {
+      "type": "quiz",
+      "question": "With early stopping, which weights do you keep?",
+      "choices": [
+        "The initial random weights",
+        "The final epoch's weights",
+        "The weights from the epoch with the best validation loss"
+      ],
+      "answerIndex": 2,
+      "explanation": "You roll back to the best checkpoint."
+    },
+    {
+      "type": "quiz",
+      "question": "Weight decay pushes weights…",
+      "choices": [
+        "Toward zero",
+        "Away from zero",
+        "Toward 1"
+      ],
+      "answerIndex": 0,
+      "explanation": "It shrinks each weight a bit every step, like an L2 penalty."
+    }
+  ]
+}

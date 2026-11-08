@@ -1,0 +1,56 @@
+{
+  "id": "ai-hallucinations",
+  "title": "Hallucinations",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "LLMs sometimes produce fluent, confident statements that are false: invented citations, wrong numbers, plausible-sounding APIs that don't exist. These are called **hallucinations**."
+    },
+    {
+      "type": "text",
+      "markdown": "The root cause: the model is trained to produce *plausible* text, not to check facts against a source. When it doesn't know, a confident-sounding guess can still be the most likely continuation."
+    },
+    {
+      "type": "text",
+      "markdown": "Risk rises with obscure facts, exact figures, recent events after the training data, and long chains of reasoning where one error compounds."
+    },
+    {
+      "type": "text",
+      "markdown": "Mitigations: give the model the source text (RAG) and ask it to quote or cite it, allow it to say \"I don't know\", lower the temperature for factual tasks, and **verify** anything that matters. Including the lessons in this app."
+    },
+    {
+      "type": "quiz",
+      "question": "Why do LLMs hallucinate?",
+      "choices": [
+        "They're programmed to lie",
+        "They only hallucinate when the internet is down",
+        "They generate plausible text, which isn't always true"
+      ],
+      "answerIndex": 2,
+      "explanation": "Next-token training rewards plausibility, not truth."
+    },
+    {
+      "type": "quiz",
+      "question": "Which question is most likely to produce a hallucination?",
+      "choices": [
+        "\"What is 2 + 2?\"",
+        "\"Quote page 214 of an obscure 1987 report.\"",
+        "\"Rephrase this sentence.\""
+      ],
+      "answerIndex": 1,
+      "explanation": "Exact details from rare sources are where models guess most."
+    },
+    {
+      "type": "quiz",
+      "question": "Which mitigation helps most for answers about your company's policies?",
+      "choices": [
+        "Provide the policy text in the prompt and ask for citations",
+        "Ask the model to be confident",
+        "Raise the temperature"
+      ],
+      "answerIndex": 0,
+      "explanation": "Grounding the answer in the actual source reduces guessing."
+    }
+  ]
+}

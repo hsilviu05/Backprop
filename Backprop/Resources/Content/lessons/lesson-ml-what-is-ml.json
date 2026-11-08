@@ -1,0 +1,56 @@
+{
+  "id": "ml-what-is-ml",
+  "title": "Learning from examples",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "In traditional programming you write the rules. In **machine learning** you show the computer examples and it finds the rules itself."
+    },
+    {
+      "type": "text",
+      "markdown": "A spam filter written by hand needs rules like \"flag emails containing 'prize'\". An ML spam filter sees thousands of emails labeled spam or not spam, and learns which patterns predict the label."
+    },
+    {
+      "type": "text",
+      "markdown": "The vocabulary: each example has **features** (inputs, like word counts) and often a **label** (the answer, like spam). A **model** is a function from features to a prediction. **Training** adjusts the model's parameters to fit the examples, and **inference** is using the trained model on new data."
+    },
+    {
+      "type": "text",
+      "markdown": "The goal isn't to memorize the training examples. It's to **generalize**: make good predictions on data the model has never seen."
+    },
+    {
+      "type": "quiz",
+      "question": "In a house-price model, the number of bedrooms is a…",
+      "choices": [
+        "Feature",
+        "Parameter",
+        "Label"
+      ],
+      "answerIndex": 0,
+      "explanation": "It's an input the model uses. The price you want to predict is the label."
+    },
+    {
+      "type": "quiz",
+      "question": "What's the main goal of training a model?",
+      "choices": [
+        "Store every training example",
+        "Make good predictions on new, unseen data",
+        "Get 100% accuracy on the training data"
+      ],
+      "answerIndex": 1,
+      "explanation": "Generalization is the point. A model that only memorizes is useless on new inputs."
+    },
+    {
+      "type": "quiz",
+      "question": "Using a trained model to predict for a new customer is called…",
+      "choices": [
+        "Inference",
+        "Training",
+        "Labeling"
+      ],
+      "answerIndex": 0,
+      "explanation": "Inference means applying the trained model to new inputs."
+    }
+  ]
+}

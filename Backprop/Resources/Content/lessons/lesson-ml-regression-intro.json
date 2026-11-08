@@ -41,6 +41,17 @@
       ],
       "answerIndex": 0,
       "explanation": "Squaring makes big errors dominate the total, so the line bends toward the outlier."
+    },
+    {
+      "type": "quiz",
+      "question": "For a fitted line ŷ = 2x + 1, what's the prediction at x = 3?",
+      "choices": [
+        "6",
+        "7",
+        "9"
+      ],
+      "answerIndex": 1,
+      "explanation": "2 × 3 + 1 = 7."
     }
   ]
 }

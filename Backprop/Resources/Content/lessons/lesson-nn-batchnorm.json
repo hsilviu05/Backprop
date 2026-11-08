@@ -1,0 +1,56 @@
+{
+  "id": "nn-batchnorm",
+  "title": "Normalization layers",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "As earlier layers learn, the distribution of inputs to later layers keeps shifting, which can make training touchy. **Normalization layers** keep activations in a steady range."
+    },
+    {
+      "type": "text",
+      "markdown": "**Batch normalization** normalizes each feature to mean 0 and variance 1 across the current mini-batch, then applies a learnable scale and shift so the network can undo it where useful. It often allows higher learning rates."
+    },
+    {
+      "type": "text",
+      "markdown": "At inference there's no batch to average over, so batch norm uses **running averages** collected during training. Forgetting to switch the model to evaluation mode is a classic bug."
+    },
+    {
+      "type": "text",
+      "markdown": "**Layer normalization** normalizes across the features of each single example instead, so it doesn't depend on batch size. That's why transformers use it."
+    },
+    {
+      "type": "quiz",
+      "question": "Batch normalization computes its statistics over…",
+      "choices": [
+        "The examples in the current mini-batch",
+        "The whole dataset at once",
+        "A single example's features"
+      ],
+      "answerIndex": 0,
+      "explanation": "Mean and variance come from the batch, per feature."
+    },
+    {
+      "type": "quiz",
+      "question": "What does batch norm use at inference time?",
+      "choices": [
+        "No normalization at all",
+        "The statistics of the single test example",
+        "Running averages of mean and variance from training"
+      ],
+      "answerIndex": 2,
+      "explanation": "Running statistics make predictions independent of whatever else is in the batch."
+    },
+    {
+      "type": "quiz",
+      "question": "Why do transformers typically use layer norm rather than batch norm?",
+      "choices": [
+        "Layer norm is older",
+        "It normalizes each example on its own, independent of batch size",
+        "Batch norm can't be used with attention at all"
+      ],
+      "answerIndex": 1,
+      "explanation": "Layer norm works the same for any batch size and sequence setup."
+    }
+  ]
+}

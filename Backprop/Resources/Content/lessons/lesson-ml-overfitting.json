@@ -1,0 +1,61 @@
+{
+  "id": "ml-overfitting",
+  "title": "Overfitting and underfitting",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "**Underfitting**: the model is too simple to capture the pattern. It does badly on training *and* test data."
+    },
+    {
+      "type": "widget",
+      "widget": "linearRegression",
+      "caption": "Place points along a curve, like a smile shape. A straight line can't follow it, no matter where it goes: that's underfitting."
+    },
+    {
+      "type": "text",
+      "markdown": "**Overfitting**: the model is so flexible it memorizes noise in the training data. Training error is very low, but test error is high. Picture a wiggly curve that passes through every training point."
+    },
+    {
+      "type": "text",
+      "markdown": "The telltale sign is a **gap**: training performance much better than validation performance."
+    },
+    {
+      "type": "text",
+      "markdown": "Fixes for overfitting: more data, a simpler model, **regularization**, or stopping training earlier. Fixes for underfitting: a more flexible model or better features."
+    },
+    {
+      "type": "quiz",
+      "question": "Training accuracy 99%, validation accuracy 70%. What's happening?",
+      "choices": [
+        "Overfitting",
+        "Underfitting",
+        "Perfect fit"
+      ],
+      "answerIndex": 0,
+      "explanation": "A big train-validation gap means the model memorized the training data."
+    },
+    {
+      "type": "quiz",
+      "question": "A model scores 60% on both training and validation data, well below what's possible. The best next step is…",
+      "choices": [
+        "Collect more data of the same kind",
+        "Add regularization",
+        "Try a more flexible model or better features"
+      ],
+      "answerIndex": 2,
+      "explanation": "Equal, poor scores point to underfitting. Regularization would make it worse."
+    },
+    {
+      "type": "quiz",
+      "question": "Which is NOT a typical fix for overfitting?",
+      "choices": [
+        "Simplifying the model",
+        "Training for many more epochs",
+        "Getting more training data"
+      ],
+      "answerIndex": 1,
+      "explanation": "Training longer usually increases overfitting. Early stopping is the fix."
+    }
+  ]
+}

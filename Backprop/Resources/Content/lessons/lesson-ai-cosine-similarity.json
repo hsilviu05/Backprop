@@ -1,0 +1,56 @@
+{
+  "id": "ai-cosine-similarity",
+  "title": "Measuring similarity",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "To compare embeddings we usually measure the angle between them with **cosine similarity**:\n\ncos(a, b) = (a · b) / (‖a‖ ‖b‖)"
+    },
+    {
+      "type": "text",
+      "markdown": "It ranges from −1 (opposite directions) through 0 (unrelated, at right angles) to 1 (same direction). Vector length is ignored, only direction counts."
+    },
+    {
+      "type": "text",
+      "markdown": "Example: a = (1, 0), b = (1, 1). The dot product is 1, the lengths are 1 and √2, so cos = 1 / √2 ≈ **0.71**."
+    },
+    {
+      "type": "text",
+      "markdown": "If vectors are normalized to length 1, cosine similarity equals the plain dot product, which is why many systems normalize embeddings up front."
+    },
+    {
+      "type": "quiz",
+      "question": "Two vectors point in exactly the same direction but one is twice as long. Their cosine similarity is…",
+      "choices": [
+        "0.5",
+        "1",
+        "2"
+      ],
+      "answerIndex": 1,
+      "explanation": "Cosine similarity only depends on direction."
+    },
+    {
+      "type": "quiz",
+      "question": "a = (1, 0), b = (0, 1). What's their cosine similarity?",
+      "choices": [
+        "−1",
+        "0",
+        "1"
+      ],
+      "answerIndex": 1,
+      "explanation": "The dot product is 0, so they're at right angles."
+    },
+    {
+      "type": "quiz",
+      "question": "Why do many systems normalize embeddings to length 1?",
+      "choices": [
+        "To make them smaller on disk",
+        "Normalization improves the meaning of words",
+        "Then cosine similarity is just the dot product, which is fast to compute"
+      ],
+      "answerIndex": 2,
+      "explanation": "With unit vectors the denominator is 1."
+    }
+  ]
+}

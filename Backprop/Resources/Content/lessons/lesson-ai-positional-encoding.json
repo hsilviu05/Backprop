@@ -1,0 +1,56 @@
+{
+  "id": "ai-positional-encoding",
+  "title": "Word order",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "Attention on its own has no idea of order: shuffle the input tokens and each token's output is the same, just shuffled. But \"dog bites man\" and \"man bites dog\" mean different things."
+    },
+    {
+      "type": "text",
+      "markdown": "Transformers fix this by injecting **position information**. The original paper added fixed sine and cosine waves of different frequencies to each embedding, so every position gets a unique pattern."
+    },
+    {
+      "type": "text",
+      "markdown": "Other models learn a position embedding for each index. Many recent LLMs use **rotary position embeddings (RoPE)**, which rotate query and key vectors by an angle that depends on position, so attention scores reflect *relative* distance."
+    },
+    {
+      "type": "text",
+      "markdown": "How position is encoded affects how well a model handles sequences longer than it saw in training, a big topic for long-context models."
+    },
+    {
+      "type": "quiz",
+      "question": "Why do transformers need positional information?",
+      "choices": [
+        "Attention by itself ignores the order of tokens",
+        "Attention can't process more than one token",
+        "Embeddings already contain the position"
+      ],
+      "answerIndex": 0,
+      "explanation": "Without it, a sentence would look like a bag of tokens."
+    },
+    {
+      "type": "quiz",
+      "question": "The original transformer encoded positions with…",
+      "choices": [
+        "A separate RNN",
+        "Random noise",
+        "Fixed sine and cosine waves"
+      ],
+      "answerIndex": 2,
+      "explanation": "Sinusoidal encodings were added to the token embeddings."
+    },
+    {
+      "type": "quiz",
+      "question": "RoPE helps attention scores reflect…",
+      "choices": [
+        "The relative distance between tokens",
+        "The token's spelling",
+        "The batch size"
+      ],
+      "answerIndex": 0,
+      "explanation": "Rotating queries and keys by position makes their dot product depend on the offset between them."
+    }
+  ]
+}

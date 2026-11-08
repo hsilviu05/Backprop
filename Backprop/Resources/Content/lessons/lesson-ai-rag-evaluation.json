@@ -1,0 +1,56 @@
+{
+  "id": "ai-rag-evaluation",
+  "title": "Evaluating RAG",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "A RAG system can fail in two places, so evaluate both: **retrieval** (did we find the right passages?) and **generation** (did the answer use them correctly?)."
+    },
+    {
+      "type": "text",
+      "markdown": "For retrieval, build a test set of questions with known relevant passages and measure **recall@k**: how often the right passage appears in the top k results."
+    },
+    {
+      "type": "text",
+      "markdown": "For generation, check **faithfulness** (is every claim supported by the retrieved text?) and **answer relevance** (does it actually answer the question?). Humans or a carefully checked LLM-as-judge can score these."
+    },
+    {
+      "type": "text",
+      "markdown": "Start small: 50 real user questions with expected answers will catch more problems than any generic benchmark. Re-run them every time you change chunking, embeddings or prompts."
+    },
+    {
+      "type": "quiz",
+      "question": "Recall@5 measures…",
+      "choices": [
+        "How fast the search runs",
+        "How often the relevant passage appears among the top 5 retrieved results",
+        "The answer's length"
+      ],
+      "answerIndex": 1,
+      "explanation": "It's a retrieval metric."
+    },
+    {
+      "type": "quiz",
+      "question": "An answer adds a claim that isn't in any retrieved passage. Which property failed?",
+      "choices": [
+        "Recall",
+        "Latency",
+        "Faithfulness"
+      ],
+      "answerIndex": 2,
+      "explanation": "Faithful answers stick to what the sources support."
+    },
+    {
+      "type": "quiz",
+      "question": "What's the best first evaluation set for a company help-desk bot?",
+      "choices": [
+        "A general trivia benchmark",
+        "Random sentences",
+        "A set of real user questions with expected answers"
+      ],
+      "answerIndex": 2,
+      "explanation": "Real questions reflect what the system will actually face."
+    }
+  ]
+}

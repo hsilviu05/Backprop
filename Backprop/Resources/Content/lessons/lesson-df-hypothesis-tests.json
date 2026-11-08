@@ -1,0 +1,56 @@
+{
+  "id": "df-hypothesis-tests",
+  "title": "Hypothesis tests and p-values",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "A **hypothesis test** asks whether data is surprising under a default assumption, the **null hypothesis** (H₀), such as \"the new button has no effect on clicks\"."
+    },
+    {
+      "type": "text",
+      "markdown": "The **p-value** is the probability of seeing data at least as extreme as yours *if H₀ were true*. A small p-value means the data would be unusual under H₀."
+    },
+    {
+      "type": "text",
+      "markdown": "By convention, p < 0.05 is called \"statistically significant\". That threshold is a choice, not a law of nature."
+    },
+    {
+      "type": "text",
+      "markdown": "Common misreadings: the p-value is **not** the probability that H₀ is true, and it says nothing about how *big* or important an effect is. A tiny, useless effect can have p < 0.001 with enough data."
+    },
+    {
+      "type": "quiz",
+      "question": "A p-value of 0.03 means…",
+      "choices": [
+        "The effect is 3% in size",
+        "There's a 3% chance the null hypothesis is true",
+        "If the null were true, data this extreme would show up about 3% of the time"
+      ],
+      "answerIndex": 2,
+      "explanation": "The p-value is computed assuming H₀ is true. It isn't the probability of H₀ itself."
+    },
+    {
+      "type": "quiz",
+      "question": "An A/B test on 10 million users finds p = 0.0001 for a 0.01% lift in clicks. What's the takeaway?",
+      "choices": [
+        "The effect is very likely real but practically tiny",
+        "It's a huge, important effect",
+        "The test must be broken"
+      ],
+      "answerIndex": 0,
+      "explanation": "Big samples make tiny effects significant. Always look at the effect size too."
+    },
+    {
+      "type": "quiz",
+      "question": "In an A/B test, the null hypothesis is usually…",
+      "choices": [
+        "B is better than A",
+        "The test has enough data",
+        "There's no difference between A and B"
+      ],
+      "answerIndex": 2,
+      "explanation": "H₀ is the \"nothing is going on\" default you try to find evidence against."
+    }
+  ]
+}

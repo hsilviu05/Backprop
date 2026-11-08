@@ -1,0 +1,56 @@
+{
+  "id": "ai-context-windows",
+  "title": "Context windows",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "An LLM can only attend to a limited number of tokens at once: its **context window**. Everything counts: system instructions, the conversation history, pasted documents and the model's own answer."
+    },
+    {
+      "type": "text",
+      "markdown": "Context windows have grown from a few thousand tokens to hundreds of thousands or more in recent models. But in standard attention, compute grows with the **square** of the sequence length: double the context, roughly four times the attention work."
+    },
+    {
+      "type": "text",
+      "markdown": "Bigger isn't automatically better. Studies have found models can miss information buried in the middle of very long inputs (\"lost in the middle\"), and every token costs money and time."
+    },
+    {
+      "type": "text",
+      "markdown": "Practical habits: put the most important instructions clearly at the start or end, include only relevant material, and summarize old conversation turns instead of keeping everything."
+    },
+    {
+      "type": "quiz",
+      "question": "What counts toward the context window?",
+      "choices": [
+        "Only the model's output",
+        "Only the user's latest message",
+        "Instructions, history, pasted documents and the generated answer"
+      ],
+      "answerIndex": 2,
+      "explanation": "Every token the model reads or writes in that request counts."
+    },
+    {
+      "type": "quiz",
+      "question": "With standard attention, doubling the input length roughly multiplies attention compute by…",
+      "choices": [
+        "2",
+        "4",
+        "8"
+      ],
+      "answerIndex": 1,
+      "explanation": "Attention compares every token with every other, so cost grows with length squared."
+    },
+    {
+      "type": "quiz",
+      "question": "Why not always paste every document into a huge context?",
+      "choices": [
+        "It changes the model's weights",
+        "Long contexts are always rejected",
+        "Cost and latency grow, and models can miss details in the middle of long inputs"
+      ],
+      "answerIndex": 2,
+      "explanation": "Relevant, focused context usually works better and cheaper."
+    }
+  ]
+}

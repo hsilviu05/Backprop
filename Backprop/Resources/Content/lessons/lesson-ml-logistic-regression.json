@@ -1,0 +1,56 @@
+{
+  "id": "ml-logistic-regression",
+  "title": "Logistic regression",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "Despite its name, **logistic regression** is a classifier. It computes a linear score z = w·x + b, then squashes it into a probability with the **sigmoid**:\n\nσ(z) = 1 / (1 + e⁻ᶻ)"
+    },
+    {
+      "type": "text",
+      "markdown": "The sigmoid maps any number into (0, 1). σ(0) = 0.5, large positive z approaches 1, large negative z approaches 0."
+    },
+    {
+      "type": "text",
+      "markdown": "To decide, pick a **threshold**, usually 0.5: predict \"yes\" when σ(z) ≥ 0.5, which is the same as z ≥ 0. The points where z = 0 form the **decision boundary**, which is a straight line (or flat plane) in feature space."
+    },
+    {
+      "type": "text",
+      "markdown": "It's trained by minimizing cross-entropy loss with gradient descent. Because it's simple, fast and interpretable, it's a strong first baseline for any classification problem."
+    },
+    {
+      "type": "quiz",
+      "question": "If z = 0, what probability does logistic regression output?",
+      "choices": [
+        "0",
+        "0.5",
+        "1"
+      ],
+      "answerIndex": 1,
+      "explanation": "σ(0) = 1 / (1 + 1) = 0.5."
+    },
+    {
+      "type": "quiz",
+      "question": "What shape is logistic regression's decision boundary in the original features?",
+      "choices": [
+        "Any shape it likes",
+        "A circle",
+        "A straight line or flat plane"
+      ],
+      "answerIndex": 2,
+      "explanation": "The boundary is where w·x + b = 0, which is linear."
+    },
+    {
+      "type": "quiz",
+      "question": "Missing a fraud case is costly, so you lower the threshold from 0.5 to 0.2. What happens?",
+      "choices": [
+        "More transactions are flagged, catching more fraud but with more false alarms",
+        "Fewer transactions are flagged",
+        "The model's weights change"
+      ],
+      "answerIndex": 0,
+      "explanation": "A lower threshold flags more cases, raising recall and usually lowering precision."
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "id": "ai-tokens",
+  "title": "Tokens",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "Language models don't read letters or whole words. They read **tokens**: chunks of text from a fixed vocabulary, often tens of thousands to a few hundred thousand entries."
+    },
+    {
+      "type": "text",
+      "markdown": "Most models use **subword** tokenization, such as byte-pair encoding (BPE). Common words become one token; rare words split into pieces, like \"unbelievably\" → \"un\", \"believ\", \"ably\" (the exact split depends on the tokenizer)."
+    },
+    {
+      "type": "text",
+      "markdown": "In English, a token is roughly 4 characters, or about three quarters of a word, on average. Other languages and code often need more tokens for the same content, which affects cost and context limits."
+    },
+    {
+      "type": "text",
+      "markdown": "Tokenization explains some odd behavior: a model that sees \"strawberry\" as one or two tokens never directly sees its letters, which is part of why counting letters can trip models up."
+    },
+    {
+      "type": "quiz",
+      "question": "Why use subword tokens instead of whole words?",
+      "choices": [
+        "Any word, even an unseen one, can be built from known pieces",
+        "It makes models ignore spelling",
+        "Subwords are always shorter than characters"
+      ],
+      "answerIndex": 0,
+      "explanation": "A subword vocabulary covers rare and new words without an endless word list."
+    },
+    {
+      "type": "quiz",
+      "question": "Roughly how many tokens is a 750-word English text?",
+      "choices": [
+        "About 1,000",
+        "About 250",
+        "About 7,500"
+      ],
+      "answerIndex": 0,
+      "explanation": "At about 0.75 words per token, 750 words is roughly 1,000 tokens. It's an approximation."
+    },
+    {
+      "type": "quiz",
+      "question": "A model miscounts the letters in a word. A likely reason is…",
+      "choices": [
+        "It has no vocabulary",
+        "Letters aren't stored in computers",
+        "It sees tokens, not individual letters"
+      ],
+      "answerIndex": 2,
+      "explanation": "Several letters are merged into one token before the model ever sees them."
+    }
+  ]
+}

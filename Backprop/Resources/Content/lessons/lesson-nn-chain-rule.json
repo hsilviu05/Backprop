@@ -1,0 +1,56 @@
+{
+  "id": "nn-chain-rule",
+  "title": "The chain rule",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "Networks are functions inside functions. To find how the loss changes when a deep weight changes, we need the **chain rule**:\n\nif y = f(g(x)), then dy/dx = f′(g(x)) · g′(x)"
+    },
+    {
+      "type": "text",
+      "markdown": "In words: multiply the local rates of change along the path. If g doubles small changes in x, and f triples small changes in g, then f(g(x)) changes 6 times as fast as x."
+    },
+    {
+      "type": "text",
+      "markdown": "Example: L = (3w)². Let u = 3w, so L = u². dL/du = 2u and du/dw = 3, so dL/dw = 2u · 3 = 18w. At w = 1 the gradient is **18**."
+    },
+    {
+      "type": "text",
+      "markdown": "When paths branch and merge, you add up the contributions of each path. Backpropagation is just the chain rule applied systematically to a whole network."
+    },
+    {
+      "type": "quiz",
+      "question": "y = (2x + 1)². What's dy/dx at x = 1?",
+      "choices": [
+        "6",
+        "9",
+        "12"
+      ],
+      "answerIndex": 2,
+      "explanation": "dy/dx = 2(2x + 1) · 2 = 4(2x + 1) = 12 at x = 1."
+    },
+    {
+      "type": "quiz",
+      "question": "If dL/dh = 4 and dh/dw = 0.5, what's dL/dw?",
+      "choices": [
+        "2",
+        "4.5",
+        "8"
+      ],
+      "answerIndex": 0,
+      "explanation": "Chain rule: 4 × 0.5 = 2."
+    },
+    {
+      "type": "quiz",
+      "question": "When a variable affects the loss through two separate paths, its total gradient is…",
+      "choices": [
+        "The larger of the two path gradients",
+        "The sum of the gradients along each path",
+        "The product of the two"
+      ],
+      "answerIndex": 1,
+      "explanation": "Contributions from separate paths add up."
+    }
+  ]
+}

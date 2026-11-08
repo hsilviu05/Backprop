@@ -1,0 +1,61 @@
+{
+  "id": "ml-r-squared",
+  "title": "R² and residuals",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "A **residual** is actual minus predicted: y − ŷ. Good models leave residuals that look like random noise, with no pattern."
+    },
+    {
+      "type": "text",
+      "markdown": "**R²** (the coefficient of determination) compares your model with the simplest baseline, always predicting the mean:\n\nR² = 1 − (sum of squared residuals) / (sum of squared deviations from the mean)"
+    },
+    {
+      "type": "widget",
+      "widget": "linearRegression",
+      "caption": "Line the points up neatly, then scatter them. Smaller MSE relative to the spread of y means a higher R²."
+    },
+    {
+      "type": "text",
+      "markdown": "R² = 1 is a perfect fit. R² = 0 means no better than predicting the mean. On new data, R² can even be **negative** if the model is worse than the mean."
+    },
+    {
+      "type": "text",
+      "markdown": "Residuals that curve (positive, then negative, then positive) mean a straight line is the wrong shape, even if R² looks decent."
+    },
+    {
+      "type": "quiz",
+      "question": "A model's R² is 0.8. That means…",
+      "choices": [
+        "80% of its predictions are exactly right",
+        "It explains 80% of the variance in y compared with predicting the mean",
+        "It's 80% likely to be the correct model"
+      ],
+      "answerIndex": 1,
+      "explanation": "R² measures the share of variance explained relative to the mean baseline."
+    },
+    {
+      "type": "quiz",
+      "question": "Squared residuals sum to 20 and squared deviations from the mean sum to 100. What's R²?",
+      "choices": [
+        "0.2",
+        "0.8",
+        "1.2"
+      ],
+      "answerIndex": 1,
+      "explanation": "1 − 20/100 = 0.8."
+    },
+    {
+      "type": "quiz",
+      "question": "Residuals form a clear U-shape when plotted against x. What does that suggest?",
+      "choices": [
+        "The relationship is curved, so a straight line misses it",
+        "The model is perfect",
+        "The data has no noise"
+      ],
+      "answerIndex": 0,
+      "explanation": "Patterned residuals mean the model's shape is wrong."
+    }
+  ]
+}

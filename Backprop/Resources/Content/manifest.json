@@ -1,5 +1,5 @@
 {
-  "contentVersion": 1,
+  "contentVersion": 2,
   "freeChapterCount": 2,
   "tracks": [
     {
@@ -12,22 +12,52 @@
           "id": "df-describe",
           "title": "Describing data",
           "lessonIDs": [
+            "df-data-types",
             "df-mean-median",
-            "df-variance"
-          ]
-        },
-        {
-          "id": "df-distributions",
-          "title": "Distributions",
-          "lessonIDs": [
-            "df-normal"
+            "df-variance",
+            "df-percentiles",
+            "df-correlation"
           ]
         },
         {
           "id": "df-probability",
           "title": "Probability",
           "lessonIDs": [
-            "df-bayes"
+            "df-probability-basics",
+            "df-conditional-probability",
+            "df-independence",
+            "df-bayes",
+            "df-expected-value"
+          ]
+        },
+        {
+          "id": "df-distributions",
+          "title": "Distributions",
+          "lessonIDs": [
+            "df-random-variables",
+            "df-normal",
+            "df-binomial-poisson",
+            "df-sampling-distribution"
+          ]
+        },
+        {
+          "id": "df-inference",
+          "title": "Inference",
+          "lessonIDs": [
+            "df-sampling-bias",
+            "df-confidence-intervals",
+            "df-hypothesis-tests",
+            "df-p-hacking"
+          ]
+        },
+        {
+          "id": "df-wrangling",
+          "title": "Working with data",
+          "lessonIDs": [
+            "df-dataframes",
+            "df-groupby",
+            "df-missing-data",
+            "df-feature-scaling"
           ]
         }
       ]
@@ -35,29 +65,214 @@
     {
       "id": "classic-ml",
       "title": "Classic ML",
-      "summary": "Regression, optimization and how to evaluate a model.",
+      "summary": "Regression, classification, trees, clustering and how to evaluate a model.",
       "systemImage": "point.topleft.down.to.point.bottomright.curvepath",
       "chapters": [
+        {
+          "id": "ml-foundations",
+          "title": "What is machine learning?",
+          "lessonIDs": [
+            "ml-what-is-ml",
+            "ml-supervised-unsupervised",
+            "ml-train-test-split",
+            "ml-overfitting"
+          ]
+        },
         {
           "id": "ml-regression",
           "title": "Linear regression",
           "lessonIDs": [
             "ml-regression-intro",
-            "ml-least-squares"
+            "ml-least-squares",
+            "ml-r-squared",
+            "ml-multiple-regression"
           ]
         },
         {
           "id": "ml-optimization",
           "title": "Optimization",
           "lessonIDs": [
-            "ml-gradient-descent"
+            "ml-loss-functions",
+            "ml-gradient-descent",
+            "ml-stochastic-gd",
+            "ml-regularization"
+          ]
+        },
+        {
+          "id": "ml-classification",
+          "title": "Classification",
+          "lessonIDs": [
+            "ml-logistic-regression",
+            "ml-knn",
+            "ml-naive-bayes",
+            "ml-svm"
+          ]
+        },
+        {
+          "id": "ml-trees",
+          "title": "Trees and ensembles",
+          "lessonIDs": [
+            "ml-decision-trees",
+            "ml-gini-entropy",
+            "ml-random-forests",
+            "ml-gradient-boosting"
+          ]
+        },
+        {
+          "id": "ml-unsupervised",
+          "title": "Unsupervised learning",
+          "lessonIDs": [
+            "ml-kmeans",
+            "ml-choosing-k",
+            "ml-pca"
           ]
         },
         {
           "id": "ml-evaluation",
           "title": "Evaluation",
           "lessonIDs": [
-            "ml-precision-recall"
+            "ml-confusion-matrix",
+            "ml-precision-recall",
+            "ml-roc-auc",
+            "ml-cross-validation",
+            "ml-bias-variance",
+            "ml-data-leakage"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "neural-networks",
+      "title": "Neural networks",
+      "summary": "From a single neuron to backprop, CNNs and sequence models.",
+      "systemImage": "brain.head.profile",
+      "chapters": [
+        {
+          "id": "nn-neurons",
+          "title": "From neurons to networks",
+          "lessonIDs": [
+            "nn-perceptron",
+            "nn-activation-functions",
+            "nn-xor-nonlinearity",
+            "nn-layers"
+          ]
+        },
+        {
+          "id": "nn-training",
+          "title": "Training a network",
+          "lessonIDs": [
+            "nn-forward-pass",
+            "nn-softmax-cross-entropy",
+            "nn-chain-rule",
+            "nn-backprop"
+          ]
+        },
+        {
+          "id": "nn-optimizers",
+          "title": "Making training work",
+          "lessonIDs": [
+            "nn-momentum-adam",
+            "nn-initialization",
+            "nn-vanishing-gradients",
+            "nn-batchnorm"
+          ]
+        },
+        {
+          "id": "nn-generalization",
+          "title": "Generalization",
+          "lessonIDs": [
+            "nn-dropout",
+            "nn-early-stopping",
+            "nn-data-augmentation",
+            "nn-debugging-training"
+          ]
+        },
+        {
+          "id": "nn-cnn",
+          "title": "Convolutional networks",
+          "lessonIDs": [
+            "nn-convolution",
+            "nn-pooling",
+            "nn-cnn-architecture",
+            "nn-transfer-learning"
+          ]
+        },
+        {
+          "id": "nn-sequences",
+          "title": "Sequence models",
+          "lessonIDs": [
+            "nn-rnn",
+            "nn-lstm",
+            "nn-autoencoders"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "modern-ai",
+      "title": "Modern AI",
+      "summary": "Embeddings, attention, transformers, LLMs and RAG.",
+      "systemImage": "sparkles",
+      "chapters": [
+        {
+          "id": "ai-embeddings",
+          "title": "Tokens and embeddings",
+          "lessonIDs": [
+            "ai-tokens",
+            "ai-embeddings",
+            "ai-cosine-similarity",
+            "ai-embedding-uses"
+          ]
+        },
+        {
+          "id": "ai-attention",
+          "title": "Attention",
+          "lessonIDs": [
+            "ai-attention-idea",
+            "ai-qkv",
+            "ai-multi-head",
+            "ai-positional-encoding"
+          ]
+        },
+        {
+          "id": "ai-transformers",
+          "title": "Transformers",
+          "lessonIDs": [
+            "ai-transformer-block",
+            "ai-encoder-decoder",
+            "ai-next-token",
+            "ai-sampling"
+          ]
+        },
+        {
+          "id": "ai-llms",
+          "title": "Large language models",
+          "lessonIDs": [
+            "ai-pretraining-scaling",
+            "ai-fine-tuning",
+            "ai-prompting",
+            "ai-hallucinations",
+            "ai-context-windows"
+          ]
+        },
+        {
+          "id": "ai-rag",
+          "title": "Retrieval-augmented generation",
+          "lessonIDs": [
+            "ai-rag-intro",
+            "ai-vector-search",
+            "ai-chunking",
+            "ai-rag-evaluation"
+          ]
+        },
+        {
+          "id": "ai-frontier",
+          "title": "Beyond text",
+          "lessonIDs": [
+            "ai-diffusion",
+            "ai-agents-tools",
+            "ai-evaluating-llms",
+            "ai-responsible-ai"
           ]
         }
       ]

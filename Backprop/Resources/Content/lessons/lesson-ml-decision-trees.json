@@ -1,0 +1,56 @@
+{
+  "id": "ml-decision-trees",
+  "title": "Decision trees",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "A **decision tree** asks a sequence of yes/no questions: \"Is income > 50k?\", then \"Is age < 30?\", until it reaches a **leaf** with a prediction."
+    },
+    {
+      "type": "text",
+      "markdown": "Training picks, at each node, the feature and threshold that best separate the data, then repeats on each branch. Trees handle mixed feature types and need no scaling."
+    },
+    {
+      "type": "text",
+      "markdown": "Left alone, a tree keeps splitting until every leaf is pure, which memorizes the training data. Limit it with a **maximum depth**, a **minimum number of samples per leaf**, or by **pruning** branches afterwards."
+    },
+    {
+      "type": "text",
+      "markdown": "Trees are easy to read and explain, but small changes in data can produce a very different tree. Combining many trees fixes that, as you'll see next."
+    },
+    {
+      "type": "quiz",
+      "question": "A tree with no depth limit on noisy data will likely…",
+      "choices": [
+        "Underfit",
+        "Fail to train",
+        "Overfit"
+      ],
+      "answerIndex": 2,
+      "explanation": "It keeps splitting until it has memorized every training point, noise included."
+    },
+    {
+      "type": "quiz",
+      "question": "Which preprocessing step do decision trees generally NOT need?",
+      "choices": [
+        "Feature scaling",
+        "Splitting off a test set",
+        "Handling missing labels"
+      ],
+      "answerIndex": 0,
+      "explanation": "Splits compare a feature to a threshold, so units don't matter."
+    },
+    {
+      "type": "quiz",
+      "question": "What's a weakness of a single decision tree?",
+      "choices": [
+        "It's unstable: small data changes can change the tree a lot",
+        "It can't handle categorical data",
+        "It can only do regression"
+      ],
+      "answerIndex": 0,
+      "explanation": "High variance is the classic weakness of a single deep tree."
+    }
+  ]
+}

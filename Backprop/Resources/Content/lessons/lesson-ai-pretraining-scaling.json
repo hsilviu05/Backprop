@@ -1,0 +1,56 @@
+{
+  "id": "ai-pretraining-scaling",
+  "title": "Pretraining and scaling",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "**Pretraining** teaches an LLM by next-token prediction on enormous text collections, now commonly trillions of tokens from the web, books and code. The result is a **base model**: good at continuing text, not yet at following instructions."
+    },
+    {
+      "type": "text",
+      "markdown": "Studies of **scaling laws** found that loss falls smoothly and predictably as you increase model size, data and compute. GPT-3 (2020) had 175 billion parameters."
+    },
+    {
+      "type": "text",
+      "markdown": "DeepMind's **Chinchilla** paper (2022) showed many models were undertrained for their size: for a fixed compute budget, it's better to train a smaller model on more data, roughly 20 tokens per parameter. Chinchilla (70B parameters, 1.4 trillion tokens) beat larger models."
+    },
+    {
+      "type": "text",
+      "markdown": "Since then, many models are trained on far more than 20 tokens per parameter on purpose, because a smaller model is cheaper to run once deployed."
+    },
+    {
+      "type": "quiz",
+      "question": "A base model, before any fine-tuning, is mainly good at…",
+      "choices": [
+        "Continuing text in a plausible way",
+        "Following instructions politely",
+        "Searching the web"
+      ],
+      "answerIndex": 0,
+      "explanation": "Pretraining optimizes next-token prediction, not helpfulness."
+    },
+    {
+      "type": "quiz",
+      "question": "Chinchilla's main finding was that many large models were…",
+      "choices": [
+        "Too small to be useful",
+        "Trained on too little data for their size",
+        "Trained on too much data"
+      ],
+      "answerIndex": 1,
+      "explanation": "For a fixed compute budget, a smaller model trained on more tokens did better."
+    },
+    {
+      "type": "quiz",
+      "question": "Why might a lab train a small model on far more data than \"compute-optimal\"?",
+      "choices": [
+        "To make training cheaper",
+        "Scaling laws forbid large models",
+        "A smaller model is cheaper to run for every user afterwards"
+      ],
+      "answerIndex": 2,
+      "explanation": "Extra training cost up front can save a lot of inference cost later."
+    }
+  ]
+}

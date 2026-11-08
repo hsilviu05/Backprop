@@ -1,0 +1,56 @@
+{
+  "id": "nn-pooling",
+  "title": "Stride, padding and pooling",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "**Padding** adds a border of zeros so the output keeps the input's size. A 3×3 filter with padding 1 and stride 1 preserves width and height."
+    },
+    {
+      "type": "text",
+      "markdown": "**Stride** is how far the filter moves each step. Stride 2 skips every other position and roughly halves the output size."
+    },
+    {
+      "type": "text",
+      "markdown": "**Max pooling** shrinks feature maps by keeping the largest value in each small window. A 2×2 pool with stride 2 halves width and height, keeping the strongest responses."
+    },
+    {
+      "type": "text",
+      "markdown": "Shrinking the maps as you go deeper lets later layers see larger regions of the original image, called a bigger **receptive field**, and saves computation."
+    },
+    {
+      "type": "quiz",
+      "question": "A 2×2 max pool with stride 2 on a 16×16 feature map gives…",
+      "choices": [
+        "4×4",
+        "8×8",
+        "16×16"
+      ],
+      "answerIndex": 1,
+      "explanation": "Each dimension is halved."
+    },
+    {
+      "type": "quiz",
+      "question": "What does max pooling return for the window (1, 5, 3, 2)?",
+      "choices": [
+        "1",
+        "2.75",
+        "5"
+      ],
+      "answerIndex": 2,
+      "explanation": "Max pooling keeps the largest value."
+    },
+    {
+      "type": "quiz",
+      "question": "Why use padding?",
+      "choices": [
+        "To add more parameters",
+        "To keep the output the same size and process edge pixels fully",
+        "To make the image brighter"
+      ],
+      "answerIndex": 1,
+      "explanation": "Without padding, each convolution trims the borders."
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "id": "ai-attention-idea",
+  "title": "The idea of attention",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "In \"The animal didn't cross the street because **it** was too tired\", what does \"it\" refer to? You need to look back at \"animal\". **Attention** lets every token look at every other token and decide which ones matter."
+    },
+    {
+      "type": "text",
+      "markdown": "For each token, attention computes a relevance score with every other token, turns the scores into weights with softmax, and takes a **weighted average** of their information. \"it\" can put most of its weight on \"animal\"."
+    },
+    {
+      "type": "text",
+      "markdown": "Unlike an RNN, which passes information step by step, attention connects any two positions directly, and all positions are processed in parallel. That makes training much faster on GPUs."
+    },
+    {
+      "type": "text",
+      "markdown": "The 2017 paper \"Attention Is All You Need\" built a whole architecture, the **transformer**, from attention and simple feed-forward layers, with no recurrence at all."
+    },
+    {
+      "type": "quiz",
+      "question": "What does attention compute for each token?",
+      "choices": [
+        "A single fixed embedding",
+        "The next token directly",
+        "A weighted average of information from other tokens"
+      ],
+      "answerIndex": 2,
+      "explanation": "Weights come from relevance scores passed through softmax."
+    },
+    {
+      "type": "quiz",
+      "question": "A key advantage of attention over RNNs is that it…",
+      "choices": [
+        "Connects distant tokens directly and processes them in parallel",
+        "Uses no parameters",
+        "Only looks at the previous token"
+      ],
+      "answerIndex": 0,
+      "explanation": "No step-by-step chain means no long path for information to fade along."
+    },
+    {
+      "type": "quiz",
+      "question": "Which 2017 paper introduced the transformer?",
+      "choices": [
+        "\"Learning Representations by Back-Propagating Errors\"",
+        "\"ImageNet Classification with Deep CNNs\"",
+        "\"Attention Is All You Need\""
+      ],
+      "answerIndex": 2,
+      "explanation": "Vaswani and colleagues introduced the transformer in 2017."
+    }
+  ]
+}

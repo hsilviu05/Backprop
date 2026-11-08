@@ -1,0 +1,56 @@
+{
+  "id": "ml-confusion-matrix",
+  "title": "The confusion matrix",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "For a yes/no classifier, every prediction falls into one of four boxes:\n\n**TP** true positive: predicted yes, was yes\n**FP** false positive: predicted yes, was no\n**FN** false negative: predicted no, was yes\n**TN** true negative: predicted no, was no"
+    },
+    {
+      "type": "text",
+      "markdown": "That 2×2 table is the **confusion matrix**. Accuracy is (TP + TN) / total, but the matrix shows *which* mistakes you make."
+    },
+    {
+      "type": "text",
+      "markdown": "Example: 100 patients, 10 sick. The model flags 12: 8 sick, 4 healthy. So TP = 8, FP = 4, FN = 2, TN = 86. Accuracy = 94/100."
+    },
+    {
+      "type": "text",
+      "markdown": "Different mistakes have different costs. A false alarm on a fraud check costs a phone call; a missed fraud costs money. Decide which box hurts most before choosing a metric."
+    },
+    {
+      "type": "quiz",
+      "question": "A spam filter sends a real email to the spam folder. That's a…",
+      "choices": [
+        "False negative",
+        "False positive",
+        "True positive"
+      ],
+      "answerIndex": 1,
+      "explanation": "It predicted spam (positive) but the email wasn't spam."
+    },
+    {
+      "type": "quiz",
+      "question": "TP = 30, FP = 10, FN = 20, TN = 40. What's the accuracy?",
+      "choices": [
+        "0.3",
+        "0.7",
+        "0.75"
+      ],
+      "answerIndex": 1,
+      "explanation": "(30 + 40) / 100 = 0.7."
+    },
+    {
+      "type": "quiz",
+      "question": "A model misses a patient who is actually sick. That's a…",
+      "choices": [
+        "True negative",
+        "False positive",
+        "False negative"
+      ],
+      "answerIndex": 2,
+      "explanation": "It predicted negative, but the truth was positive."
+    }
+  ]
+}

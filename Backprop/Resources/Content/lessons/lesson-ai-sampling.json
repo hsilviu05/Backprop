@@ -1,0 +1,56 @@
+{
+  "id": "ai-sampling",
+  "title": "Temperature and sampling",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "Given next-token probabilities, how do we choose? **Greedy** decoding always takes the most likely token. It's predictable but can be repetitive."
+    },
+    {
+      "type": "text",
+      "markdown": "**Temperature** T divides the logits before softmax. T < 1 sharpens the distribution (more focused), T > 1 flattens it (more varied and more random). As T approaches 0, sampling becomes greedy."
+    },
+    {
+      "type": "text",
+      "markdown": "**Top-k** sampling keeps only the k most likely tokens. **Top-p** (nucleus) sampling keeps the smallest set of tokens whose probabilities add up to p, like 0.9, then samples among them."
+    },
+    {
+      "type": "text",
+      "markdown": "Rule of thumb: low temperature for factual answers, extraction and code; higher for brainstorming and creative writing. Higher temperature doesn't make a model smarter, just less predictable."
+    },
+    {
+      "type": "quiz",
+      "question": "Raising the temperature from 0.2 to 1.5 makes outputs…",
+      "choices": [
+        "Shorter",
+        "More varied and random",
+        "More deterministic"
+      ],
+      "answerIndex": 1,
+      "explanation": "A flatter distribution gives less likely tokens more chance."
+    },
+    {
+      "type": "quiz",
+      "question": "Top-p = 0.9 means sampling from…",
+      "choices": [
+        "The top 90 tokens",
+        "The smallest set of tokens whose probabilities sum to at least 0.9",
+        "Tokens with probability above 0.9 each"
+      ],
+      "answerIndex": 1,
+      "explanation": "It adapts the set size to how confident the model is."
+    },
+    {
+      "type": "quiz",
+      "question": "For extracting dates from invoices, which setting fits best?",
+      "choices": [
+        "Temperature 1.5",
+        "Top-k = 1,000",
+        "Low temperature, close to 0"
+      ],
+      "answerIndex": 2,
+      "explanation": "Extraction needs consistent, predictable outputs."
+    }
+  ]
+}

@@ -36,6 +36,17 @@
       ],
       "answerIndex": 1,
       "explanation": "It's about sample means, not the raw data itself."
+    },
+    {
+      "type": "quiz",
+      "question": "A value 3 standard deviations above the mean of a normal distribution is…",
+      "choices": [
+        "Typical: about a third of values are that high",
+        "Rare: only about 0.15% of values are that high or higher",
+        "Impossible"
+      ],
+      "answerIndex": 1,
+      "explanation": "99.7% lie within 3σ, leaving 0.3% split between both tails, about 0.15% on each side."
     }
   ]
 }

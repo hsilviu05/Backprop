@@ -40,6 +40,17 @@
       ],
       "answerIndex": 1,
       "explanation": "Precision = 30 / (30 + 10) = 0.75. (Recall would be 30 / 50 = 0.6.)"
+    },
+    {
+      "type": "quiz",
+      "question": "A model flags 20 items as positive; 15 are correct. There are 30 positives in total. What's the recall?",
+      "choices": [
+        "0.5",
+        "0.67",
+        "0.75"
+      ],
+      "answerIndex": 0,
+      "explanation": "Recall = TP / all actual positives = 15 / 30 = 0.5. Precision would be 15 / 20 = 0.75."
     }
   ]
 }

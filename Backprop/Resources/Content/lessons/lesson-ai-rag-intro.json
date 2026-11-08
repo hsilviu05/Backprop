@@ -1,0 +1,56 @@
+{
+  "id": "ai-rag-intro",
+  "title": "What RAG is",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "An LLM only knows what was in its training data. It doesn't know your company wiki, yesterday's news, or your user's files. **Retrieval-augmented generation (RAG)** fixes that at question time."
+    },
+    {
+      "type": "text",
+      "markdown": "The recipe: **retrieve** the passages most relevant to the question from your own documents, **insert** them into the prompt, and ask the model to **answer using them**."
+    },
+    {
+      "type": "text",
+      "markdown": "Benefits: fresh and private knowledge without retraining, answers that can cite sources, and fewer hallucinations, since the model can quote rather than guess."
+    },
+    {
+      "type": "text",
+      "markdown": "RAG doesn't make answers automatically correct. If retrieval brings back the wrong passages, the model will confidently answer from the wrong material. Retrieval quality is usually the biggest lever."
+    },
+    {
+      "type": "quiz",
+      "question": "What does RAG add to an LLM?",
+      "choices": [
+        "Relevant documents retrieved at question time and placed in the prompt",
+        "A faster tokenizer",
+        "More parameters"
+      ],
+      "answerIndex": 0,
+      "explanation": "Retrieval supplies knowledge the model wasn't trained on."
+    },
+    {
+      "type": "quiz",
+      "question": "Compared with fine-tuning on your docs, an advantage of RAG is…",
+      "choices": [
+        "It needs no documents",
+        "Documents can be updated instantly, without retraining",
+        "It always gives correct answers"
+      ],
+      "answerIndex": 1,
+      "explanation": "Change the documents and the next answer uses them."
+    },
+    {
+      "type": "quiz",
+      "question": "A RAG chatbot gives a wrong answer. The most common culprit is…",
+      "choices": [
+        "Retrieval brought back irrelevant passages",
+        "The question was too short",
+        "The model's temperature"
+      ],
+      "answerIndex": 0,
+      "explanation": "If the right passage isn't retrieved, the model can't use it."
+    }
+  ]
+}

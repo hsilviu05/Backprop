@@ -41,6 +41,17 @@
       ],
       "answerIndex": 1,
       "explanation": "b = ȳ − w·x̄ = 3 − 2·1 = 1."
+    },
+    {
+      "type": "quiz",
+      "question": "The least-squares line always passes through…",
+      "choices": [
+        "The point of means (x̄, ȳ)",
+        "The origin (0, 0)",
+        "The first data point"
+      ],
+      "answerIndex": 0,
+      "explanation": "b = ȳ − w·x̄ guarantees the line goes through (x̄, ȳ)."
     }
   ]
 }

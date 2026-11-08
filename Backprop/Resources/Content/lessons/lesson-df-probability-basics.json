@@ -1,0 +1,56 @@
+{
+  "id": "df-probability-basics",
+  "title": "Probability basics",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "A **probability** is a number from 0 (impossible) to 1 (certain). When all outcomes are equally likely, P(event) = favorable outcomes / total outcomes."
+    },
+    {
+      "type": "text",
+      "markdown": "Rolling a fair die: P(even) = 3/6 = 0.5. The **complement** rule says P(not A) = 1 − P(A), so P(not a six) = 5/6."
+    },
+    {
+      "type": "text",
+      "markdown": "For \"A **or** B\", add the probabilities, then subtract the overlap so it isn't counted twice:\n\nP(A or B) = P(A) + P(B) − P(A and B)"
+    },
+    {
+      "type": "text",
+      "markdown": "Example: P(even or greater than 4) on a die. Even = {2, 4, 6}, greater than 4 = {5, 6}, overlap = {6}. So 3/6 + 2/6 − 1/6 = **4/6**."
+    },
+    {
+      "type": "quiz",
+      "question": "The chance of rain tomorrow is 0.3. What is the chance of no rain?",
+      "choices": [
+        "0.3",
+        "0.7",
+        "1.3"
+      ],
+      "answerIndex": 1,
+      "explanation": "Complement rule: 1 − 0.3 = 0.7."
+    },
+    {
+      "type": "quiz",
+      "question": "Drawing one card from a standard 52-card deck, P(heart or king) is…",
+      "choices": [
+        "13/52",
+        "16/52",
+        "17/52"
+      ],
+      "answerIndex": 1,
+      "explanation": "13 hearts + 4 kings − 1 king of hearts (counted twice) = 16 cards."
+    },
+    {
+      "type": "quiz",
+      "question": "Why subtract P(A and B) in the \"or\" rule?",
+      "choices": [
+        "It's only needed for continuous variables",
+        "To keep probabilities negative",
+        "Outcomes in both A and B would otherwise be counted twice"
+      ],
+      "answerIndex": 2,
+      "explanation": "Adding P(A) and P(B) counts the overlap once in each, so one copy is removed."
+    }
+  ]
+}

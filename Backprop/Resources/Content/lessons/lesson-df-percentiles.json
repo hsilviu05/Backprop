@@ -1,0 +1,56 @@
+{
+  "id": "df-percentiles",
+  "title": "Percentiles and box plots",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "The **p-th percentile** is the value below which p percent of the data falls. The median is the 50th percentile."
+    },
+    {
+      "type": "text",
+      "markdown": "The **quartiles** split sorted data into four parts: Q1 (25th percentile), Q2 (the median) and Q3 (75th percentile). The **interquartile range** IQR = Q3 − Q1 covers the middle half of the data."
+    },
+    {
+      "type": "text",
+      "markdown": "Like the median, the IQR barely moves when one value becomes extreme, so it's a **robust** measure of spread. The standard deviation, by contrast, can jump a lot."
+    },
+    {
+      "type": "text",
+      "markdown": "A common rule (Tukey's fences) flags points below Q1 − 1.5·IQR or above Q3 + 1.5·IQR as possible outliers. A **box plot** draws exactly this: a box from Q1 to Q3, a line at the median, and whiskers out to the fences."
+    },
+    {
+      "type": "quiz",
+      "question": "Q1 = 20 and Q3 = 50. What is the IQR?",
+      "choices": [
+        "30",
+        "35",
+        "70"
+      ],
+      "answerIndex": 0,
+      "explanation": "IQR = Q3 − Q1 = 50 − 20 = 30."
+    },
+    {
+      "type": "quiz",
+      "question": "With Q1 = 20 and Q3 = 50, which value would Tukey's rule flag as a possible outlier?",
+      "choices": [
+        "70",
+        "90",
+        "100"
+      ],
+      "answerIndex": 2,
+      "explanation": "The upper fence is 50 + 1.5 × 30 = 95. Only 100 lies above it."
+    },
+    {
+      "type": "quiz",
+      "question": "You score in the 90th percentile on a test. That means…",
+      "choices": [
+        "Only 90 people took the test",
+        "You got 90% of questions right",
+        "You scored higher than about 90% of test-takers"
+      ],
+      "answerIndex": 2,
+      "explanation": "Percentiles rank you against other values in the data, not against the maximum possible score."
+    }
+  ]
+}

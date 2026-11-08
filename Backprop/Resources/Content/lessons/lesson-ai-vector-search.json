@@ -1,0 +1,56 @@
+{
+  "id": "ai-vector-search",
+  "title": "Vector search",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "The retrieval step usually uses **embeddings**: embed every chunk of your documents once, store the vectors, then embed each question and find the closest vectors."
+    },
+    {
+      "type": "text",
+      "markdown": "Checking every vector is exact but slow for millions of chunks. **Approximate nearest neighbor (ANN)** indexes like HNSW find very close matches much faster, trading a little accuracy for a lot of speed. **Vector databases** wrap this up with storage and filtering."
+    },
+    {
+      "type": "text",
+      "markdown": "Embeddings capture meaning but can miss exact terms like product codes or names. **Hybrid search** combines vector search with classic keyword search (such as BM25) to get both."
+    },
+    {
+      "type": "text",
+      "markdown": "A **reranker** can then reorder the top candidates with a more careful model before they go into the prompt."
+    },
+    {
+      "type": "quiz",
+      "question": "In vector search, how is a question matched to documents?",
+      "choices": [
+        "By finding document embeddings closest to the question's embedding",
+        "By exact word overlap only",
+        "By sorting documents by length"
+      ],
+      "answerIndex": 0,
+      "explanation": "Nearby vectors mean similar meaning."
+    },
+    {
+      "type": "quiz",
+      "question": "Why use approximate nearest neighbor search?",
+      "choices": [
+        "It needs no embeddings",
+        "It always gives exact results",
+        "It's much faster on large collections, with only a small accuracy cost"
+      ],
+      "answerIndex": 2,
+      "explanation": "ANN indexes avoid comparing against every single vector."
+    },
+    {
+      "type": "quiz",
+      "question": "Users search for exact error codes like \"E-4021\". What helps most?",
+      "choices": [
+        "Higher temperature",
+        "Hybrid search that includes keyword matching",
+        "Shorter chunks only"
+      ],
+      "answerIndex": 1,
+      "explanation": "Keyword search catches exact identifiers that embeddings may blur."
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "id": "nn-convolution",
+  "title": "Convolutions",
+  "minutes": 6,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "To a computer, an image is a grid of numbers: a 28×28 grayscale image is 784 values, and a color image has 3 such grids (red, green, blue), called **channels**."
+    },
+    {
+      "type": "text",
+      "markdown": "A **convolution** slides a small filter (say 3×3) across the image. At each position it multiplies the filter with the patch underneath and sums the result into one output value. The filter's 9 weights are **shared** across every position."
+    },
+    {
+      "type": "text",
+      "markdown": "Weight sharing is the key idea: a filter that detects a vertical edge works anywhere in the image, and a 3×3 filter on a grayscale image needs only 9 weights (plus a bias), however big the image is."
+    },
+    {
+      "type": "text",
+      "markdown": "Output size: with input width n, filter size k, padding p and stride s, the output width is (n − k + 2p) / s + 1. A 32-wide input with a 3×3 filter, no padding, stride 1 gives **30**."
+    },
+    {
+      "type": "quiz",
+      "question": "Why do CNNs need far fewer parameters than dense layers on images?",
+      "choices": [
+        "They only work on grayscale images",
+        "Each filter's small set of weights is reused at every position",
+        "They ignore most pixels"
+      ],
+      "answerIndex": 1,
+      "explanation": "Weight sharing means one small filter covers the whole image."
+    },
+    {
+      "type": "quiz",
+      "question": "Input 28 wide, 5×5 filter, no padding, stride 1. Output width?",
+      "choices": [
+        "23",
+        "24",
+        "28"
+      ],
+      "answerIndex": 1,
+      "explanation": "(28 − 5 + 0) / 1 + 1 = 24."
+    },
+    {
+      "type": "quiz",
+      "question": "A color image has how many channels?",
+      "choices": [
+        "1",
+        "3",
+        "9"
+      ],
+      "answerIndex": 1,
+      "explanation": "Red, green and blue."
+    }
+  ]
+}

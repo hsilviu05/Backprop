@@ -12,6 +12,14 @@ final class ContentTests: XCTestCase {
         }
     }
 
+    func testEveryLessonHasAThreeToFiveQuestionCheck() {
+        let library = ContentLibrary.loadBundled()
+        for id in library.allLessonIDs {
+            guard let lesson = library.lesson(id: id) else { continue }
+            XCTAssertTrue((3...5).contains(lesson.quizSteps.count), "\(id) has \(lesson.quizSteps.count) quiz questions")
+        }
+    }
+
     func testAccessPolicy() {
         XCTAssertFalse(ContentAccess.isLocked(chapterIndex: 0, freeChapterCount: 2, isPro: false))
         XCTAssertFalse(ContentAccess.isLocked(chapterIndex: 1, freeChapterCount: 2, isPro: false))

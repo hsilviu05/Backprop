@@ -1,0 +1,56 @@
+{
+  "id": "nn-initialization",
+  "title": "Weight initialization",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "Where training starts matters. Initialize every weight to **zero** and every neuron in a layer computes the same thing and gets the same gradient. They stay identical forever, so you wasted the width. Random initialization **breaks the symmetry**."
+    },
+    {
+      "type": "text",
+      "markdown": "The scale matters too. Weights that are too large make activations explode layer by layer; too small and signals shrink toward zero."
+    },
+    {
+      "type": "text",
+      "markdown": "**Xavier (Glorot)** initialization scales weights by the number of inputs and outputs so the variance stays steady through tanh or sigmoid layers. **He** initialization uses variance 2 / (number of inputs), designed for ReLU, which zeroes about half its inputs."
+    },
+    {
+      "type": "text",
+      "markdown": "Frameworks pick sensible defaults, but if a custom deep network won't train at all, initialization is one of the first things to check."
+    },
+    {
+      "type": "quiz",
+      "question": "What happens if all weights in a hidden layer start at exactly 0?",
+      "choices": [
+        "Training is faster",
+        "The network becomes non-linear",
+        "All neurons in the layer stay identical, so they learn the same thing"
+      ],
+      "answerIndex": 2,
+      "explanation": "Identical neurons get identical gradients, so symmetry is never broken."
+    },
+    {
+      "type": "quiz",
+      "question": "He initialization is designed for which activation?",
+      "choices": [
+        "Sigmoid",
+        "Softmax",
+        "ReLU"
+      ],
+      "answerIndex": 2,
+      "explanation": "The factor 2 compensates for ReLU zeroing roughly half of its inputs."
+    },
+    {
+      "type": "quiz",
+      "question": "Weights initialized far too large in a deep network tend to make activations…",
+      "choices": [
+        "Become exactly zero",
+        "Shrink toward zero",
+        "Explode in size through the layers"
+      ],
+      "answerIndex": 2,
+      "explanation": "Each layer multiplies the scale up again, so values blow up."
+    }
+  ]
+}

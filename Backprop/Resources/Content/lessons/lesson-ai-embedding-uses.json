@@ -1,0 +1,56 @@
+{
+  "id": "ai-embedding-uses",
+  "title": "What embeddings are for",
+  "minutes": 5,
+  "steps": [
+    {
+      "type": "text",
+      "markdown": "Once text is a vector, \"find similar meaning\" becomes \"find nearby vectors\". That unlocks a lot."
+    },
+    {
+      "type": "text",
+      "markdown": "**Semantic search** finds documents that match a query's meaning, not just its keywords. **Recommendations** suggest items whose embeddings sit near what a user liked. **Clustering** groups support tickets or reviews by topic."
+    },
+    {
+      "type": "text",
+      "markdown": "**Deduplication** catches near-identical content phrased differently. **Classification** can be as simple as training logistic regression on top of embeddings, which often works well with little labeled data."
+    },
+    {
+      "type": "text",
+      "markdown": "One caveat: embeddings inherit biases from their training data, such as associating some professions with one gender. Test for that before using them in decisions about people."
+    },
+    {
+      "type": "quiz",
+      "question": "A user searches \"cheap flights to Rome\" and finds a page titled \"budget airfare to Italy\". Which technique made that work?",
+      "choices": [
+        "Exact keyword matching",
+        "Semantic search with embeddings",
+        "Sorting results alphabetically"
+      ],
+      "answerIndex": 1,
+      "explanation": "The texts share almost no words, but their meanings are close."
+    },
+    {
+      "type": "quiz",
+      "question": "Which is a reasonable quick classifier with little labeled data?",
+      "choices": [
+        "k-means on raw characters",
+        "Training a large language model from scratch",
+        "Logistic regression on top of text embeddings"
+      ],
+      "answerIndex": 2,
+      "explanation": "Pretrained embeddings carry a lot of signal, so a simple model on top often works well."
+    },
+    {
+      "type": "quiz",
+      "question": "Why test embeddings for bias before using them to rank job applicants?",
+      "choices": [
+        "Bias only matters for images",
+        "Embeddings are always random",
+        "They can absorb stereotypes present in their training text"
+      ],
+      "answerIndex": 2,
+      "explanation": "Learned associations in the data can carry into decisions."
+    }
+  ]
+}
