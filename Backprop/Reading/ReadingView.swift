@@ -189,9 +189,10 @@ private struct GeneratedCover: View {
             LinearGradient(colors: [color, color.opacity(0.7)], startPoint: .top, endPoint: .bottom)
             VStack(alignment: .leading, spacing: 6) {
                 Text(item.title)
-                    .font(.system(.subheadline, design: .serif).weight(.semibold))
-                    .lineLimit(5)
-                    .minimumScaleFactor(0.8)
+                    .font(.system(.footnote, design: .serif).weight(.semibold))
+                    .lineLimit(6)
+                    // Shrink long words instead of breaking them mid-word.
+                    .minimumScaleFactor(0.6)
                 Spacer(minLength: 0)
                 Text(item.authors)
                     .font(.caption2)

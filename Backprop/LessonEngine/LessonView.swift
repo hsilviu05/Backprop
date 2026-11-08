@@ -189,7 +189,7 @@ struct QuizView: View {
                         .foregroundStyle(correct ? .green : .orange)
                     Text(LocalizedStringKey(quiz.explanation))
                         .font(.callout)
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(.primary)
                 }
                 .padding(Theme.padding)
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -253,7 +253,6 @@ private struct ChoiceRow: View {
         .contentShape(Rectangle())
         .cardSurface(cornerRadius: Theme.smallCornerRadius, tint: state == .correct ? .green : state == .wrong ? .red : nil)
         .opacity(state == .dimmed ? 0.7 : 1)
-        .scaleEffect(state == .wrong ? 0.98 : 1)
         .accessibilityElement(children: .combine)
         .accessibilityValue(state == .correct ? "Correct answer" : state == .wrong ? "Your answer, incorrect" : "")
     }

@@ -31,7 +31,7 @@ struct BackpropPaywallView: View {
                     Text("Unlock all of Backprop")
                         .font(.title.bold())
                         .multilineTextAlignment(.center)
-                    Text("Understand machine learning, one 5‑minute lesson at a time.")
+                    Text("Understand machine learning,\none 5‑minute lesson at a time.")
                         .font(.subheadline)
                         .foregroundStyle(.secondary)
                         .multilineTextAlignment(.center)
@@ -259,7 +259,11 @@ private struct PackageOption: View {
                         }
                     }
                     if let offerText {
-                        Text(offerText).font(.subheadline.weight(.medium)).foregroundStyle(Color.accentColor)
+                        Text(offerText)
+                            .font(.subheadline.weight(.medium))
+                            .foregroundStyle(Color.accentColor)
+                            .lineLimit(1)
+                            .minimumScaleFactor(0.8)
                     }
                 }
                 Spacer(minLength: 8)
